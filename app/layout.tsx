@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     siteName: 'SEA Tax Calculator',
     type: 'website',
   },
+  verification: {
+    google: 'google7055061eb29516b6',
+  },
 };
 
 export default function RootLayout({
