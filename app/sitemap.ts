@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { COUNTRIES } from '@/lib/countries';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return COUNTRIES.map((country) => ({
     url: `https://rafseb.github.io/seatax/${country.slug}`,
