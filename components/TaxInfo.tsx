@@ -11,6 +11,7 @@ interface InfoConfig {
   brackets: Bracket[];
   contributions: { label: string; rate: string; note?: string }[];
   expatNote: string;
+  sources: { label: string; url: string }[];
 }
 
 const TAX_INFO: Record<string, InfoConfig> = {
@@ -29,6 +30,12 @@ const TAX_INFO: Record<string, InfoConfig> = {
       { label: 'Pag-IBIG', rate: '2%', note: 'Max ₱200/month' },
     ],
     expatNote: 'Non-residents are taxed at a flat 25% on gross Philippine-sourced compensation. Mandatory contributions (SSS, PhilHealth, Pag-IBIG) generally do not apply.',
+    sources: [
+      { label: 'BIR — Income Tax (TRAIN Law)', url: 'https://www.bir.gov.ph/index.php/tax-information/income-tax.html' },
+      { label: 'SSS — Contribution Table', url: 'https://www.sss.gov.ph/sss-contribution-table/' },
+      { label: 'PhilHealth — Premium Contributions', url: 'https://www.philhealth.gov.ph/partners/employers/ContributionTable_v2.pdf' },
+      { label: 'Pag-IBIG — Contribution Schedule', url: 'https://www.pagibigfund.gov.ph/document/pdf/circulars/HDMF%20Circular%20No.%20460.pdf' },
+    ],
   },
   thailand: {
     brackets: [
@@ -45,6 +52,10 @@ const TAX_INFO: Record<string, InfoConfig> = {
       { label: 'Social Security (SSF)', rate: '5%', note: 'Capped at ฿750/month (salary cap ฿15,000)' },
     ],
     expatNote: 'Non-residents are taxed at the same progressive rates on Thailand-sourced income. Social Security contributions generally do not apply to non-residents. Standard deductions and personal allowances are also excluded.',
+    sources: [
+      { label: 'Revenue Department — Personal Income Tax', url: 'https://www.rd.go.th/english/6045.html' },
+      { label: 'Social Security Office — Contribution Rates', url: 'https://www.sso.go.th/wpr/main/sso_eng/' },
+    ],
   },
   vietnam: {
     brackets: [
@@ -62,6 +73,10 @@ const TAX_INFO: Record<string, InfoConfig> = {
       { label: 'Unemployment Insurance (UI)', rate: '1%', note: 'Capped at ₫36,000,000/month' },
     ],
     expatNote: 'Non-residents are taxed at a flat 20% on Vietnam-sourced income. Social insurance and health insurance contributions generally do not apply to non-resident foreigners.',
+    sources: [
+      { label: 'General Dept. of Taxation — PIT Law', url: 'https://www.gdt.gov.vn/' },
+      { label: 'Vietnam Social Insurance — Contribution Rates', url: 'https://www.baohiemxahoi.gov.vn/' },
+    ],
   },
   indonesia: {
     brackets: [
@@ -77,6 +92,11 @@ const TAX_INFO: Record<string, InfoConfig> = {
       { label: 'BPJS JP (Pension)', rate: '1%', note: 'Capped at Rp10,547,400/month salary (2025)' },
     ],
     expatNote: 'Non-residents are subject to a flat 20% withholding tax on Indonesia-sourced income. BPJS contributions generally do not apply. PTKP (non-taxable threshold of Rp54,000,000/year) is excluded for non-residents.',
+    sources: [
+      { label: 'Direktorat Jenderal Pajak — PPh 21', url: 'https://www.pajak.go.id/id/pajak-penghasilan-pasal-21' },
+      { label: 'BPJS Ketenagakerjaan — Contribution Rates', url: 'https://www.bpjsketenagakerjaan.go.id/' },
+      { label: 'BPJS Kesehatan — Premium Rates', url: 'https://www.bpjs-kesehatan.go.id/' },
+    ],
   },
 };
 
@@ -144,6 +164,25 @@ export default function TaxInfo({ country }: Props) {
           <div className="bg-blue-50 rounded-xl p-3">
             <p className="text-xs font-semibold text-blue-800 mb-1">Expat / Non-resident Rules</p>
             <p className="text-xs text-blue-700 leading-relaxed">{info.expatNote}</p>
+          </div>
+
+          {/* Sources */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-700 mb-2">Sources</h3>
+            <ul className="space-y-1">
+              {info.sources.map((s, i) => (
+                <li key={i}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-blue-600 hover:text-blue-800 hover:underline"
+                  >
+                    {s.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       )}
