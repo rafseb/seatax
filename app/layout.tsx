@@ -6,9 +6,27 @@ import CountrySwitcher from "@/components/CountrySwitcher";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SEA Tax Calculator — Philippines, Thailand, Vietnam, Indonesia",
+  metadataBase: new URL('https://rafseb.github.io'),
+  title: {
+    default: 'SEA Tax Calculator — Philippines, Thailand, Vietnam, Indonesia',
+    template: '%s | SEA Tax Calculator',
+  },
   description:
-    "Calculate your net take-home salary and tax deductions for Southeast Asian countries including Philippines, Thailand, Vietnam, and Indonesia.",
+    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, and Indonesia. 2025 tax rates.',
+  keywords: [
+    'Philippines income tax calculator',
+    'Thailand income tax calculator',
+    'Vietnam income tax calculator',
+    'Indonesia income tax calculator',
+    'SEA salary calculator',
+    'net take-home pay',
+    'TRAIN Law Philippines',
+    'PPh 21 Indonesia',
+  ],
+  openGraph: {
+    siteName: 'SEA Tax Calculator',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
