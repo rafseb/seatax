@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import CountrySwitcher from "@/components/CountrySwitcher";
 
@@ -23,6 +24,16 @@ export const metadata: Metadata = {
     'TRAIN Law Philippines',
     'PPh 21 Indonesia',
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+    },
+  },
   openGraph: {
     siteName: 'SEA Tax Calculator',
     type: 'website',
@@ -40,6 +51,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-50 min-h-screen`}>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203167402544939"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-2">
