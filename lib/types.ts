@@ -21,6 +21,8 @@ export interface CalculatorParams {
   grossSalary: number;
   period: 'monthly' | 'annual';
   isExpat: boolean;
+  dependents?: number;
+  maritalStatus?: 'single' | 'married';
 }
 
 export interface Country {
@@ -33,4 +35,5 @@ export interface Country {
   salaryStep: number;
   salaryMin: number;
   salaryMax: number;
+  taxYear: string;
 }
