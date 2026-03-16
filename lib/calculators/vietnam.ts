@@ -22,7 +22,7 @@ function computeProgressiveTax(monthlyTaxable: number): number {
 }
 
 export function calculate(params: CalculatorParams): TaxResult {
-  const { grossSalary, period, isExpat } = params;
+  const { grossSalary, period, isExpat, dependents = 0 } = params;
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
@@ -49,7 +49,9 @@ export function calculate(params: CalculatorParams): TaxResult {
   } else {
     // Personal deduction: VND 11,000,000/month
     const personalDeduction = 11000000;
-    const monthlyTaxable = Math.max(0, grossMonthly - siMonthly - hiMonthly - uiMonthly - personalDeduction);
+    // Dependent deduction: ₫4,400,000/month per dependent
+    const dependentDeduction = dependents * 4400000;
+    const monthlyTaxable = Math.max(0, grossMonthly - siMonthly - hiMonthly - uiMonthly - personalDeduction - dependentDeduction);
     const monthlyTax = computeProgressiveTax(monthlyTaxable);
     incomeTax = monthlyTax * 12;
     contributions = [

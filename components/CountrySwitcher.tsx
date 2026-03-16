@@ -16,6 +16,7 @@ export default function CountrySwitcher() {
           <Link
             key={country.slug}
             href={`/${country.slug}`}
+            aria-current={isActive ? 'page' : undefined}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
               isActive
                 ? 'bg-white text-gray-900 shadow-sm'

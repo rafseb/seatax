@@ -23,7 +23,7 @@ function computeProgressiveTax(taxableIncome: number): number {
 }
 
 export function calculate(params: CalculatorParams): TaxResult {
-  const { grossSalary, period, isExpat } = params;
+  const { grossSalary, period, isExpat, dependents = 0, maritalStatus = 'single' } = params;
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
@@ -48,8 +48,12 @@ export function calculate(params: CalculatorParams): TaxResult {
     contributions = [];
   } else {
     const totalContribAnnual = bpjsKesehatanAnnual + jhtAnnual + pensionAnnual;
+    // PTKP adjustments: +Rp4,500,000 per dependent, +Rp4,500,000 if married
+    const marriedAllowance = maritalStatus === 'married' ? 4500000 : 0;
+    const dependentAllowance = dependents * 4500000;
+    const effectivePTKP = PTKP_ANNUAL + marriedAllowance + dependentAllowance;
     // Taxable income = gross - PTKP - employee contributions (which are deductible)
-    const taxableIncome = Math.max(0, grossAnnual - PTKP_ANNUAL - totalContribAnnual);
+    const taxableIncome = Math.max(0, grossAnnual - effectivePTKP - totalContribAnnual);
     incomeTax = computeProgressiveTax(taxableIncome);
     contributions = [
       { label: 'BPJS Kesehatan', amount: bpjsKesehatanAnnual, color: '#3b82f6' },
