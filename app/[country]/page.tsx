@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getCountry, COUNTRIES } from "@/lib/countries";
 import TaxCalculator from "@/components/TaxCalculator";
 
@@ -139,6 +140,77 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
   ],
 };
 
+const GUIDE: Record<string, { sections: { heading: string; body: string }[]; articleSlug: string }> = {
+  philippines: {
+    articleSlug: 'working-in-the-philippines-as-an-expat',
+    sections: [
+      {
+        heading: 'Understanding Your Results',
+        body: 'The calculator applies TRAIN Law brackets (0%–35%) to your annual taxable income. Three mandatory contributions are deducted before tax: SSS (Social Security System) covers sickness, disability, and retirement; PhilHealth provides health insurance coverage; and Pag-IBIG funds housing loans and provident savings. Your net take-home pay is the amount remaining after all three contributions and income tax are withheld. The effective tax rate shown is your total income tax divided by your gross salary — useful for comparing your overall tax burden across income levels or countries.',
+      },
+      {
+        heading: 'For Expats & Remote Workers',
+        body: 'Foreign nationals working in the Philippines are taxed depending on their residency status. If you are present in the Philippines for 180 days or more in a calendar year, you are treated as a non-resident alien engaged in trade or business and are taxed under the same TRAIN Law progressive brackets as residents. If you are present for fewer than 180 days, a flat 25% rate applies to Philippines-sourced gross income without any deductions. Toggle "Expat mode" in the calculator to see the flat rate calculation. Expats employed by Philippine companies are generally required to contribute to SSS, PhilHealth, and Pag-IBIG.',
+      },
+      {
+        heading: 'Tax Filing Tips',
+        body: 'If you are employed by a Philippine company, your employer withholds income tax monthly and provides you with a BIR Form 2316 at year-end. For most employees with a single employer, a substituted filing applies — meaning you do not need to file a separate annual return if your employer certifies that your taxes are correctly computed. Freelancers and those with multiple income sources must file BIR Form 1701 by April 15. All earners in the Philippines need a Tax Identification Number (TIN) from the Bureau of Internal Revenue (BIR) — registration is done at the Revenue District Office using Form 1902 (employed) or 1901 (self-employed).',
+      },
+    ],
+  },
+  thailand: {
+    articleSlug: 'working-in-thailand-as-an-expat',
+    sections: [
+      {
+        heading: 'Understanding Your Results',
+        body: 'The calculator deducts the Social Security Fund (SSF) contribution (5%, capped at ฿750/month) from your gross salary, then applies the 50% employment income deduction (max ฿100,000 per year) and the ฿60,000 personal allowance to arrive at taxable income. The resulting amount is taxed at progressive PIT rates from 0% to 35%. Your effective tax rate is the percentage of total income tax relative to your gross salary — this is typically much lower than the marginal rate for most income levels, because the lower brackets apply to the first portions of your income.',
+      },
+      {
+        heading: 'For Expats & Remote Workers',
+        body: 'Thailand determines tax residency by physical presence: spending 180 days or more in Thailand during a calendar year makes you a tax resident. Tax residents benefit from the standard 50% deduction and personal allowance. Non-residents pay the same PIT rates but without these deductions. A significant rule change in January 2024 expanded the scope of foreign income that may be taxable for Thai residents: income earned from foreign sources and remitted to Thailand may now be subject to Thai PIT, regardless of when it was earned. Digital nomads and remote workers on the Thailand Privilege Card who spend more than 180 days in Thailand should seek professional advice on their foreign income exposure.',
+      },
+      {
+        heading: 'Tax Filing Tips',
+        body: 'Employed individuals in Thailand have PIT withheld monthly by their employer (Section 50(1) withholding). An annual PIT return (PND.91 for pure employment income) must be filed by March 31 of the following year at the Revenue Department or via the e-Filing portal. Self-employed individuals and those with mixed income use Form PND.90. A Thai Tax Identification Number (TIN) is required for filing — your employer typically obtains this for you, or you can register in person at the local Revenue Department Area Office. Thailand has tax treaties with over 60 countries, which may reduce your liability if you also pay taxes in your home country.',
+      },
+    ],
+  },
+  vietnam: {
+    articleSlug: 'working-in-vietnam-as-an-expat',
+    sections: [
+      {
+        heading: 'Understanding Your Results',
+        body: 'Vietnam\'s PIT system deducts mandatory insurance contributions from your gross salary before applying the personal deduction and progressive tax brackets. Social insurance (8%), health insurance (1.5%), and unemployment insurance (1%) are calculated on your salary, capped at ₫36,000,000/month. After deducting these contributions and the ₫11,000,000 personal deduction, the remaining taxable income is subject to monthly progressive brackets from 5% to 35%. The result is your net take-home pay in Vietnamese Dong. Use the currency converter to see this in USD or EUR.',
+      },
+      {
+        heading: 'For Expats & Remote Workers',
+        body: 'Foreign nationals present in Vietnam for 183 days or more within a calendar year (or a 12-month period from first arrival) are tax residents, taxable on worldwide income at the same progressive brackets as Vietnamese citizens. Non-residents pay a flat 20% on gross Vietnam-sourced income with no deductions. Since December 2018, most foreign workers holding a valid work permit and working under a contract of one year or more are also subject to compulsory social insurance. The combined employee insurance burden of 10.5% is a significant factor in net take-home pay calculations for Vietnam-based workers.',
+      },
+      {
+        heading: 'Tax Filing Tips',
+        body: 'Employees at Vietnamese companies have PIT withheld monthly, with annual finalization required by March 31 using Form 02/QTT-TNCN if you have multiple income sources or if withheld tax differs from actual liability. Your employer issues a withholding certificate (Form 02/TNCN) summarizing taxes paid during the year. Freelancers and self-employed individuals register with the local District Tax Department and file quarterly. A Vietnamese tax code (mã số thuế) is required for all tax transactions — your employer usually registers you, or you can apply in person at the tax department with your passport, visa, and work permit.',
+      },
+    ],
+  },
+  indonesia: {
+    articleSlug: 'working-in-indonesia-as-an-expat',
+    sections: [
+      {
+        heading: 'Understanding Your Results',
+        body: 'Indonesia\'s PPh 21 calculation starts with your gross monthly salary, subtracts BPJS employee contributions (Kesehatan 1%, JHT 2%, JP 1% — subject to salary ceilings), then annualizes the figure and subtracts the PTKP non-taxable threshold (Rp54,000,000/year for a single individual). Progressive brackets from 5% to 35% apply to the remaining annual taxable income, and the result is divided by 12 to get monthly tax. Your net take-home is gross minus BPJS contributions minus monthly income tax.',
+      },
+      {
+        heading: 'For Expats & Remote Workers',
+        body: 'Foreign nationals present in Indonesia for more than 183 days in any 12-month period, or who have the intention to reside there, are tax residents subject to the full PPh 21 calculation including the PTKP deduction and progressive brackets. Non-residents are subject to Article 26 withholding tax at a flat 20% on gross Indonesia-sourced income — no PTKP deduction applies. Indonesia launched a Digital Nomad Visa (E33G) in 2023 for remote workers earning from foreign sources. Holders who spend more than 183 days in Indonesia may technically become tax residents, though guidance on foreign-sourced digital income remains limited.',
+      },
+      {
+        heading: 'Tax Filing Tips',
+        body: 'All individuals earning income in Indonesia must register for an NPWP (Nomor Pokok Wajib Pajak) tax identification number, available online at ereg.pajak.go.id or in person at the local Tax Service Office (KPP). Employers file monthly PPh 21 withholding returns on behalf of employees. Annual individual tax returns (SPT Tahunan) are due March 31 using Form 1770S (simple, single employer) or Form 1770 (multiple income sources). The DJP Online portal (djponline.pajak.go.id) supports e-filing for most individual return types. BPJS JHT contributions (old-age savings) are refundable when you leave Indonesian employment.',
+      },
+    ],
+  },
+};
+
 function buildJsonLd(slug: string, seo: { title: string; description: string }) {
   const url = `${BASE_URL}/${slug}`;
   const appSchema = {
@@ -196,6 +268,7 @@ export default async function CountryPage({ params }: Props) {
   const country = getCountry(slug);
   if (!country) notFound();
   const seo = SEO[slug];
+  const guide = GUIDE[slug];
 
   const jsonLd = buildJsonLd(slug, seo);
 
@@ -213,6 +286,51 @@ export default async function CountryPage({ params }: Props) {
         <p className="text-sm text-gray-500 leading-relaxed max-w-2xl">{seo.intro}</p>
       </div>
       <TaxCalculator country={country} />
+
+      {guide && (
+        <>
+          <section className="mt-12 max-w-3xl">
+            <h2 className="text-lg font-semibold text-gray-900 mb-6">
+              {country.name} Tax Guide
+            </h2>
+            <div className="space-y-6">
+              {guide.sections.map((section) => (
+                <div key={section.heading}>
+                  <h3 className="text-base font-medium text-gray-800 mb-2">{section.heading}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{section.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6">
+              <Link
+                href={`/blog/${guide.articleSlug}`}
+                className="text-sm font-medium text-blue-600 hover:underline"
+              >
+                Read our complete expat &amp; remote work guide for {country.name} →
+              </Link>
+            </div>
+          </section>
+
+          <section className="mt-10 max-w-3xl">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3">
+              {FAQ[slug].map(({ q, a }) => (
+                <details key={q} className="group border border-gray-200 rounded-lg bg-white">
+                  <summary className="flex cursor-pointer items-start justify-between gap-4 px-4 py-3 text-sm font-medium text-gray-900 list-none">
+                    <span>{q}</span>
+                    <span className="mt-0.5 shrink-0 text-gray-400 group-open:rotate-180 transition-transform">
+                      ▾
+                    </span>
+                  </summary>
+                  <div className="px-4 pb-4 pt-1 text-sm text-gray-600 leading-relaxed">{a}</div>
+                </details>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 }

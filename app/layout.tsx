@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Link from "next/link";
 import CountrySwitcher from "@/components/CountrySwitcher";
 import ConsentBanner from "@/components/ConsentBanner";
 import AdSenseLoader from "@/components/AdSenseLoader";
@@ -57,6 +58,9 @@ export default function RootLayout({
               <span className="font-bold text-gray-900 text-lg">SEA Tax</span>
             </div>
             <CountrySwitcher />
+            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 whitespace-nowrap">
+              Guides
+            </Link>
           </div>
         </header>
         <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
