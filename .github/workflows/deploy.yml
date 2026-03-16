@@ -3,9 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - 'claude/project-enhancement-review-ftNSY'
+      - main
   workflow_dispatch:
-    inputs: {}
 
 permissions:
   contents: read
@@ -23,10 +22,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-            - uses: actions/checkout@v4
-          with:
-            ref: claude/project-enhancement-review-ftNSY
-
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
