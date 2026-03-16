@@ -2,8 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [claude/project-enhancement-review-ftNSY]
+    branches:
+      - 'claude/project-enhancement-review-ftNSY'
   workflow_dispatch:
+    inputs: {}
 
 permissions:
   contents: read
