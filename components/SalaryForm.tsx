@@ -58,6 +58,21 @@ export default function SalaryForm({
   const isLocal = inputCurrency === 'local';
   const displaySymbol = isLocal ? country.currencySymbol : (CURRENCY_SYMBOLS[inputCurrency] ?? inputCurrency);
 
+  const roundToStep = (value: number, step: number) => Math.round(value / step) * step;
+
+  const toForeign = (localAmount: number): number => {
+    const rate = exchangeRates.getRate(country.currency, inputCurrency);
+    return rate !== null ? localAmount * rate : 0;
+  };
+
+  const sliderMin = isLocal
+    ? country.salaryMin
+    : (() => { const v = roundToStep(toForeign(country.salaryMin), 100); return v > 0 ? Math.max(100, v) : 500; })();
+  const sliderMax = isLocal
+    ? country.salaryMax
+    : (() => { const v = roundToStep(toForeign(country.salaryMax), 1000); return v > 0 ? Math.max(1000, v) : 30000; })();
+  const sliderStep = isLocal ? country.salaryStep : 100;
+
   // Salary out-of-range warning (local currency only)
   let salaryWarning: string | null = null;
   if (isLocal) {
@@ -124,18 +139,16 @@ export default function SalaryForm({
           </select>
         </div>
 
-        {/* Range slider (local currency only) */}
-        {isLocal && (
-          <input
-            type="range"
-            min={country.salaryMin}
-            max={country.salaryMax}
-            step={country.salaryStep}
-            value={Math.min(Math.max(grossSalary, country.salaryMin), country.salaryMax)}
-            onChange={(e) => onSalaryChange(Number(e.target.value))}
-            className="w-full mt-2 h-1 rounded-full accent-blue-500 cursor-pointer"
-          />
-        )}
+        {/* Range slider */}
+        <input
+          type="range"
+          min={sliderMin}
+          max={sliderMax}
+          step={sliderStep}
+          value={Math.min(Math.max(grossSalary, sliderMin), sliderMax)}
+          onChange={(e) => onSalaryChange(Number(e.target.value))}
+          className="w-full mt-2 h-1 rounded-full accent-blue-500 cursor-pointer"
+        />
 
         {salaryWarning && (
           <p className="text-xs mt-1.5 text-amber-600">{salaryWarning}</p>
