@@ -52,21 +52,38 @@ function saveCache(rates: Record<string, number>): void {
   }
 }
 
+interface InitialState {
+  rates: Record<string, number>;
+  loading: boolean;
+  lastUpdated: Date | null;
+}
+
+function getInitialState(): InitialState {
+  // This runs once on the client at mount time
+  const cached = loadCache();
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+    return {
+      rates: cached.rates,
+      loading: false,
+      lastUpdated: new Date(cached.timestamp),
+    };
+  }
+  return { rates: {}, loading: true, lastUpdated: null };
+}
+
 export function useExchangeRates(): ExchangeRates {
-  const [rates, setRates] = useState<Record<string, number>>({});
-  const [loading, setLoading] = useState(true);
+  const [{ rates, loading, lastUpdated }, setState] = useState<InitialState>(() => {
+    // Lazy initializer only runs on the client since this is a 'use client' component
+    if (typeof window === 'undefined') {
+      return { rates: {}, loading: true, lastUpdated: null };
+    }
+    return getInitialState();
+  });
   const [error, setError] = useState<string | null>(null);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   useEffect(() => {
-    // Check cache first
-    const cached = loadCache();
-    if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
-      setRates(cached.rates);
-      setLastUpdated(new Date(cached.timestamp));
-      setLoading(false);
-      return;
-    }
+    // If we already loaded from cache (loading is false), skip fetching
+    if (!loading) return;
 
     // Fetch fresh rates
     fetch('https://open.er-api.com/v6/latest/USD')
@@ -85,9 +102,8 @@ export function useExchangeRates(): ExchangeRates {
           data.rates !== null
         ) {
           const fetchedRates = data.rates as Record<string, number>;
-          setRates(fetchedRates);
-          setLastUpdated(new Date());
           saveCache(fetchedRates);
+          setState({ rates: fetchedRates, loading: false, lastUpdated: new Date() });
         } else {
           throw new Error('Invalid response from exchange rate API');
         }
@@ -96,10 +112,9 @@ export function useExchangeRates(): ExchangeRates {
         const message = err instanceof Error ? err.message : 'Unknown error';
         setError(message);
         // Use fallback rates so the app remains functional
-        setRates(FALLBACK_RATES);
-        setLastUpdated(null);
-      })
-      .finally(() => setLoading(false));
+        setState({ rates: FALLBACK_RATES, loading: false, lastUpdated: null });
+      });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Cross-rate: 1 `from` = ? `to`

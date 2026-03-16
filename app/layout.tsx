@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import CountrySwitcher from "@/components/CountrySwitcher";
-
-const inter = Inter({ subsets: ["latin"] });
+import ConsentBanner from "@/components/ConsentBanner";
+import AdSenseLoader from "@/components/AdSenseLoader";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rafseb.github.io'),
@@ -50,13 +48,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 min-h-screen`}>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203167402544939"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+      <body className="font-sans bg-gray-50 min-h-screen">
+        <AdSenseLoader />
         <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-2">
@@ -69,9 +62,9 @@ export default function RootLayout({
         <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
         <footer className="max-w-5xl mx-auto px-4 py-6 text-center text-xs text-gray-400">
           For illustrative purposes only. Consult a qualified tax professional
-          before making financial decisions. Tax rates reflect 2024/2025
-          regulations.
+          before making financial decisions. Tax rates reflect 2025 regulations.
         </footer>
+        <ConsentBanner />
       </body>
     </html>
   );

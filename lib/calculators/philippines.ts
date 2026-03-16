@@ -20,7 +20,7 @@ function computeProgressiveTax(annualIncome: number): number {
 }
 
 export function calculate(params: CalculatorParams): TaxResult {
-  const { grossSalary, period, isExpat } = params;
+  const { grossSalary, period, isExpat, dependents = 0 } = params;
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
@@ -45,7 +45,10 @@ export function calculate(params: CalculatorParams): TaxResult {
     incomeTax = grossAnnual * 0.25;
     contributions = [];
   } else {
-    incomeTax = computeProgressiveTax(grossAnnual);
+    // Dependent allowance: ₱25,000/year per dependent
+    const dependentAllowance = dependents * 25000;
+    const taxableIncome = Math.max(0, grossAnnual - dependentAllowance);
+    incomeTax = computeProgressiveTax(taxableIncome);
     contributions = [
       { label: 'SSS', amount: sssAnnual, color: '#3b82f6' },
       { label: 'PhilHealth', amount: philhealthAnnual, color: '#8b5cf6' },

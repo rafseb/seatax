@@ -10,6 +10,33 @@ interface Props {
 const TAKE_HOME_COLOR = '#22c55e';
 const TAX_COLOR = '#ef4444';
 
+interface TooltipPayloadItem {
+  name: string;
+  value: number;
+  payload: { color: string };
+}
+
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: TooltipPayloadItem[];
+  grossAnnual: number;
+  fmt: (v: number) => string;
+}
+
+function CustomTooltip({ active, payload, grossAnnual, fmt }: CustomTooltipProps) {
+  if (active && payload && payload.length) {
+    const item = payload[0];
+    const pct = ((item.value / grossAnnual) * 100).toFixed(1);
+    return (
+      <div className="bg-white border border-gray-100 shadow-lg rounded-xl px-3 py-2 text-sm">
+        <p className="font-semibold text-gray-900">{item.name}</p>
+        <p className="text-gray-600">{fmt(item.value)} <span className="text-gray-400">({pct}%)</span></p>
+      </div>
+    );
+  }
+  return null;
+}
+
 export default function BreakdownChart({ result }: Props) {
   const { currency, currencySymbol } = result;
 
@@ -30,19 +57,7 @@ export default function BreakdownChart({ result }: Props) {
     })),
   ].filter((d) => d.value > 0);
 
-  const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ name: string; value: number; payload: { color: string } }> }) => {
-    if (active && payload && payload.length) {
-      const item = payload[0];
-      const pct = ((item.value / result.grossAnnual) * 100).toFixed(1);
-      return (
-        <div className="bg-white border border-gray-100 shadow-lg rounded-xl px-3 py-2 text-sm">
-          <p className="font-semibold text-gray-900">{item.name}</p>
-          <p className="text-gray-600">{fmt(item.value)} <span className="text-gray-400">({pct}%)</span></p>
-        </div>
-      );
-    }
-    return null;
-  };
+  const grossAnnual = result.grossAnnual;
 
   return (
     <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
@@ -62,7 +77,14 @@ export default function BreakdownChart({ result }: Props) {
               <Cell key={`cell-${index}`} fill={entry.color} stroke="none" />
             ))}
           </Pie>
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={(props) => (
+            <CustomTooltip
+              active={props.active}
+              payload={props.payload as TooltipPayloadItem[] | undefined}
+              grossAnnual={grossAnnual}
+              fmt={fmt}
+            />
+          )} />
           <Legend
             formatter={(value) => (
               <span className="text-sm text-gray-600">{value}</span>
