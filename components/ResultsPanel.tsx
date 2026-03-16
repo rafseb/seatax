@@ -29,16 +29,25 @@ export default function ResultsPanel({ result, period }: Props) {
 
   return (
     <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-5">
-      {/* Net salary headline */}
-      <div>
-        <p className="text-sm font-medium text-gray-500">Net Salary</p>
-        <p className="text-4xl font-bold text-gray-900 mt-1">
-          {display(result.netAnnual)}
-          <span className="text-base font-normal text-gray-400 ml-2">{periodLabel}</span>
-        </p>
-        <p className="text-sm text-gray-400 mt-1">
-          Effective rate: {result.effectiveRate.toFixed(1)}%
-        </p>
+      {/* Net salary headline with print button */}
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <p className="text-sm font-medium text-gray-500">Net Salary</p>
+          <p className="text-4xl font-bold text-gray-900 mt-1">
+            {display(result.netAnnual)}
+            <span className="text-base font-normal text-gray-400 ml-2">{periodLabel}</span>
+          </p>
+          <p className="text-sm text-gray-400 mt-1">
+            Effective rate: {result.effectiveRate.toFixed(1)}%
+          </p>
+        </div>
+        <button
+          onClick={() => window.print()}
+          className="print:hidden shrink-0 px-2 py-1.5 text-xs text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+          title="Print results"
+        >
+          Print
+        </button>
       </div>
 
       <hr className="border-gray-100" />

@@ -23,7 +23,7 @@ function computeProgressiveTax(taxableIncome: number): number {
 }
 
 export function calculate(params: CalculatorParams): TaxResult {
-  const { grossSalary, period, isExpat } = params;
+  const { grossSalary, period, isExpat, dependents = 0 } = params;
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
@@ -43,7 +43,9 @@ export function calculate(params: CalculatorParams): TaxResult {
     const standardDeduction = Math.min(grossAnnual * 0.5, 100000);
     // Personal allowance
     const personalAllowance = 60000;
-    const taxableIncome = Math.max(0, grossAnnual - ssfAnnual - standardDeduction - personalAllowance);
+    // Child allowance: ฿30,000/year per dependent
+    const childAllowance = dependents * 30000;
+    const taxableIncome = Math.max(0, grossAnnual - ssfAnnual - standardDeduction - personalAllowance - childAllowance);
     incomeTax = computeProgressiveTax(taxableIncome);
     contributions = [
       { label: 'Social Security (SSF)', amount: ssfAnnual, color: '#3b82f6' },
