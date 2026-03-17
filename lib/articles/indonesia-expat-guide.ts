@@ -68,9 +68,9 @@ From a tax perspective, digital nomad visa holders who spend more than 183 days 
       heading: 'Cost of Living Context',
       body: `Indonesia is a geographically vast archipelago with enormous variation in living costs between islands and cities. Jakarta, the capital, has seen rapid cost-of-living increases due to urbanization and infrastructure development, but remains substantially cheaper than Singapore or Hong Kong.
 
-A comfortable expat lifestyle in Jakarta — modern apartment in South Jakarta (Kemang, SCBD, or Senayan), regular dining at mid-range restaurants, gym membership, and private car or Grab usage — typically costs between Rp15,000,000 and Rp35,000,000 per month (roughly USD 950–2,200). Families with international school fees for children can add Rp20,000,000–Rp50,000,000/month or more.
+A comfortable expat lifestyle in Jakarta — modern apartment in South Jakarta (Kemang, SCBD, or Senayan), regular dining at mid-range restaurants, gym membership, and private car or Grab usage — typically costs between Rp15,000,000 and Rp35,000,000 per month. Families with international school fees for children can add Rp20,000,000–Rp50,000,000/month or more.
 
-Bali, particularly Canggu, Seminyak, and Ubud, has become a significant hub for digital nomads and creative professionals. Bali's living costs have risen sharply in recent years with increased expat demand, but a comfortable lifestyle still runs Rp10,000,000–Rp25,000,000/month (USD 630–1,570). Co-working spaces are abundant and high-quality internet is increasingly available.
+Bali, particularly Canggu, Seminyak, and Ubud, has become a significant hub for digital nomads and creative professionals. Bali's living costs have risen sharply in recent years with increased expat demand, but a comfortable lifestyle still runs Rp10,000,000–Rp25,000,000/month. Co-working spaces are abundant and high-quality internet is increasingly available.
 
 Other cities like Surabaya, Bandung, and Yogyakarta offer substantially lower living costs than Jakarta or Bali, with the trade-off of smaller expat communities and fewer amenities tailored to foreign residents.
 

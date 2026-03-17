@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES, getArticle } from '@/lib/articles';
 import { COUNTRIES } from '@/lib/countries';
+import ArticleBody from '@/components/ArticleBody';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -94,18 +95,11 @@ export default async function ArticlePage({ params }: Props) {
         </p>
       </header>
 
-      <div className="prose prose-gray max-w-none">
-        {article.sections.map((section) => (
-          <section key={section.heading} className="mb-8">
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">{section.heading}</h2>
-            {section.body.split('\n\n').map((paragraph, i) => (
-              <p key={i} className="text-gray-700 leading-relaxed mb-3">
-                {paragraph}
-              </p>
-            ))}
-          </section>
-        ))}
-      </div>
+      <ArticleBody
+        sections={article.sections}
+        localCurrency={country?.currency ?? ''}
+        localSymbol={country?.currencySymbol ?? ''}
+      />
 
       {article.faqs.length > 0 && (
         <section className="mt-10 border-t border-gray-200 pt-8">

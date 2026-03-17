@@ -74,7 +74,7 @@ Digital nomads and remote workers who wish to work from Malaysia without a local
       heading: 'Cost of Living Context',
       body: `Malaysia offers one of Southeast Asia's most attractive cost-to-quality-of-life ratios for expatriates, particularly in Kuala Lumpur. The city has world-class infrastructure, excellent healthcare, a large English-speaking population, and significantly lower living costs than Singapore — while offering comparable urban amenities.
 
-A comfortable expat lifestyle in Kuala Lumpur — a furnished apartment in KLCC, Mont Kiara, or Bangsar, regular restaurant dining, gym membership, and transportation — typically costs between RM6,000 and RM15,000 per month (roughly USD 1,350–3,350). Families with children attending international schools should budget an additional RM3,000–RM7,000/month or more for school fees.
+A comfortable expat lifestyle in Kuala Lumpur — a furnished apartment in KLCC, Mont Kiara, or Bangsar, regular restaurant dining, gym membership, and transportation — typically costs between RM6,000 and RM15,000 per month. Families with children attending international schools should budget an additional RM3,000–RM7,000/month or more for school fees.
 
 The Klang Valley (Kuala Lumpur and surrounding areas) is the primary business hub, but cities like Penang (George Town), Johor Bahru, and Kota Kinabalu offer substantially lower costs with growing expat communities. Penang in particular has become a popular destination for retirees and remote workers under the Malaysia My Second Home (MM2H) program.
 

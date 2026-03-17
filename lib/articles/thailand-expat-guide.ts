@@ -62,9 +62,9 @@ Several co-working spaces and digital nomad communities in Bangkok, Chiang Mai, 
       heading: 'Cost of Living Context',
       body: `Thailand offers one of the most favorable cost-of-living environments for expats in Southeast Asia, particularly in cities like Chiang Mai, which regularly appears in lists of the world's best cities for digital nomads.
 
-Bangkok, as the capital and economic hub, commands the highest prices. A comfortable expat lifestyle in Bangkok — modern condo in Sukhumvit or Silom, regular dining out at mid-range restaurants, BTS commuting, and gym membership — typically costs ฿50,000 to ฿100,000 per month (roughly USD 1,400–2,800). More modest living is possible for ฿25,000–฿40,000/month.
+Bangkok, as the capital and economic hub, commands the highest prices. A comfortable expat lifestyle in Bangkok — modern condo in Sukhumvit or Silom, regular dining out at mid-range restaurants, BTS commuting, and gym membership — typically costs ฿50,000 to ฿100,000 per month. More modest living is possible for ฿25,000–฿40,000/month.
 
-Chiang Mai offers a substantially lower cost of living — roughly 40–60% cheaper than Bangkok — while providing a large expat community, excellent food, and fast internet. Monthly costs for a comfortable lifestyle run ฿20,000–฿45,000 (USD 560–1,260).
+Chiang Mai offers a substantially lower cost of living — roughly 40–60% cheaper than Bangkok — while providing a large expat community, excellent food, and fast internet. Monthly costs for a comfortable lifestyle run ฿20,000–฿45,000.
 
 Beach destinations like Phuket, Koh Samui, and Hua Hin sit between Bangkok and Chiang Mai in cost. High season (November–February) sees elevated prices for accommodation.
 

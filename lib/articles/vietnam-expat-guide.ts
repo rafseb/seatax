@@ -70,7 +70,7 @@ For those considering Vietnam as a long-term base for remote work, consulting a 
       heading: 'Cost of Living Context',
       body: `Vietnam offers one of the lowest costs of living in Southeast Asia for expats, combined with excellent street food, vibrant cities, and growing infrastructure. The main expat hubs are Ho Chi Minh City (HCMC/Saigon), Hanoi, and Da Nang.
 
-In Ho Chi Minh City, a comfortable expatriate lifestyle — modern apartment in District 1 or Thao Dien, restaurant dining, gym membership, and some travel — typically costs ₫25,000,000 to ₫55,000,000/month (roughly USD 1,000–2,200). Budget living in local neighborhoods can be done for ₫12,000,000–₫18,000,000/month.
+In Ho Chi Minh City, a comfortable expatriate lifestyle — modern apartment in District 1 or Thao Dien, restaurant dining, gym membership, and some travel — typically costs ₫25,000,000 to ₫55,000,000/month. Budget living in local neighborhoods can be done for ₫12,000,000–₫18,000,000/month.
 
 Hanoi offers a slightly lower cost of living than HCMC, with a more traditional character and colder winters. Da Nang, on the central coast, has emerged as a digital nomad hub with beach access, good internet, and monthly living costs around ₫15,000,000–₫30,000,000.
 

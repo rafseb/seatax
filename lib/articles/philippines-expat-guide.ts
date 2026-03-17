@@ -66,7 +66,7 @@ Practical steps: maintain meticulous records of your income sources, contracts, 
       heading: 'Cost of Living Context',
       body: `Understanding your after-tax income means little without context on what it buys you. The Philippines, particularly Metro Manila and major provincial cities, offers a wide range of living costs depending on lifestyle.
 
-A comfortable expat lifestyle in Manila — including a modern apartment in BGC or Makati, regular dining out, fitness membership, and occasional travel — typically costs between ₱80,000 and ₱150,000 per month (roughly USD 1,400–2,700). More modest living, including shared accommodation outside the CBD, can be achieved for ₱30,000–₱50,000/month.
+A comfortable expat lifestyle in Manila — including a modern apartment in BGC or Makati, regular dining out, fitness membership, and occasional travel — typically costs between ₱80,000 and ₱150,000 per month. More modest living, including shared accommodation outside the CBD, can be achieved for ₱30,000–₱50,000/month.
 
 Provincial cities like Cebu, Davao, and Dumaguete offer significantly lower living costs, often 30–50% less than Manila, while still providing good infrastructure and active expat communities. Beach destinations like Siargao and Palawan are popular but can be surprisingly expensive for day-to-day living due to limited local supply chains.
 
