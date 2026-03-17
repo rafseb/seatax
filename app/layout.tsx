@@ -58,8 +58,8 @@ export default function RootLayout({
               <span className="font-bold text-gray-900 text-lg">SEA Tax</span>
             </div>
             <CountrySwitcher />
-            <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 whitespace-nowrap">
-              Guides
+            <Link href="/resources" className="text-sm text-gray-600 hover:text-gray-900 whitespace-nowrap">
+              Resources
             </Link>
           </div>
         </header>

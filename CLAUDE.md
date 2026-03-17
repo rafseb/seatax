@@ -31,6 +31,7 @@ npm run start   # Run production server locally (after build)
 ```
 app/
   [country]/page.tsx    # Dynamic country route; renders TaxCalculator
+  blog/[slug]/page.tsx  # Static expat guide pages (4 posts, one per country)
   layout.tsx            # Root layout — header (CountrySwitcher), footer
   page.tsx              # Redirects to /philippines
   robots.ts             # robots.txt (metadata export)
@@ -42,8 +43,11 @@ components/
   SalaryForm.tsx        # Input: salary slider, monthly/annual toggle, expat toggle, currency selector
   ResultsPanel.tsx      # Output: breakdown table (gross, tax, contributions, net)
   BreakdownChart.tsx    # Donut chart showing tax vs contributions vs net (Recharts)
+  ComparisonView.tsx    # Side-by-side comparison of all four countries at current salary
   CountrySwitcher.tsx   # Header navigation between countries
   TaxInfo.tsx           # Collapsible panel: tax brackets, rates, sources, expat rules
+  AdSenseLoader.tsx     # Google AdSense script loader
+  ConsentBanner.tsx     # Cookie/consent banner
 
 lib/
   types.ts              # All TypeScript interfaces (see below)
@@ -79,6 +83,8 @@ interface CalculatorParams {
   grossSalary: number;   // in local currency, always monthly
   period: 'monthly' | 'annual';
   isExpat: boolean;
+  dependents?: number;               // qualifying dependents (0–10); used by PH calculator
+  maritalStatus?: 'single' | 'married';
 }
 
 interface Country {
@@ -93,7 +99,7 @@ interface Country {
 
 1. User navigates to `/philippines` (or any country slug)
 2. `app/[country]/page.tsx` passes the slug to `<TaxCalculator country="philippines" />`
-3. `TaxCalculator` owns state: `{ grossSalary, period, isExpat, selectedCurrency }`
+3. `TaxCalculator` owns state: `{ grossSalary, period, isExpat, inputCurrency, dependents, maritalStatus }`
 4. On any state change, it calls `calculate(country, params)` from `lib/calculators/index.ts`
 5. `calculate()` delegates to the country-specific module and returns `TaxResult`
 6. Results flow down as props to `ResultsPanel` and `BreakdownChart`
@@ -131,6 +137,17 @@ export default function calculateCountry(params: CalculatorParams): TaxResult { 
 - Returns a complete `TaxResult` — never returns `null`
 - Expat flat rate shortcut: if `isExpat`, apply flat rate (PH: 25%, others: 20%)
 - All bracket thresholds in **annual** amounts; convert monthly input at the start
+
+## Non-Obvious Patterns
+
+### URL state persistence
+All calculator state is serialised into URL query params on every change (`salary`, `period`, `isExpat`, `currency`, `dependents`, `maritalStatus`). This powers the Share button (copies current URL) and allows deep-linking to a specific scenario. State is read from the URL on first mount in `TaxCalculator.tsx` via `parseUrlParams()`.
+
+### Salary slider for foreign currencies
+`SalaryForm.tsx` converts the local `salaryMin/Max` to the selected foreign currency using `exchangeRates.getRate` to compute `sliderMin/Max`. Falls back to `{ min: 500, max: 30000, step: 100 }` while rates load.
+
+### Blog / expat guides
+Static markdown-style pages live under `app/blog/[slug]/`. Content is hardcoded in `page.tsx` files (no CMS). When adding a new country, add a corresponding guide page and register its slug in `app/sitemap.ts`.
 
 ## How to Add a New Country
 

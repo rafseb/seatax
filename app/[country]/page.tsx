@@ -350,7 +350,7 @@ export default async function CountryPage({ params }: Props) {
             </div>
             <div className="mt-6">
               <Link
-                href={`/blog/${guide.articleSlug}`}
+                href={`/resources/guides/${guide.articleSlug}`}
                 className="text-sm font-medium text-blue-600 hover:underline"
               >
                 Read our complete expat &amp; remote work guide for {country.name} →
