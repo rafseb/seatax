@@ -94,4 +94,29 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
       { label: 'BPJS Kesehatan — Premium Rates', url: 'https://www.bpjs-kesehatan.go.id/' },
     ],
   },
+  malaysia: {
+    brackets: [
+      { income: 'RM0 – RM5,000', rate: '0%' },
+      { income: 'RM5,001 – RM20,000', rate: '1%' },
+      { income: 'RM20,001 – RM35,000', rate: '3%' },
+      { income: 'RM35,001 – RM50,000', rate: '8%' },
+      { income: 'RM50,001 – RM70,000', rate: '13%' },
+      { income: 'RM70,001 – RM100,000', rate: '21%' },
+      { income: 'RM100,001 – RM400,000', rate: '24%' },
+      { income: 'RM400,001 – RM600,000', rate: '24.5%' },
+      { income: 'RM600,001 – RM2,000,000', rate: '25%' },
+      { income: 'RM2,000,001+', rate: '30%' },
+    ],
+    contributions: [
+      { label: 'EPF (Employee Provident Fund)', rate: '11%', note: 'Employee share; no salary ceiling' },
+      { label: 'SOCSO (PERKESO)', rate: '0.5%', note: 'Capped at RM5,000/month salary' },
+      { label: 'EIS (Employment Insurance)', rate: '0.2%', note: 'Capped at RM5,000/month salary' },
+    ],
+    expatNote: 'Non-residents are taxed at a flat 30% on Malaysia-sourced income. EPF, SOCSO, and EIS contributions do not apply. Tax reliefs (personal, EPF, spouse, child) are not available to non-residents.',
+    sources: [
+      { label: 'LHDN — Income Tax Rates (YA 2024)', url: 'https://www.hasil.gov.my/en/individual/individual-life-cycle/how-to-declare-income/tax-rate/' },
+      { label: 'EPF — Contribution Rates', url: 'https://www.kwsp.gov.my/en/employer/contribution/contribution-rate' },
+      { label: 'PERKESO — SOCSO & EIS Rates', url: 'https://www.perkeso.gov.my/index.php/en/employer/contribution-rate' },
+    ],
+  },
 };

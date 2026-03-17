@@ -63,6 +63,18 @@ const SEO: Record<string, {
       'Kesehatan (1%), JHT Old-Age savings (2%), and JP Pension (1%, capped at Rp10,547,400/month). ' +
       'Non-residents pay a flat 20% withholding tax.',
   },
+  malaysia: {
+    title: 'Malaysia Income Tax Calculator 2024 — Net Salary & EPF Contributions',
+    description:
+      'Free Malaysia income tax calculator for YA 2024. Enter your gross salary to see net take-home pay after income tax (0%–30% progressive rates), EPF contributions (11%), SOCSO (0.5%, capped RM5,000/month), and EIS (0.2%). Includes personal relief (RM9,000) and EPF tax relief (up to RM4,000). Supports resident and expat modes.',
+    heading: 'Malaysia Income Tax Calculator (YA 2024)',
+    intro:
+      'Calculate your net take-home pay under Malaysia\'s YA 2024 income tax rates. ' +
+      'Progressive brackets from 0% to 30% apply to chargeable income after personal relief (RM9,000) ' +
+      'and EPF tax relief (up to RM4,000). Mandatory contributions: EPF at 11%, ' +
+      'SOCSO at 0.5% and EIS at 0.2% (both capped at RM5,000/month). ' +
+      'Non-residents pay a flat 30% withholding tax.',
+  },
 };
 
 const FAQ: Record<string, { q: string; a: string }[]> = {
@@ -138,6 +150,24 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
       a: 'Non-resident foreign employees are subject to a flat 20% withholding tax on Indonesia-sourced income, without PTKP deductions.',
     },
   ],
+  malaysia: [
+    {
+      q: 'How is income tax calculated in Malaysia for YA 2024?',
+      a: 'Chargeable income is taxed at progressive rates: 0% up to RM5,000; 1% on RM5,001–RM20,000; 3% on RM20,001–RM35,000; 8% on RM35,001–RM50,000; 13% on RM50,001–RM70,000; 21% on RM70,001–RM100,000; 24% on RM100,001–RM400,000; 24.5% on RM400,001–RM600,000; 25% on RM600,001–RM2,000,000; 30% above RM2,000,000. Chargeable income = gross income minus personal relief (RM9,000) and other approved reliefs.',
+    },
+    {
+      q: 'What are the EPF contribution rates in Malaysia?',
+      a: 'Employees contribute 11% of monthly salary to EPF (Employees Provident Fund). There is no salary ceiling for EPF contributions. Employers contribute an additional 12% (or 13% for salaries below RM5,000). Up to RM4,000 of employee EPF contributions can be claimed as a tax relief.',
+    },
+    {
+      q: 'What are SOCSO and EIS and do they apply to expats?',
+      a: 'SOCSO (Social Security Organisation) provides work injury and invalidity coverage at 0.5% employee contribution, capped at RM5,000/month salary. EIS (Employment Insurance System) provides unemployment benefits at 0.2%, also capped at RM5,000/month. Both generally apply to Employment Pass holders working for Malaysian employers. Neither is deductible for income tax purposes.',
+    },
+    {
+      q: 'What is the tax rate for non-residents in Malaysia?',
+      a: 'Non-residents (present fewer than 182 days in Malaysia in a year) are taxed at a flat 30% on all Malaysia-sourced employment income. No personal reliefs, EPF deductions, or progressive brackets apply.',
+    },
+  ],
 };
 
 const GUIDE: Record<string, { sections: { heading: string; body: string }[]; articleSlug: string }> = {
@@ -206,6 +236,23 @@ const GUIDE: Record<string, { sections: { heading: string; body: string }[]; art
       {
         heading: 'Tax Filing Tips',
         body: 'All individuals earning income in Indonesia must register for an NPWP (Nomor Pokok Wajib Pajak) tax identification number, available online at ereg.pajak.go.id or in person at the local Tax Service Office (KPP). Employers file monthly PPh 21 withholding returns on behalf of employees. Annual individual tax returns (SPT Tahunan) are due March 31 using Form 1770S (simple, single employer) or Form 1770 (multiple income sources). The DJP Online portal (djponline.pajak.go.id) supports e-filing for most individual return types. BPJS JHT contributions (old-age savings) are refundable when you leave Indonesian employment.',
+      },
+    ],
+  },
+  malaysia: {
+    articleSlug: 'working-in-malaysia-as-an-expat',
+    sections: [
+      {
+        heading: 'Understanding Your Results',
+        body: 'The calculator applies YA 2024 progressive brackets (0%–30%) to your chargeable income — that is, gross salary minus personal relief (RM9,000), EPF tax relief (up to RM4,000), and any spouse or child reliefs you have entered. EPF (11%), SOCSO (0.5%), and EIS (0.2%) are shown as separate contribution line items. Note that only EPF reduces your taxable income; SOCSO and EIS are not tax-deductible. Your effective tax rate is total deductions (tax + contributions) divided by gross salary.',
+      },
+      {
+        heading: 'For Expats & Remote Workers',
+        body: 'Foreign nationals present in Malaysia for 182 days or more in a calendar year are treated as tax residents and pay the same progressive rates with access to all personal reliefs. Those present for fewer than 182 days are non-residents and pay a flat 30% on all Malaysia-sourced employment income with no reliefs. Toggle "Expat mode" to see the flat-rate calculation. Foreign workers on Employment Passes are generally required to contribute to EPF and SOCSO. Upon leaving Malaysia permanently, EPF savings (both employee and employer contributions) are fully refundable.',
+      },
+      {
+        heading: 'Tax Filing Tips',
+        body: 'Malaysian employers withhold monthly income tax via the PCB (Potongan Cukai Bulanan) Schedular Tax Deduction system. Submit Form TP1 to your employer to claim spouse, child, and other reliefs in the monthly PCB calculation — otherwise the default single-person rate is used and you may over-withhold. Annual income tax returns (Form BE for employment income) are due by 30 April. File online via the MyTax portal (mytax.hasil.gov.my). All earners must register with LHDN and obtain a Tax Identification Number (TIN) — registration is available through the MyTax portal or in person at any LHDN branch.',
       },
     ],
   },

@@ -49,6 +49,18 @@ export const COUNTRIES: Country[] = [
     salaryMax: 500000000,
     taxYear: '2025',
   },
+  {
+    slug: 'malaysia',
+    name: 'Malaysia',
+    flag: '🇲🇾',
+    currency: 'MYR',
+    currencySymbol: 'RM',
+    defaultSalary: 8000,
+    salaryStep: 500,
+    salaryMin: 1500,
+    salaryMax: 150000,
+    taxYear: '2024',
+  },
 ];
 
 export function getCountry(slug: string): Country | undefined {
