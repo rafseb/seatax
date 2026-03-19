@@ -55,9 +55,9 @@ export function calculate(params: CalculatorParams): TaxResult {
     const monthlyTax = computeProgressiveTax(monthlyTaxable);
     incomeTax = monthlyTax * 12;
     contributions = [
-      { label: 'Social Insurance (SI)', amount: siAnnual, color: '#3b82f6' },
-      { label: 'Health Insurance (HI)', amount: hiAnnual, color: '#8b5cf6' },
-      { label: 'Unemployment Insurance (UI)', amount: uiAnnual, color: '#10b981' },
+      { label: 'Social Insurance (SI)', amount: siAnnual, color: '#c9a84c' },
+      { label: 'Health Insurance (HI)', amount: hiAnnual, color: '#d4b86a' },
+      { label: 'Unemployment Insurance (UI)', amount: uiAnnual, color: '#e0cc96' },
     ];
   }
 

@@ -7,8 +7,8 @@ interface Props {
   result: TaxResult;
 }
 
-const TAKE_HOME_COLOR = '#22c55e';
-const TAX_COLOR = '#ef4444';
+const TAKE_HOME_COLOR = '#4a8f5f';  // forest-400
+const TAX_COLOR = '#c9a84c';        // gold-500
 
 interface TooltipPayloadItem {
   name: string;
@@ -28,9 +28,19 @@ function CustomTooltip({ active, payload, grossAnnual, fmt }: CustomTooltipProps
     const item = payload[0];
     const pct = ((item.value / grossAnnual) * 100).toFixed(1);
     return (
-      <div className="bg-white border border-gray-100 shadow-lg rounded-xl px-3 py-2 text-sm">
-        <p className="font-semibold text-gray-900">{item.name}</p>
-        <p className="text-gray-600">{fmt(item.value)} <span className="text-gray-400">({pct}%)</span></p>
+      <div
+        className="px-3 py-2 text-sm"
+        style={{
+          background: 'var(--forest-800)',
+          border: '1px solid var(--forest-700)',
+          borderRadius: '4px',
+        }}
+      >
+        <p className="font-semibold" style={{ color: 'var(--cream)' }}>{item.name}</p>
+        <p style={{ color: 'var(--forest-300)' }}>
+          {fmt(item.value)}{' '}
+          <span style={{ color: 'var(--forest-400)' }}>({pct}%)</span>
+        </p>
       </div>
     );
   }
@@ -60,8 +70,16 @@ export default function BreakdownChart({ result }: Props) {
   const grossAnnual = result.grossAnnual;
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">Salary Breakdown</h2>
+    <div
+      className="p-6"
+      style={{ background: 'var(--forest-800)', border: '1px solid var(--forest-700)', borderRadius: '4px' }}
+    >
+      <h2
+        className="text-[10px] font-bold uppercase tracking-[3px] mb-4"
+        style={{ color: 'var(--gold-500)' }}
+      >
+        Salary Breakdown
+      </h2>
       <ResponsiveContainer width="100%" height={280}>
         <PieChart>
           <Pie
@@ -87,7 +105,7 @@ export default function BreakdownChart({ result }: Props) {
           )} />
           <Legend
             formatter={(value) => (
-              <span className="text-sm text-gray-600">{value}</span>
+              <span style={{ color: 'var(--forest-300)', fontSize: '13px' }}>{value}</span>
             )}
           />
         </PieChart>

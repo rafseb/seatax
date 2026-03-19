@@ -60,6 +60,14 @@ export default function TaxCalculator({ country }: Props) {
   const [shareCopied, setShareCopied] = useState(false);
   const exchangeRates = useExchangeRates();
 
+  // Set per-country accent via data-country attribute on <html>
+  useEffect(() => {
+    document.documentElement.dataset.country = country.slug;
+    return () => {
+      delete document.documentElement.dataset.country;
+    };
+  }, [country.slug]);
+
   // Update URL on state changes
   useEffect(() => {
     const params = new URLSearchParams();
@@ -122,16 +130,21 @@ export default function TaxCalculator({ country }: Props) {
       {/* Country hero */}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--cream)' }}>
             {country.flag} {country.name} Income Tax Calculator
           </h1>
-          <p className="text-gray-500 mt-1 text-sm">
+          <p className="mt-1 text-sm" style={{ color: 'var(--forest-300)' }}>
             Calculate your net salary after tax and mandatory contributions for {country.name}. Tax year {country.taxYear}.
           </p>
         </div>
         <button
           onClick={handleShare}
-          className="shrink-0 px-3 py-1.5 text-xs font-medium text-gray-600 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          className="shrink-0 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors rounded-sm border"
+          style={{
+            background: 'var(--forest-700)',
+            color: 'var(--cream)',
+            borderColor: 'var(--forest-600)',
+          }}
         >
           {shareCopied ? 'Copied!' : 'Share'}
         </button>
@@ -166,7 +179,12 @@ export default function TaxCalculator({ country }: Props) {
       <div className="flex justify-center">
         <button
           onClick={() => setShowComparison((v) => !v)}
-          className="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 border border-blue-100 rounded-xl hover:bg-blue-100 transition-colors"
+          className="px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors rounded-sm border"
+          style={{
+            background: showComparison ? 'var(--forest-700)' : 'transparent',
+            color: showComparison ? 'var(--cream)' : 'var(--forest-300)',
+            borderColor: 'var(--forest-600)',
+          }}
         >
           {showComparison ? 'Hide comparison' : 'Compare all countries'}
         </button>

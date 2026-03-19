@@ -246,6 +246,37 @@ npm run build
 
 Never merge to `main` if `npm run build` fails.
 
+## Design System — Jungle Modernism
+
+The active design on `feat/jungle-modernism` (merged: see git log) uses the **Jungle Modernism** visual language. The original white/gray Tailwind design is preserved on `main` (pre-merge snapshot).
+
+### Direction
+Deep forest greens + warm gold + per-country flag accent colors. Plus Jakarta Sans typography. Noise grain + batik diamond watermarks via `body::before` / `body::after` in `globals.css`.
+
+### CSS Custom Property Tokens (`app/globals.css`)
+```
+--forest-950 / 900 / 800 / 700 / 600 / 500 / 400 / 300 / 200   (green scale)
+--gold-500 / 400 / 300                                            (warm gold)
+--cream                                                           (primary text)
+--accent                                                          (per-country, see below)
+```
+
+### Per-Country Theming
+`TaxCalculator.tsx` sets `document.documentElement.dataset.country = country.slug` via `useEffect`. CSS selectors like `[data-country="philippines"]` then bind `--accent` to the country's flag color:
+- Philippines / Indonesia: `#c1272d` (crimson/merah red)
+- Thailand: `#2d3a8c` (royal blue)
+- Vietnam: `#c17f00` (amber gold)
+- Malaysia: `#00457c` (biru blue)
+- Non-country pages: `--accent: #c9a84c` (default gold, set on `:root`)
+
+### Typography Scale
+- Hero number: 48px / weight 900 / tracking -2px
+- Section label: 10px / weight 700 / uppercase / tracking 3px / `var(--gold-500)`
+- Body: 13px / weight 400 / `var(--forest-300)`
+
+### Key Pattern
+All components use `style={{ ... }}` with CSS custom properties rather than Tailwind color classes. Hover states for Server Components use the `.nav-link` CSS class defined in `globals.css`.
+
 ## Critical Rules for AI Assistants
 
 1. **No server-side code** — this is a static export. Never add `getServerSideProps`, API routes, server actions, or any Node.js-only code.

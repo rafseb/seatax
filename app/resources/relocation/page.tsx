@@ -11,17 +11,26 @@ export const metadata: Metadata = {
   },
 };
 
+const cardStyle = {
+  background: 'var(--forest-800)',
+  border: '1px solid var(--forest-700)',
+  borderRadius: '4px',
+};
+
 export default function RelocationPage() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-4">
-        <Link href="/resources" className="text-sm text-blue-600 hover:underline">
+        <Link href="/resources" className="text-sm nav-link">
           ← Resources
         </Link>
       </div>
 
-      <h1 className="text-2xl font-bold text-gray-900 mb-3">Relocation Checklists</h1>
-      <p className="text-gray-600 leading-relaxed mb-8">
+      <p className="text-[10px] font-bold uppercase tracking-[3px] mb-2" style={{ color: 'var(--gold-500)' }}>
+        Relocation
+      </p>
+      <h1 className="text-2xl font-bold mb-3" style={{ color: 'var(--cream)' }}>Relocation Checklists</h1>
+      <p className="leading-relaxed mb-8" style={{ color: 'var(--forest-300)' }}>
         Step-by-step overviews of the key tasks when relocating to each Southeast Asian country as
         an expat or digital nomad.
       </p>
@@ -31,18 +40,19 @@ export default function RelocationPage() {
           <Link
             key={country.slug}
             href={`/resources/relocation/${country.slug}`}
-            className="block bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+            className="block p-5 transition-all"
+            style={cardStyle}
           >
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">{country.flag}</span>
-              <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+              <span className="text-[10px] font-bold uppercase tracking-[2px]" style={{ color: 'var(--forest-400)' }}>
                 {country.name}
               </span>
             </div>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-300)' }}>
               Visa, banking, tax registration, health insurance, SIM card, and more.
             </p>
-            <span className="mt-3 inline-block text-sm font-medium text-blue-600">
+            <span className="mt-3 inline-block text-sm font-medium" style={{ color: 'var(--gold-500)' }}>
               View checklist →
             </span>
           </Link>

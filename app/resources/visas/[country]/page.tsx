@@ -58,7 +58,7 @@ export default async function VisaCountryPage({ params }: Props) {
       />
 
       <div className="mb-4">
-        <Link href="/resources/visas" className="text-sm text-blue-600 hover:underline">
+        <Link href="/resources/visas" className="text-sm nav-link">
           ← Visa Options
         </Link>
       </div>
@@ -66,22 +66,29 @@ export default async function VisaCountryPage({ params }: Props) {
       <header className="mb-6">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl">{country.flag}</span>
-          <h1 className="text-2xl font-bold text-gray-900">Visa Options in {country.name}</h1>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--cream)' }}>Visa Options in {country.name}</h1>
         </div>
-        <p className="text-xs text-gray-400">Data last reviewed {lastReviewedLabel}</p>
+        <p className="text-xs" style={{ color: 'var(--forest-400)' }}>Data last reviewed {lastReviewedLabel}</p>
       </header>
 
       <VisaTable visas={visaData.visas} />
 
-      <div className="mt-8 bg-blue-50 border border-blue-100 rounded-lg p-5">
-        <p className="text-sm font-medium text-gray-900 mb-1">
+      <div
+        className="mt-8 p-5"
+        style={{ background: 'var(--forest-700)', border: '1px solid var(--forest-600)', borderRadius: '4px' }}
+      >
+        <p className="text-sm font-semibold mb-1" style={{ color: 'var(--cream)' }}>
           Calculate your take-home pay in {country.name}
         </p>
-        <p className="text-sm text-gray-700 leading-relaxed mb-3">
+        <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--forest-300)' }}>
           See exactly how much income tax and mandatory contributions you would pay as a resident
           or expat in {country.name}.
         </p>
-        <Link href={`/${slug}`} className="text-sm font-medium text-blue-600 hover:underline">
+        <Link
+          href={`/${slug}`}
+          className="text-sm font-semibold"
+          style={{ color: 'var(--gold-500)' }}
+        >
           Open {country.name} tax calculator →
         </Link>
       </div>

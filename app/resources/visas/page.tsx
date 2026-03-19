@@ -12,18 +12,27 @@ export const metadata: Metadata = {
   },
 };
 
+const cardStyle = {
+  background: 'var(--forest-800)',
+  border: '1px solid var(--forest-700)',
+  borderRadius: '4px',
+};
+
 export default function VisasHubPage() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-4">
-        <Link href="/resources" className="text-sm text-blue-600 hover:underline">
+        <Link href="/resources" className="text-sm nav-link">
           ← Resources
         </Link>
       </div>
 
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-3">Visa Options in Southeast Asia</h1>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-[10px] font-bold uppercase tracking-[3px] mb-2" style={{ color: 'var(--gold-500)' }}>
+          Visas
+        </p>
+        <h1 className="text-2xl font-bold mb-3" style={{ color: 'var(--cream)' }}>Visa Options in Southeast Asia</h1>
+        <p className="leading-relaxed" style={{ color: 'var(--forest-300)' }}>
           Explore visa types for tourists, remote workers, retirees, and professionals. Select a
           country to see the full list with filtering by visa category.
         </p>
@@ -37,18 +46,19 @@ export default function VisasHubPage() {
             <Link
               key={country.slug}
               href={`/resources/visas/${country.slug}`}
-              className="block bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+              className="block p-5 transition-all"
+              style={cardStyle}
             >
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-2xl">{country.flag}</span>
-                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                <span className="text-[10px] font-bold uppercase tracking-[2px]" style={{ color: 'var(--forest-400)' }}>
                   {country.name}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-3">
+              <p className="text-sm mb-3" style={{ color: 'var(--forest-300)' }}>
                 {count} visa type{count !== 1 ? 's' : ''}
               </p>
-              <span className="text-sm font-medium text-blue-600">View visa options →</span>
+              <span className="text-sm font-medium" style={{ color: 'var(--gold-500)' }}>View visa options →</span>
             </Link>
           );
         })}

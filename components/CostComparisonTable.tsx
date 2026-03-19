@@ -58,11 +58,11 @@ export default function CostComparisonTable({ data, countries }: Props) {
           <button
             key={group.label}
             onClick={() => setActiveGroup(group.label)}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer ${
-              activeGroup === group.label
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
+            className="px-3 py-1 rounded-[2px] text-xs font-semibold uppercase tracking-wide transition-colors cursor-pointer"
+            style={{
+              background: activeGroup === group.label ? 'var(--gold-500)' : 'var(--forest-700)',
+              color: activeGroup === group.label ? 'var(--forest-900)' : 'var(--forest-300)',
+            }}
           >
             {group.label}
           </button>
@@ -72,8 +72,11 @@ export default function CostComparisonTable({ data, countries }: Props) {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200">
-              <th className="sticky left-0 bg-white z-10 text-left py-2 pr-4 text-xs font-medium text-gray-500 min-w-[140px]">
+            <tr style={{ borderBottom: '1px solid var(--forest-700)' }}>
+              <th
+                className="sticky left-0 z-10 text-left py-2 pr-4 text-[10px] font-medium uppercase tracking-wider min-w-[140px]"
+                style={{ background: 'var(--forest-950)', color: 'var(--forest-400)' }}
+              >
                 Category
               </th>
               {countries.map((country) => {
@@ -81,12 +84,13 @@ export default function CostComparisonTable({ data, countries }: Props) {
                 return (
                   <th
                     key={country.slug}
-                    className="text-right py-2 px-3 text-xs font-medium text-gray-700 whitespace-nowrap min-w-[100px]"
+                    className="text-right py-2 px-3 text-xs font-medium whitespace-nowrap min-w-[100px]"
+                    style={{ color: 'var(--cream)' }}
                   >
                     <span className="block text-base leading-none mb-0.5">{country.flag}</span>
                     <span className="block">{country.name}</span>
                     {countryData && (
-                      <span className="block text-gray-400 font-normal">{countryData.city}</span>
+                      <span className="block font-normal" style={{ color: 'var(--forest-400)' }}>{countryData.city}</span>
                     )}
                   </th>
                 );
@@ -94,9 +98,21 @@ export default function CostComparisonTable({ data, countries }: Props) {
             </tr>
           </thead>
           <tbody>
-            {visibleRows.map((row) => (
-              <tr key={row.category} className="group border-b border-gray-100 even:bg-gray-50">
-                <td className="sticky left-0 bg-white group-even:bg-gray-50 z-10 py-2.5 pr-4 text-xs text-gray-600 leading-snug">
+            {visibleRows.map((row, idx) => (
+              <tr
+                key={row.category}
+                style={{
+                  borderBottom: '1px solid var(--forest-700)',
+                  background: idx % 2 === 0 ? 'transparent' : 'color-mix(in srgb, var(--forest-900) 50%, transparent)',
+                }}
+              >
+                <td
+                  className="sticky left-0 z-10 py-2.5 pr-4 text-xs leading-snug"
+                  style={{
+                    color: 'var(--forest-300)',
+                    background: idx % 2 === 0 ? 'var(--forest-950)' : 'var(--forest-900)',
+                  }}
+                >
                   {row.label}
                 </td>
                 {countries.map((country) => {
@@ -104,7 +120,8 @@ export default function CostComparisonTable({ data, countries }: Props) {
                   return (
                     <td
                       key={country.slug}
-                      className="text-right py-2.5 px-3 font-medium text-gray-900 whitespace-nowrap"
+                      className="text-right py-2.5 px-3 font-medium whitespace-nowrap"
+                      style={{ color: 'var(--cream)' }}
                     >
                       {amount !== undefined ? formatUsd(amount) : '—'}
                     </td>
@@ -121,8 +138,8 @@ export default function CostComparisonTable({ data, countries }: Props) {
           const country = countries.find((c) => c.slug === countryData.country);
           if (!country) return null;
           return (
-            <p key={countryData.country} className="text-xs text-gray-400 italic leading-relaxed">
-              <span className="not-italic font-medium text-gray-500">
+            <p key={countryData.country} className="text-xs italic leading-relaxed" style={{ color: 'var(--forest-400)' }}>
+              <span className="not-italic font-medium" style={{ color: 'var(--forest-300)' }}>
                 {country.flag} {country.name}:
               </span>{' '}
               {countryData.notes}
@@ -131,7 +148,7 @@ export default function CostComparisonTable({ data, countries }: Props) {
         })}
       </div>
 
-      <p className="mt-4 text-xs text-gray-400">
+      <p className="mt-4 text-xs" style={{ color: 'var(--forest-400)' }}>
         All figures are approximate USD equivalents based on mid-2025 exchange rates. Costs vary
         significantly by neighbourhood and lifestyle.
       </p>

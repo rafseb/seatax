@@ -38,6 +38,20 @@ function formatRatesAge(lastUpdated: Date | null): string | null {
   return `Rates updated ${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
 }
 
+const labelClass = 'block text-[10px] font-bold uppercase tracking-[2px] mb-1.5';
+const inputStyle = {
+  background: 'var(--forest-900)',
+  border: '1px solid var(--forest-600)',
+  color: 'var(--cream)',
+  borderRadius: '3px',
+};
+const toggleContainerStyle = {
+  background: 'var(--forest-900)',
+  border: '1px solid var(--forest-600)',
+  borderRadius: '3px',
+  padding: '3px',
+};
+
 export default function SalaryForm({
   country,
   grossSalary,
@@ -73,7 +87,6 @@ export default function SalaryForm({
     : (() => { const v = roundToStep(toForeign(country.salaryMax), 1000); return v > 0 ? Math.max(1000, v) : 30000; })();
   const sliderStep = isLocal ? country.salaryStep : 100;
 
-  // Salary out-of-range warning (local currency only)
   let salaryWarning: string | null = null;
   if (isLocal) {
     if (grossSalary < country.salaryMin) {
@@ -83,7 +96,6 @@ export default function SalaryForm({
     }
   }
 
-  // Rate indicator: "1 USD = ₱56.23"
   let rateLabel: string | null = null;
   if (!isLocal) {
     if (exchangeRates.loading) {
@@ -104,17 +116,28 @@ export default function SalaryForm({
   const ratesAgeLabel = !isLocal ? formatRatesAge(lastUpdated) : null;
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-6">
-      <h2 className="text-lg font-semibold text-gray-900">Your Salary</h2>
+    <div
+      className="p-6 space-y-6"
+      style={{ background: 'var(--forest-800)', border: '1px solid var(--forest-700)', borderRadius: '4px' }}
+    >
+      <h2
+        className="text-[10px] font-bold uppercase tracking-[3px]"
+        style={{ color: 'var(--gold-500)' }}
+      >
+        Your Salary
+      </h2>
 
       {/* Salary input + currency selector */}
       <div>
-        <label className="block text-sm font-medium text-gray-600 mb-1.5">
+        <label className={labelClass} style={{ color: 'var(--forest-300)' }}>
           Gross Salary
         </label>
         <div className="flex gap-2">
           <div className="relative flex-1">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">
+            <span
+              className="absolute left-3 top-1/2 -translate-y-1/2 font-semibold text-sm"
+              style={{ color: 'var(--gold-500)' }}
+            >
               {displaySymbol}
             </span>
             <input
@@ -123,23 +146,25 @@ export default function SalaryForm({
               min={0}
               step={isLocal ? country.salaryStep : 100}
               onChange={(e) => onSalaryChange(Number(e.target.value))}
-              className="w-full pl-8 pr-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-8 pr-4 py-2.5 text-lg font-semibold focus:outline-none focus:ring-1"
+              style={{ ...inputStyle, '--tw-ring-color': 'var(--gold-500)' } as React.CSSProperties}
             />
           </div>
           <select
             value={inputCurrency}
             onChange={(e) => onInputCurrencyChange(e.target.value as InputCurrencyCode)}
-            className="px-3 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+            className="px-3 py-2.5 text-sm focus:outline-none focus:ring-1 cursor-pointer"
+            style={inputStyle}
           >
             {INPUT_CURRENCIES.map((c) => (
-              <option key={c.code} value={c.code}>
+              <option key={c.code} value={c.code} style={{ background: 'var(--forest-900)' }}>
                 {c.code === 'local' ? country.currency : c.label}
               </option>
             ))}
           </select>
         </div>
 
-        {/* Range slider */}
+        {/* Slider */}
         <input
           type="range"
           min={sliderMin}
@@ -147,37 +172,38 @@ export default function SalaryForm({
           step={sliderStep}
           value={Math.min(Math.max(grossSalary, sliderMin), sliderMax)}
           onChange={(e) => onSalaryChange(Number(e.target.value))}
-          className="w-full mt-2 h-1 rounded-full accent-blue-500 cursor-pointer"
+          className="w-full mt-2 h-1 rounded-full cursor-pointer"
+          style={{ accentColor: 'var(--gold-500)' }}
         />
 
         {salaryWarning && (
-          <p className="text-xs mt-1.5 text-amber-600">{salaryWarning}</p>
+          <p className="text-xs mt-1.5" style={{ color: 'var(--gold-400)' }}>{salaryWarning}</p>
         )}
         {rateLabel && (
-          <p className={`text-xs mt-1.5 ${exchangeRates.error ? 'text-red-500' : 'text-gray-400'}`}>
+          <p className="text-xs mt-1.5" style={{ color: exchangeRates.error ? 'var(--gold-400)' : 'var(--forest-400)' }}>
             {rateLabel}
           </p>
         )}
         {ratesAgeLabel && (
-          <p className="text-xs mt-0.5 text-gray-400">{ratesAgeLabel}</p>
+          <p className="text-xs mt-0.5" style={{ color: 'var(--forest-400)' }}>{ratesAgeLabel}</p>
         )}
       </div>
 
       {/* Period toggle */}
       <div>
-        <label className="block text-sm font-medium text-gray-600 mb-1.5">
+        <label className={labelClass} style={{ color: 'var(--forest-300)' }}>
           Period
         </label>
-        <div className="flex gap-1 p-1 bg-gray-100 rounded-xl">
+        <div className="flex gap-1" style={toggleContainerStyle}>
           {(['monthly', 'annual'] as const).map((p) => (
             <button
               key={p}
               onClick={() => onPeriodChange(p)}
-              className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
-                period === p
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+              className="flex-1 py-2 text-xs font-semibold uppercase tracking-wide transition-all rounded-[2px]"
+              style={{
+                background: period === p ? 'var(--forest-700)' : 'transparent',
+                color: period === p ? 'var(--cream)' : 'var(--forest-400)',
+              }}
             >
               {p === 'monthly' ? 'Monthly' : 'Annual'}
             </button>
@@ -187,19 +213,19 @@ export default function SalaryForm({
 
       {/* Marital status toggle */}
       <div>
-        <label className="block text-sm font-medium text-gray-600 mb-1.5">
+        <label className={labelClass} style={{ color: 'var(--forest-300)' }}>
           Marital Status
         </label>
-        <div className="flex gap-1 p-1 bg-gray-100 rounded-xl">
+        <div className="flex gap-1" style={toggleContainerStyle}>
           {(['single', 'married'] as const).map((s) => (
             <button
               key={s}
               onClick={() => onMaritalStatusChange(s)}
-              className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
-                maritalStatus === s
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+              className="flex-1 py-2 text-xs font-semibold uppercase tracking-wide transition-all rounded-[2px]"
+              style={{
+                background: maritalStatus === s ? 'var(--forest-700)' : 'transparent',
+                color: maritalStatus === s ? 'var(--cream)' : 'var(--forest-400)',
+              }}
             >
               {s === 'single' ? 'Single' : 'Married'}
             </button>
@@ -209,7 +235,7 @@ export default function SalaryForm({
 
       {/* Dependents input */}
       <div>
-        <label className="block text-sm font-medium text-gray-600 mb-1.5">
+        <label className={labelClass} style={{ color: 'var(--forest-300)' }}>
           Dependents
         </label>
         <input
@@ -221,9 +247,10 @@ export default function SalaryForm({
             const val = Math.min(10, Math.max(0, Number(e.target.value)));
             onDependentsChange(val);
           }}
-          className="w-24 px-3 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-24 px-3 py-2.5 text-sm focus:outline-none focus:ring-1"
+          style={inputStyle}
         />
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs mt-1" style={{ color: 'var(--forest-400)' }}>
           Number of qualifying dependents (0–10)
         </p>
       </div>
@@ -231,8 +258,8 @@ export default function SalaryForm({
       {/* Expat toggle */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-900">Expat / Non-resident</p>
-          <p className="text-xs text-gray-500 mt-0.5">
+          <p className="text-sm font-semibold" style={{ color: 'var(--cream)' }}>Expat / Non-resident</p>
+          <p className="text-xs mt-0.5" style={{ color: 'var(--forest-300)' }}>
             Apply foreigner tax rates
           </p>
         </div>
@@ -240,22 +267,30 @@ export default function SalaryForm({
           role="switch"
           aria-checked={isExpat}
           onClick={() => onExpatChange(!isExpat)}
-          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-            isExpat ? 'bg-blue-600' : 'bg-gray-200'
-          }`}
+          className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none"
+          style={{ background: isExpat ? 'var(--accent)' : 'var(--forest-600)' }}
         >
           <span
-            className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition-transform ${
-              isExpat ? 'translate-x-6' : 'translate-x-1'
-            }`}
+            className="inline-block h-4 w-4 transform rounded-full shadow-sm transition-transform"
+            style={{
+              background: 'var(--cream)',
+              transform: isExpat ? 'translateX(1.5rem)' : 'translateX(0.25rem)',
+            }}
           />
         </button>
       </div>
 
       {isExpat && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3">
-          <p className="text-xs text-amber-800 leading-relaxed">
-            <strong>Expat mode:</strong> Applies non-resident tax rates. Mandatory contributions (social security, health insurance) are excluded as these typically do not apply to non-resident foreigners.
+        <div
+          className="p-3 rounded-[3px] border-l-2"
+          style={{
+            background: 'color-mix(in srgb, var(--accent) 10%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)',
+            borderLeftColor: 'var(--accent)',
+          }}
+        >
+          <p className="text-xs leading-relaxed" style={{ color: 'var(--forest-200)' }}>
+            <strong style={{ color: 'var(--cream)' }}>Expat mode:</strong> Applies non-resident tax rates. Mandatory contributions (social security, health insurance) are excluded as these typically do not apply to non-resident foreigners.
           </p>
         </div>
       )}

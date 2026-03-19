@@ -49,22 +49,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans bg-gray-50 min-h-screen">
+      <body className="min-h-screen">
         <AdSenseLoader />
-        <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
+        <header className="sticky top-0 z-10 border-b" style={{ background: 'var(--forest-900)', borderColor: 'var(--forest-700)' }}>
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
-              <span className="text-xl">🌏</span>
-              <span className="font-bold text-gray-900 text-lg">SEA Tax</span>
+            <div className="flex items-center gap-3">
+              {/* Logo mark */}
+              <span
+                className="flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold border"
+                style={{ color: 'var(--gold-500)', borderColor: 'var(--gold-500)' }}
+              >
+                ✦
+              </span>
+              {/* Wordmark */}
+              <span
+                className="text-xs font-bold uppercase tracking-[3px]"
+                style={{ color: 'var(--gold-500)' }}
+              >
+                SEA TAX
+              </span>
             </div>
             <CountrySwitcher />
-            <Link href="/resources" className="text-sm text-gray-600 hover:text-gray-900 whitespace-nowrap">
+            <Link href="/resources" className="nav-link text-sm whitespace-nowrap">
               Resources
             </Link>
           </div>
         </header>
         <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
-        <footer className="max-w-5xl mx-auto px-4 py-6 text-center text-xs text-gray-400">
+        <footer className="max-w-5xl mx-auto px-4 py-6 text-center text-xs" style={{ color: 'var(--forest-400)' }}>
           For illustrative purposes only. Consult a qualified tax professional
           before making financial decisions. Tax rates reflect 2025 regulations.
         </footer>

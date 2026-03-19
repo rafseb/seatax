@@ -31,34 +31,41 @@ export default function BankingPage() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-4">
-        <Link href="/resources" className="text-sm text-blue-600 hover:underline">
+        <Link href="/resources" className="text-sm nav-link">
           ← Resources
         </Link>
       </div>
 
-      <h1 className="text-2xl font-bold text-gray-900 mb-3">
+      <p className="text-[10px] font-bold uppercase tracking-[3px] mb-2" style={{ color: 'var(--gold-500)' }}>
+        Banking Guide
+      </p>
+      <h1 className="text-2xl font-bold mb-3" style={{ color: 'var(--cream)' }}>
         Banking &amp; Money Guide for Expats in SEA
       </h1>
 
-      <p className="text-gray-600 leading-relaxed mb-8">
+      <p className="leading-relaxed mb-8" style={{ color: 'var(--forest-300)' }}>
         How to set up banking, move money internationally, and manage finances as an expat in
         Southeast Asia.
       </p>
 
       <ArticleBody sections={SECTIONS} localCurrency="" localSymbol="" />
 
-      <div className="mt-4 bg-blue-50 border border-blue-100 rounded-lg p-5">
-        <p className="text-sm font-medium text-gray-900 mb-2">
+      <div
+        className="mt-4 p-5"
+        style={{ background: 'var(--forest-700)', border: '1px solid var(--forest-600)', borderRadius: '4px' }}
+      >
+        <p className="text-sm font-semibold mb-2" style={{ color: 'var(--cream)' }}>
           Know your net take-home pay before you move
         </p>
-        <p className="text-sm text-gray-600 mb-4">
+        <p className="text-sm mb-4" style={{ color: 'var(--forest-300)' }}>
           Banking setup is easier when you know exactly how much you will take home. Use our free
           tax calculator to compare net salary after income tax and mandatory contributions across
           all five SEA countries.
         </p>
         <Link
           href="/resources"
-          className="inline-block bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+          className="inline-block text-sm font-semibold px-4 py-2 rounded-sm transition-colors"
+          style={{ background: 'var(--gold-500)', color: 'var(--forest-900)' }}
         >
           Back to all resources →
         </Link>

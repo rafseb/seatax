@@ -48,7 +48,7 @@ export function calculate(params: CalculatorParams): TaxResult {
     const taxableIncome = Math.max(0, grossAnnual - ssfAnnual - standardDeduction - personalAllowance - childAllowance);
     incomeTax = computeProgressiveTax(taxableIncome);
     contributions = [
-      { label: 'Social Security (SSF)', amount: ssfAnnual, color: '#3b82f6' },
+      { label: 'Social Security (SSF)', amount: ssfAnnual, color: '#c9a84c' },
     ];
   }
 

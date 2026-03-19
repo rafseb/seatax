@@ -63,18 +63,29 @@ const TOOLS: {
   },
 ];
 
+const cardStyle = {
+  background: 'var(--forest-800)',
+  border: '1px solid var(--forest-700)',
+  borderRadius: '4px',
+};
+
 export default function ResourcesPage() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">SEA Expat Resource Hub</h1>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-[10px] font-bold uppercase tracking-[3px] mb-2" style={{ color: 'var(--gold-500)' }}>
+          Resource Hub
+        </p>
+        <h1 className="text-2xl font-bold mb-2" style={{ color: 'var(--cream)' }}>SEA Expat Resource Hub</h1>
+        <p className="leading-relaxed" style={{ color: 'var(--forest-300)' }}>
           Everything you need to live, work, and thrive as an expat or digital nomad in Southeast Asia.
         </p>
       </div>
 
       <section className="mb-10">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">Country Tax Guides</h2>
+        <h2 className="text-[10px] font-bold uppercase tracking-[3px] mb-4" style={{ color: 'var(--gold-500)' }}>
+          Country Tax Guides
+        </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {ARTICLES.map((article) => {
             const country = COUNTRIES.find((c) => c.slug === article.country);
@@ -82,21 +93,22 @@ export default function ResourcesPage() {
               <Link
                 key={article.slug}
                 href={`/resources/guides/${article.slug}`}
-                className="block bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+                className="block p-5 transition-all"
+                style={cardStyle}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-2xl">{country?.flag}</span>
-                  <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                  <span className="text-[10px] font-bold uppercase tracking-[2px]" style={{ color: 'var(--forest-400)' }}>
                     {country?.name}
                   </span>
                 </div>
-                <h3 className="text-base font-semibold text-gray-900 mb-2 leading-snug">
+                <h3 className="text-base font-semibold mb-2 leading-snug" style={{ color: 'var(--cream)' }}>
                   {article.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                <p className="text-sm leading-relaxed line-clamp-3" style={{ color: 'var(--forest-300)' }}>
                   {article.description}
                 </p>
-                <span className="mt-3 inline-block text-sm font-medium text-blue-600">
+                <span className="mt-3 inline-block text-sm font-medium" style={{ color: 'var(--gold-500)' }}>
                   Read guide →
                 </span>
               </Link>
@@ -106,26 +118,32 @@ export default function ResourcesPage() {
       </section>
 
       <section>
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">Tools &amp; Guides</h2>
+        <h2 className="text-[10px] font-bold uppercase tracking-[3px] mb-4" style={{ color: 'var(--gold-500)' }}>
+          Tools &amp; Guides
+        </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
-              className="block bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+              className="block p-5 transition-all"
+              style={cardStyle}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <span className="text-2xl">{tool.icon}</span>
                 {tool.status === 'stub' && (
-                  <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5">
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-wide rounded-[2px] px-2 py-0.5"
+                    style={{ background: 'var(--forest-700)', color: 'var(--forest-400)' }}
+                  >
                     Coming soon
                   </span>
                 )}
               </div>
-              <h3 className="text-base font-semibold text-gray-900 mb-2 leading-snug">
+              <h3 className="text-base font-semibold mb-2 leading-snug" style={{ color: 'var(--cream)' }}>
                 {tool.title}
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{tool.description}</p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-300)' }}>{tool.description}</p>
             </Link>
           ))}
         </div>

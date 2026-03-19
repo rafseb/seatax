@@ -56,9 +56,9 @@ export function calculate(params: CalculatorParams): TaxResult {
     const taxableIncome = Math.max(0, grossAnnual - effectivePTKP - totalContribAnnual);
     incomeTax = computeProgressiveTax(taxableIncome);
     contributions = [
-      { label: 'BPJS Kesehatan', amount: bpjsKesehatanAnnual, color: '#3b82f6' },
-      { label: 'BPJS JHT (Old-Age)', amount: jhtAnnual, color: '#8b5cf6' },
-      { label: 'BPJS JP (Pension)', amount: pensionAnnual, color: '#f59e0b' },
+      { label: 'BPJS Kesehatan', amount: bpjsKesehatanAnnual, color: '#c9a84c' },
+      { label: 'BPJS JHT (Old-Age)', amount: jhtAnnual, color: '#d4b86a' },
+      { label: 'BPJS JP (Pension)', amount: pensionAnnual, color: '#e0cc96' },
     ];
   }
 

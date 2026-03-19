@@ -1,11 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
 
-body {
-  -webkit-font-smoothing: antialiased;
+/* ─── Jungle Modernism Design Tokens ─────────────────────────────────────── */
+:root {
+  /* Forest greens */
+  --forest-950: #060f09;
+  --forest-900: #0d2018;
+  --forest-800: #112d1e;
+  --forest-700: #1a4028;
+  --forest-600: #235435;
+  --forest-500: #2e6b42;
+  --forest-400: #4a8f5f;
+  --forest-300: #6db88a;
+  --forest-200: #9fd4b2;
+
+  /* Gold */
+  --gold-500: #c9a84c;
+  --gold-400: #d4b86a;
+  --gold-300: #e0cc96;
+
+  /* Base */
+  --cream: #f2ede3;
+
+  /* Default accent (non-country pages) */
+  --accent: #c9a84c;
 }
 
+/* ─── Per-Country Accent Colors ──────────────────────────────────────────── */
+[data-country="philippines"] { --accent: #c1272d; }
+[data-country="thailand"]    { --accent: #2d3a8c; }
+[data-country="vietnam"]     { --accent: #c17f00; }
+[data-country="indonesia"]   { --accent: #c1272d; }
+[data-country="malaysia"]    { --accent: #00457c; }
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+body {
+  background: var(--forest-950);
+  color: var(--cream);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ─── Noise Grain Texture ────────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ─── Batik Diamond Watermark ─────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 480px;
+  height: 480px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,4 56,30 30,56 4,30' fill='none' stroke='%23f2ede3' stroke-width='1'/%3E%3Cpolygon points='30,12 48,30 30,48 12,30' fill='none' stroke='%23f2ede3' stroke-width='0.5'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%23f2ede3'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Ensure content sits above pseudo-elements */
+header, main, footer, .relative { position: relative; z-index: 1; }
+
+/* ─── Utility Hover Classes (for Server Components) ──────────────────────── */
+.nav-link {
+  color: var(--forest-300);
+  transition: color 0.15s ease;
+}
+.nav-link:hover {
+  color: var(--gold-500);
+}
+
+/* ─── Print Styles ────────────────────────────────────────────────────────── */
 @media print {
   header, footer, .no-print { display: none !important; }
-  body { background: white !important; }
-  .bg-white { box-shadow: none !important; border: 1px solid #e5e7eb !important; }
+  body {
+    background: white !important;
+    color: #111 !important;
+  }
+  body::before, body::after { display: none !important; }
+  .bg-\[var\(--forest-800\)\] { background: white !important; border: 1px solid #e5e7eb !important; box-shadow: none !important; }
 }

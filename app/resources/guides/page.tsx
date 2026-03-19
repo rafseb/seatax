@@ -12,20 +12,29 @@ export const metadata: Metadata = {
   },
 };
 
+const cardStyle = {
+  background: 'var(--forest-800)',
+  border: '1px solid var(--forest-700)',
+  borderRadius: '4px',
+};
+
 export default function GuidesPage() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-4">
-        <Link href="/resources" className="text-sm text-blue-600 hover:underline">
+        <Link href="/resources" className="text-sm nav-link">
           ← Resources
         </Link>
       </div>
 
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-3">
+        <p className="text-[10px] font-bold uppercase tracking-[3px] mb-2" style={{ color: 'var(--gold-500)' }}>
+          Guides
+        </p>
+        <h1 className="text-2xl font-bold mb-3" style={{ color: 'var(--cream)' }}>
           Expat &amp; Remote Work Tax Guides
         </h1>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--forest-300)' }}>
           Practical guides covering income tax rules, mandatory contributions, visa requirements,
           and cost of living for expats and digital nomads in Southeast Asia.
         </p>
@@ -38,21 +47,22 @@ export default function GuidesPage() {
             <Link
               key={article.slug}
               href={`/resources/guides/${article.slug}`}
-              className="block bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+              className="block p-5 transition-all"
+              style={cardStyle}
             >
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-2xl">{country?.flag}</span>
-                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                <span className="text-[10px] font-bold uppercase tracking-[2px]" style={{ color: 'var(--forest-400)' }}>
                   {country?.name}
                 </span>
               </div>
-              <h2 className="text-base font-semibold text-gray-900 mb-2 leading-snug">
+              <h2 className="text-base font-semibold mb-2 leading-snug" style={{ color: 'var(--cream)' }}>
                 {article.title}
               </h2>
-              <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
+              <p className="text-sm leading-relaxed line-clamp-3" style={{ color: 'var(--forest-300)' }}>
                 {article.description}
               </p>
-              <span className="mt-3 inline-block text-sm font-medium text-blue-600">
+              <span className="mt-3 inline-block text-sm font-medium" style={{ color: 'var(--gold-500)' }}>
                 Read guide →
               </span>
             </Link>

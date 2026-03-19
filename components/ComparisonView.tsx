@@ -20,6 +20,12 @@ function fmtLocal(amount: number, currency: string, symbol: string): string {
   return `${symbol}${new Intl.NumberFormat('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(absAmount)}`;
 }
 
+const cardStyle = {
+  background: 'var(--forest-800)',
+  border: '1px solid var(--forest-700)',
+  borderRadius: '4px',
+};
+
 export default function ComparisonView({ grossUSD, period, isExpat, exchangeRates }: Props) {
   const rows = useMemo(() => {
     if (exchangeRates.loading || grossUSD <= 0) return [];
@@ -34,7 +40,6 @@ export default function ComparisonView({ grossUSD, period, isExpat, exchangeRate
     }).filter((r): r is NonNullable<typeof r> => r !== null);
   }, [grossUSD, period, isExpat, exchangeRates]);
 
-  // Find country with highest net (in USD terms)
   const bestSlug = useMemo(() => {
     if (rows.length === 0) return null;
     let best = rows[0];
@@ -52,16 +57,16 @@ export default function ComparisonView({ grossUSD, period, isExpat, exchangeRate
 
   if (exchangeRates.loading) {
     return (
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <p className="text-sm text-gray-400 text-center">Loading exchange rates for comparison…</p>
+      <div className="p-6" style={cardStyle}>
+        <p className="text-sm text-center" style={{ color: 'var(--forest-400)' }}>Loading exchange rates for comparison…</p>
       </div>
     );
   }
 
   if (grossUSD <= 0 || rows.length === 0) {
     return (
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <p className="text-sm text-gray-400 text-center">Exchange rates unavailable. Cannot show comparison.</p>
+      <div className="p-6" style={cardStyle}>
+        <p className="text-sm text-center" style={{ color: 'var(--forest-400)' }}>Exchange rates unavailable. Cannot show comparison.</p>
       </div>
     );
   }
@@ -69,17 +74,25 @@ export default function ComparisonView({ grossUSD, period, isExpat, exchangeRate
   const periodLabel = period === 'monthly' ? '/mo' : '/yr';
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
+    <div className="p-6 space-y-4" style={cardStyle}>
       <div>
-        <h2 className="text-lg font-semibold text-gray-900">Country Comparison</h2>
-        <p className="text-xs text-gray-400 mt-0.5">
+        <h2
+          className="text-[10px] font-bold uppercase tracking-[3px]"
+          style={{ color: 'var(--gold-500)' }}
+        >
+          Country Comparison
+        </h2>
+        <p className="text-xs mt-0.5" style={{ color: 'var(--forest-400)' }}>
           All figures converted from USD at live rates. Based on ${Math.round(grossUSD).toLocaleString()} USD {periodLabel}.
         </p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-xs text-gray-400 uppercase tracking-wide border-b border-gray-100">
+            <tr
+              className="text-[10px] uppercase tracking-wider"
+              style={{ borderBottom: '1px solid var(--forest-700)', color: 'var(--forest-400)' }}
+            >
               <th className="text-left py-2 pr-3 font-medium">Country</th>
               <th className="text-right py-2 px-3 font-medium">Gross</th>
               <th className="text-right py-2 px-3 font-medium">Tax</th>
@@ -88,7 +101,7 @@ export default function ComparisonView({ grossUSD, period, isExpat, exchangeRate
               <th className="text-right py-2 pl-3 font-medium">Eff. Rate</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-50">
+          <tbody>
             {rows.map(({ country, result }) => {
               const isBest = country.slug === bestSlug;
               const contribTotal = result.contributions.reduce((s, c) => s + c.amount, 0);
@@ -97,32 +110,41 @@ export default function ComparisonView({ grossUSD, period, isExpat, exchangeRate
               const displayContrib = fmtLocal(period === 'monthly' ? contribTotal / 12 : contribTotal, result.currency, result.currencySymbol);
               const displayNet = fmtLocal(period === 'monthly' ? result.netMonthly : result.netAnnual, result.currency, result.currencySymbol);
               return (
-                <tr key={country.slug} className={`hover:bg-gray-50 ${isBest ? 'bg-green-50' : ''}`}>
+                <tr
+                  key={country.slug}
+                  style={{
+                    borderBottom: '1px solid var(--forest-700)',
+                    background: isBest ? 'var(--forest-700)' : 'transparent',
+                  }}
+                >
                   <td className="py-2.5 pr-3">
                     <span className="flex items-center gap-1.5">
                       <span className="text-base">{country.flag}</span>
-                      <span className="font-medium text-gray-900">{country.name}</span>
+                      <span className="font-medium" style={{ color: 'var(--cream)' }}>{country.name}</span>
                       {isBest && (
-                        <span className="inline-block px-1.5 py-0.5 text-xs font-semibold bg-green-100 text-green-700 rounded-full">
+                        <span
+                          className="inline-block px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide rounded-[2px]"
+                          style={{ background: 'color-mix(in srgb, var(--gold-500) 20%, transparent)', color: 'var(--gold-400)' }}
+                        >
                           Best
                         </span>
                       )}
                     </span>
                   </td>
-                  <td className="py-2.5 px-3 text-right text-gray-600">{displayGross}</td>
-                  <td className="py-2.5 px-3 text-right text-red-600">−{displayTax}</td>
-                  <td className="py-2.5 px-3 text-right text-gray-600">−{displayContrib}</td>
-                  <td className={`py-2.5 px-3 text-right font-semibold ${isBest ? 'text-green-700' : 'text-gray-900'}`}>
+                  <td className="py-2.5 px-3 text-right" style={{ color: 'var(--forest-300)' }}>{displayGross}</td>
+                  <td className="py-2.5 px-3 text-right" style={{ color: 'var(--accent)' }}>−{displayTax}</td>
+                  <td className="py-2.5 px-3 text-right" style={{ color: 'var(--forest-300)' }}>−{displayContrib}</td>
+                  <td className="py-2.5 px-3 text-right font-semibold" style={{ color: isBest ? 'var(--gold-400)' : 'var(--cream)' }}>
                     {displayNet}
                   </td>
-                  <td className="py-2.5 pl-3 text-right text-gray-500">{result.effectiveRate.toFixed(1)}%</td>
+                  <td className="py-2.5 pl-3 text-right" style={{ color: 'var(--forest-400)' }}>{result.effectiveRate.toFixed(1)}%</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-gray-400">
+      <p className="text-xs" style={{ color: 'var(--forest-400)' }}>
         Note: All figures converted from USD at live rates. Actual take-home pay depends on additional local factors.
       </p>
     </div>

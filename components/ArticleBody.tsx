@@ -20,11 +20,9 @@ const VIEW_CURRENCY_SYMBOLS: Record<ViewCurrency, string> = {
 
 function buildCurrencyRegex(symbol: string): RegExp {
   if (symbol.length > 1) {
-    // Letter-prefix symbols like RM, Rp
     const escaped = symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return new RegExp(`${escaped}[\\d,]+(?:\\.\\d+)?`, 'g');
   }
-  // Single-char symbols like ₱, ฿, ₫
   const escaped = symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`${escaped}[\\d,]+(?:\\.\\d+)?`, 'g');
 }
@@ -79,13 +77,13 @@ function renderParagraph({
       const converted = localAmount * rate;
       const symbol = VIEW_CURRENCY_SYMBOLS[viewCurrency];
       suffix = (
-        <span key={match.index} className="text-xs text-blue-500 ml-0.5">
+        <span key={match.index} className="text-xs ml-0.5" style={{ color: 'var(--gold-400)' }}>
           ≈ {symbol}{formatConverted(converted)}
         </span>
       );
     } else if (loading) {
       suffix = (
-        <span key={match.index} className="text-xs text-gray-400 ml-0.5">
+        <span key={match.index} className="text-xs ml-0.5" style={{ color: 'var(--forest-400)' }}>
           …
         </span>
       );
@@ -115,17 +113,17 @@ export default function ArticleBody({ sections, localCurrency, localSymbol }: Pr
   return (
     <div>
       {localSymbol && (
-        <div className="flex items-center gap-2 mb-6 text-sm text-gray-500">
+        <div className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--forest-400)' }}>
           <span>Show amounts in:</span>
           {(['USD', 'EUR', 'GBP'] as ViewCurrency[]).map((c) => (
             <button
               key={c}
               onClick={() => setViewCurrency(c)}
-              className={`px-2 py-0.5 rounded text-xs font-medium transition-colors ${
-                viewCurrency === c
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+              className="px-2 py-0.5 rounded-[2px] text-xs font-semibold uppercase tracking-wide transition-colors"
+              style={{
+                background: viewCurrency === c ? 'var(--gold-500)' : 'var(--forest-700)',
+                color: viewCurrency === c ? 'var(--forest-900)' : 'var(--forest-300)',
+              }}
             >
               {c}
             </button>
@@ -133,12 +131,12 @@ export default function ArticleBody({ sections, localCurrency, localSymbol }: Pr
         </div>
       )}
 
-      <div className="prose prose-gray max-w-none">
+      <div className="space-y-8">
         {sections.map((section) => (
           <section key={section.heading} className="mb-8">
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">{section.heading}</h2>
+            <h2 className="text-lg font-bold mb-3" style={{ color: 'var(--cream)' }}>{section.heading}</h2>
             {section.body.split('\n\n').map((paragraph, i) => (
-              <p key={i} className="text-gray-700 leading-relaxed mb-3">
+              <p key={i} className="leading-relaxed mb-3" style={{ color: 'var(--forest-200)', fontSize: '13px' }}>
                 {renderParagraph({
                   text: paragraph,
                   localCurrency,
