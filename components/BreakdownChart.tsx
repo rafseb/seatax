@@ -7,7 +7,7 @@ interface Props {
   result: TaxResult;
 }
 
-const TAKE_HOME_COLOR = '#4a8f5f';  // forest-400
+const TAKE_HOME_COLOR = '#6db88a';  // forest-300 — brighter green for legibility
 const TAX_COLOR = '#c9a84c';        // gold-500
 
 interface TooltipPayloadItem {

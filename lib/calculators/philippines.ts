@@ -50,9 +50,9 @@ export function calculate(params: CalculatorParams): TaxResult {
     const taxableIncome = Math.max(0, grossAnnual - dependentAllowance);
     incomeTax = computeProgressiveTax(taxableIncome);
     contributions = [
-      { label: 'SSS', amount: sssAnnual, color: '#c9a84c' },
-      { label: 'PhilHealth', amount: philhealthAnnual, color: '#d4b86a' },
-      { label: 'Pag-IBIG', amount: pagibigAnnual, color: '#e0cc96' },
+      { label: 'SSS', amount: sssAnnual, color: '#c97c4a' },
+      { label: 'PhilHealth', amount: philhealthAnnual, color: '#b06038' },
+      { label: 'Pag-IBIG', amount: pagibigAnnual, color: '#8c4628' },
     ];
   }
 

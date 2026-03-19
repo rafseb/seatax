@@ -7,6 +7,8 @@ interface Props {
   params: Promise<{ country: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return COUNTRIES.map((c) => ({ country: c.slug }));
 }

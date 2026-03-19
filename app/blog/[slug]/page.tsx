@@ -9,6 +9,8 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return ARTICLES.map((a) => ({ slug: a.slug }));
 }

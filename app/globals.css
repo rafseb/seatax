@@ -84,11 +84,31 @@ header, main, footer, .relative { position: relative; z-index: 1; }
 
 /* ─── Print Styles ────────────────────────────────────────────────────────── */
 @media print {
-  header, footer, .no-print { display: none !important; }
-  body {
-    background: white !important;
-    color: #111 !important;
+  /* Remap all design tokens to paper-friendly values.
+     Every component using var(--token) inline styles inherits this automatically. */
+  :root,
+  [data-country="philippines"],
+  [data-country="thailand"],
+  [data-country="vietnam"],
+  [data-country="indonesia"],
+  [data-country="malaysia"] {
+    --forest-950: #ffffff;
+    --forest-900: #f8f8f8;
+    --forest-800: #f2f2f2;
+    --forest-700: #cccccc;
+    --forest-600: #999999;
+    --forest-500: #777777;
+    --forest-400: #555555;
+    --forest-300: #444444;
+    --forest-200: #222222;
+    --gold-500:   #555555;
+    --gold-400:   #333333;
+    --gold-300:   #111111;
+    --cream:      #111111;
+    --accent:     #333333;
   }
+
+  header, footer, .no-print { display: none !important; }
+  body { background: white !important; }
   body::before, body::after { display: none !important; }
-  .bg-\[var\(--forest-800\)\] { background: white !important; border: 1px solid #e5e7eb !important; box-shadow: none !important; }
 }

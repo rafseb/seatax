@@ -282,6 +282,8 @@ function buildJsonLd(slug: string, seo: { title: string; description: string }) 
   return [appSchema, faqSchema];
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return COUNTRIES.map((c) => ({ country: c.slug }));
 }
@@ -329,29 +331,29 @@ export default async function CountryPage({ params }: Props) {
         />
       ))}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">{seo.heading}</h1>
-        <p className="text-sm text-gray-500 leading-relaxed max-w-2xl">{seo.intro}</p>
+        <h1 className="text-2xl font-bold mb-2" style={{ color: 'var(--cream)' }}>{seo.heading}</h1>
+        <p className="text-sm leading-relaxed max-w-2xl" style={{ color: 'var(--forest-300)' }}>{seo.intro}</p>
       </div>
       <TaxCalculator country={country} />
 
       {guide && (
         <>
           <section className="mt-12 max-w-3xl">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
+            <h2 className="text-lg font-semibold mb-6" style={{ color: 'var(--cream)' }}>
               {country.name} Tax Guide
             </h2>
             <div className="space-y-6">
               {guide.sections.map((section) => (
                 <div key={section.heading}>
-                  <h3 className="text-base font-medium text-gray-800 mb-2">{section.heading}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{section.body}</p>
+                  <h3 className="text-base font-medium mb-2" style={{ color: 'var(--gold-400)' }}>{section.heading}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-200)' }}>{section.body}</p>
                 </div>
               ))}
             </div>
             <div className="mt-6">
               <Link
                 href={`/resources/guides/${guide.articleSlug}`}
-                className="text-sm font-medium text-blue-600 hover:underline"
+                className="nav-link text-sm font-medium hover:underline"
               >
                 Read our complete expat &amp; remote work guide for {country.name} →
               </Link>
@@ -359,19 +361,19 @@ export default async function CountryPage({ params }: Props) {
           </section>
 
           <section className="mt-10 max-w-3xl">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+            <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--cream)' }}>
               Frequently Asked Questions
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {FAQ[slug].map(({ q, a }) => (
-                <details key={q} className="group border border-gray-200 rounded-lg bg-white">
-                  <summary className="flex cursor-pointer items-start justify-between gap-4 px-4 py-3 text-sm font-medium text-gray-900 list-none">
+                <details key={q} className="group rounded-lg" style={{ background: 'var(--forest-800)', border: '1px solid var(--forest-700)' }}>
+                  <summary className="flex cursor-pointer items-start justify-between gap-4 px-4 py-3 text-sm font-medium list-none" style={{ color: 'var(--cream)' }}>
                     <span>{q}</span>
-                    <span className="mt-0.5 shrink-0 text-gray-400 group-open:rotate-180 transition-transform">
+                    <span className="mt-0.5 shrink-0 group-open:rotate-180 transition-transform" style={{ color: 'var(--forest-400)' }}>
                       ▾
                     </span>
                   </summary>
-                  <div className="px-4 pb-4 pt-1 text-sm text-gray-600 leading-relaxed">{a}</div>
+                  <div className="px-4 pb-4 pt-1 text-sm leading-relaxed" style={{ color: 'var(--forest-200)', borderTop: '1px solid var(--forest-700)' }}>{a}</div>
                 </details>
               ))}
             </div>

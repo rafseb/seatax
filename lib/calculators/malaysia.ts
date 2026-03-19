@@ -61,9 +61,9 @@ export function calculate(params: CalculatorParams): TaxResult {
     incomeTax = computeProgressiveTax(taxableIncome);
 
     contributions = [
-      { label: 'EPF', amount: epfAnnual, color: '#c9a84c' },
-      { label: 'SOCSO', amount: socsoAnnual, color: '#d4b86a' },
-      { label: 'EIS', amount: eisAnnual, color: '#e0cc96' },
+      { label: 'EPF', amount: epfAnnual, color: '#c97c4a' },
+      { label: 'SOCSO', amount: socsoAnnual, color: '#b06038' },
+      { label: 'EIS', amount: eisAnnual, color: '#8c4628' },
     ];
   }
 
