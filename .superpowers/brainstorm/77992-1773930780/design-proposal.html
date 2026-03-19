@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jungle Modernism — Design Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest-950: #060f09;
+    --forest-900: #0d2018;
+    --forest-800: #112d1e;
+    --forest-700: #1a4028;
+    --forest-600: #235435;
+    --forest-500: #2e6b42;
+    --forest-400: #4a8f5f;
+    --forest-300: #6db88a;
+    --forest-200: #9fd4b2;
+    --forest-100: #d0ead8;
+
+    --gold-500: #c9a84c;
+    --gold-400: #d4b86a;
+    --gold-300: #e0cc96;
+    --gold-200: #ece0bc;
+    --gold-100: #f6f0dc;
+
+    --cream: #f2ede3;
+    --parchment: #e8e0cf;
+
+    /* Per-country accents */
+    --ph-accent: #c1272d;   /* Philippines red */
+    --th-accent: #2d3a8c;   /* Thailand royal blue */
+    --vn-accent: #da9100;   /* Vietnam gold-amber */
+    --id-accent: #c1272d;   /* Indonesia red */
+    --my-accent: #00457c;   /* Malaysia blue */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a1a0f;
+    color: #f2ede3;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* Batik watermark */
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23c9a84c' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='10' fill='none' stroke='%23c9a84c' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='0' r='5' fill='none' stroke='%23c9a84c' stroke-width='0.5'/%3E%3Ccircle cx='60' cy='0' r='5' fill='none' stroke='%23c9a84c' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='60' r='5' fill='none' stroke='%23c9a84c' stroke-width='0.5'/%3E%3Ccircle cx='60' cy='60' r='5' fill='none' stroke='%23c9a84c' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* === SECTION LABELS === */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-500);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--forest-600), transparent);
+  }
+
+  /* === HEADER MOCK === */
+  .mock-header {
+    background: var(--forest-900);
+    border-bottom: 1px solid var(--forest-700);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px 6px 0 0;
+  }
+  .mock-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mock-logo-mark {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--gold-500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-500);
+    font-size: 12px;
+  }
+  .mock-logo-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-400);
+  }
+  .mock-nav {
+    display: flex;
+    gap: 4px;
+  }
+  .mock-nav-item {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--forest-300);
+    padding: 6px 14px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+  .mock-nav-item.active {
+    background: var(--forest-700);
+    color: var(--cream);
+  }
+
+  /* === COUNTRY SWITCHER === */
+  .mock-country-bar {
+    background: var(--forest-800);
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--forest-700);
+  }
+  .mock-country-tab {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--forest-400);
+    padding: 10px 18px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .mock-country-tab.active {
+    color: var(--cream);
+    border-bottom-color: var(--ph-accent);
+  }
+  .flag {
+    font-size: 14px;
+  }
+
+  /* === MAIN CALCULATOR BODY === */
+  .mock-body {
+    background: var(--forest-900);
+    padding: 32px;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .mock-page-title {
+    margin-bottom: 28px;
+  }
+  .mock-page-title h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .mock-page-title p {
+    font-size: 12px;
+    color: var(--forest-300);
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+  .mock-page-title .country-accent {
+    display: inline-block;
+    width: 20px;
+    height: 3px;
+    background: var(--ph-accent);
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .mock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+  }
+
+  /* === CARDS === */
+  .mock-card {
+    background: var(--forest-800);
+    border: 1px solid var(--forest-700);
+    border-radius: 4px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mock-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--ph-accent), transparent 70%);
+  }
+  .mock-card-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--forest-400);
+    margin-bottom: 18px;
+  }
+
+  /* === FORM ELEMENTS === */
+  .mock-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--forest-300);
+    margin-bottom: 6px;
+  }
+  .mock-input {
+    background: var(--forest-900);
+    border: 1px solid var(--forest-600);
+    border-radius: 3px;
+    padding: 10px 14px;
+    color: var(--cream);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mock-input .symbol {
+    color: var(--gold-500);
+    font-weight: 700;
+  }
+  .mock-slider-track {
+    height: 3px;
+    background: var(--forest-600);
+    border-radius: 2px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .mock-slider-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 45%;
+    background: var(--gold-500);
+    border-radius: 2px;
+  }
+  .mock-slider-thumb {
+    position: absolute;
+    left: calc(45% - 6px);
+    top: -5px;
+    width: 13px;
+    height: 13px;
+    background: var(--gold-500);
+    border-radius: 50%;
+    border: 2px solid var(--forest-800);
+  }
+
+  .mock-toggle-group {
+    display: flex;
+    background: var(--forest-900);
+    border: 1px solid var(--forest-600);
+    border-radius: 3px;
+    padding: 3px;
+    margin-bottom: 16px;
+    gap: 3px;
+  }
+  .mock-toggle-btn {
+    flex: 1;
+    padding: 7px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    color: var(--forest-400);
+  }
+  .mock-toggle-btn.active {
+    background: var(--forest-700);
+    color: var(--cream);
+  }
+
+  .mock-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  /* === RESULTS PANEL === */
+  .results-hero {
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--forest-700);
+  }
+  .results-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--forest-400);
+    margin-bottom: 6px;
+  }
+  .results-amount {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .results-amount .currency {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gold-500);
+    letter-spacing: 0;
+  }
+  .results-rate {
+    font-size: 12px;
+    color: var(--forest-300);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .results-rate .rate-badge {
+    background: var(--forest-700);
+    color: var(--gold-400);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  .results-bar {
+    display: flex;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    gap: 2px;
+    margin-bottom: 16px;
+  }
+  .bar-net { background: var(--forest-400); flex: 74; }
+  .bar-tax { background: var(--ph-accent); flex: 14; }
+  .bar-contrib { background: var(--gold-500); flex: 12; }
+
+  .results-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--forest-700);
+    font-size: 12px;
+  }
+  .results-row:last-child { border-bottom: none; }
+  .results-row .row-label {
+    color: var(--forest-300);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .results-row .row-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .results-row .row-amount {
+    font-weight: 700;
+    color: var(--cream);
+    font-variant-numeric: tabular-nums;
+  }
+  .results-row .row-amount.negative { color: var(--ph-accent); }
+  .results-row .row-amount.gold { color: var(--gold-400); }
+
+  /* === COLOR PALETTE SECTION === */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .palette-country {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--forest-700);
+  }
+  .palette-swatch {
+    height: 60px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 10px;
+  }
+  .palette-country-name {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+  .palette-body {
+    background: var(--forest-800);
+    padding: 10px;
+  }
+  .palette-meta {
+    font-size: 9px;
+    color: var(--forest-400);
+    letter-spacing: 0.5px;
+  }
+  .palette-hex {
+    font-size: 10px;
+    color: var(--gold-500);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* === TYPOGRAPHY SECTION === */
+  .type-showcase {
+    background: var(--forest-800);
+    border: 1px solid var(--forest-700);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .type-row {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--forest-700);
+  }
+  .type-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .type-meta { font-size: 9px; color: var(--forest-400); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+
+  .page-title-text { font-size: 38px; font-weight: 900; color: var(--cream); letter-spacing: -1.5px; line-height: 1; }
+  .section-heading { font-size: 18px; font-weight: 700; color: var(--cream); letter-spacing: -0.3px; }
+  .label-text { font-size: 10px; font-weight: 700; color: var(--gold-500); letter-spacing: 3px; text-transform: uppercase; }
+  .body-text { font-size: 13px; color: var(--forest-200); line-height: 1.6; }
+  .caption-text { font-size: 10px; color: var(--forest-400); letter-spacing: 0.5px; }
+  .number-hero { font-size: 52px; font-weight: 900; color: var(--cream); letter-spacing: -3px; }
+
+  /* LEGEND */
+  .design-legend {
+    background: var(--forest-800);
+    border: 1px solid var(--forest-700);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .legend-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .legend-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .legend-text h4 { font-size: 11px; font-weight: 700; color: var(--cream); margin-bottom: 2px; }
+  .legend-text p { font-size: 10px; color: var(--forest-400); line-height: 1.4; }
+
+  /* === TOP HEADER === */
+  .doc-header {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--forest-700);
+    margin-bottom: 40px;
+  }
+  .doc-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+  }
+  .doc-subtitle {
+    font-size: 13px;
+    color: var(--forest-300);
+  }
+  .doc-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .doc-meta-item {
+    font-size: 10px;
+    color: var(--forest-400);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .doc-meta-item strong {
+    color: var(--gold-400);
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="doc-header">
+    <div class="doc-title">Jungle Modernism — Design System</div>
+    <div class="doc-subtitle">Full site redesign for SEA Tax Calculator · Deep forest palette · DM Sans · Per-country accents · Batik texture</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item">Direction<strong>Jungle Modernism</strong></div>
+      <div class="doc-meta-item">Scope<strong>Full Site</strong></div>
+      <div class="doc-meta-item">Typography<strong>DM Sans (geometric sans)</strong></div>
+      <div class="doc-meta-item">Texture<strong>Noise + batik watermark</strong></div>
+    </div>
+  </div>
+
+  <!-- SECTION: COLOR SYSTEM -->
+  <div class="section-label">Color System</div>
+
+  <div class="design-legend">
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: var(--forest-800); border: 1px solid var(--forest-600);"></div>
+      <div class="legend-text">
+        <h4>Forest Base (#112d1e)</h4>
+        <p>Card backgrounds, main surface. Dark but not pure black — organic depth.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: var(--forest-900);"></div>
+      <div class="legend-text">
+        <h4>Forest Deep (#0d2018)</h4>
+        <p>Page background, header, input fields. Deepest layer.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: var(--gold-500);"></div>
+      <div class="legend-text">
+        <h4>Gold (#c9a84c)</h4>
+        <p>Currency symbols, key numbers, interactive highlights, section labels. Never overused.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: var(--cream);"></div>
+      <div class="legend-text">
+        <h4>Cream (#f2ede3)</h4>
+        <p>Primary text. Warm white instead of pure white — easier on dark backgrounds.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: var(--forest-300);"></div>
+      <div class="legend-text">
+        <h4>Sage (#6db88a)</h4>
+        <p>Secondary text, muted labels, descriptions. Mid-tone green keeps text in palette.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: var(--forest-700); border: 1px solid var(--forest-600);"></div>
+      <div class="legend-text">
+        <h4>Border (#1a4028)</h4>
+        <p>Card borders, dividers, separators. Subtle distinction between surfaces.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: PER-COUNTRY ACCENTS -->
+  <div class="section-label">Per-Country Accent Colors</div>
+  <div class="palette-grid" style="margin-bottom: 40px;">
+    <div class="palette-country">
+      <div class="palette-swatch" style="background: linear-gradient(135deg, #c1272d, #8b0f14);">
+        <span class="palette-country-name">🇵🇭 Philippines</span>
+      </div>
+      <div class="palette-body">
+        <div class="palette-meta">Accent Color</div>
+        <div class="palette-hex">#c1272d · Crimson</div>
+      </div>
+    </div>
+    <div class="palette-country">
+      <div class="palette-swatch" style="background: linear-gradient(135deg, #2d3a8c, #1a2266);">
+        <span class="palette-country-name">🇹🇭 Thailand</span>
+      </div>
+      <div class="palette-body">
+        <div class="palette-meta">Accent Color</div>
+        <div class="palette-hex">#2d3a8c · Royal Blue</div>
+      </div>
+    </div>
+    <div class="palette-country">
+      <div class="palette-swatch" style="background: linear-gradient(135deg, #c17f00, #8b5a00);">
+        <span class="palette-country-name">🇻🇳 Vietnam</span>
+      </div>
+      <div class="palette-body">
+        <div class="palette-meta">Accent Color</div>
+        <div class="palette-hex">#c17f00 · Amber Gold</div>
+      </div>
+    </div>
+    <div class="palette-country">
+      <div class="palette-swatch" style="background: linear-gradient(135deg, #c1272d, #8b0f14);">
+        <span class="palette-country-name">🇮🇩 Indonesia</span>
+      </div>
+      <div class="palette-body">
+        <div class="palette-meta">Accent Color</div>
+        <div class="palette-hex">#c1272d · Merah</div>
+      </div>
+    </div>
+    <div class="palette-country">
+      <div class="palette-swatch" style="background: linear-gradient(135deg, #00457c, #002b50);">
+        <span class="palette-country-name">🇲🇾 Malaysia</span>
+      </div>
+      <div class="palette-body">
+        <div class="palette-meta">Accent Color</div>
+        <div class="palette-hex">#00457c · Biru</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: TYPOGRAPHY -->
+  <div class="section-label">Typography · DM Sans</div>
+  <div class="type-showcase" style="margin-bottom: 40px;">
+    <div class="type-row">
+      <div class="type-meta">Display / Hero Numbers</div>
+      <div class="number-hero">₱ 47,823</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Page Title · 38px / 900 weight</div>
+      <div class="page-title-text">Income Tax Calculator</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Section Heading · 18px / 700 weight</div>
+      <div class="section-heading">Tax Breakdown</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Section Label · 10px / 700 / uppercase / +3px tracking</div>
+      <div class="label-text">Gross Salary</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Body Text · 13px / 400 / sage green</div>
+      <div class="body-text">Progressive income tax calculated under the TRAIN Law. Contributions include SSS, PhilHealth, and Pag-IBIG at statutory rates.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Caption · 10px / muted green</div>
+      <div class="caption-text">Source: Bureau of Internal Revenue Philippines, 2025</div>
+    </div>
+  </div>
+
+  <!-- SECTION: HEADER MOCKUP -->
+  <div class="section-label">Header & Navigation · Philippines Active</div>
+  <div style="margin-bottom: 40px; border-radius: 6px; overflow: hidden; border: 1px solid var(--forest-700);">
+    <div class="mock-header">
+      <div class="mock-logo">
+        <div class="mock-logo-mark">✦</div>
+        <span class="mock-logo-text">SEA Tax</span>
+      </div>
+      <div class="mock-nav">
+        <div class="mock-nav-item active">Resources</div>
+        <div class="mock-nav-item">Visas</div>
+        <div class="mock-nav-item">Cost of Living</div>
+        <div class="mock-nav-item">Guides</div>
+      </div>
+    </div>
+    <div class="mock-country-bar">
+      <div class="mock-country-tab active"><span class="flag">🇵🇭</span> Philippines</div>
+      <div class="mock-country-tab"><span class="flag">🇹🇭</span> Thailand</div>
+      <div class="mock-country-tab"><span class="flag">🇻🇳</span> Vietnam</div>
+      <div class="mock-country-tab"><span class="flag">🇮🇩</span> Indonesia</div>
+      <div class="mock-country-tab"><span class="flag">🇲🇾</span> Malaysia</div>
+    </div>
+  </div>
+
+  <!-- SECTION: MAIN CALCULATOR MOCKUP -->
+  <div class="section-label">Main Calculator · Philippines</div>
+  <div style="border-radius: 6px; overflow: hidden; border: 1px solid var(--forest-700);">
+    <div class="mock-body">
+      <div class="mock-page-title">
+        <h1><span class="country-accent"></span>Philippines Income Tax Calculator</h1>
+        <p>TRAIN Law 2025 · SSS · PhilHealth · Pag-IBIG</p>
+      </div>
+
+      <div class="mock-grid">
+        <!-- LEFT: Input Form -->
+        <div class="mock-card">
+          <div class="mock-card-title">Salary Input</div>
+
+          <div class="mock-label">Gross Salary</div>
+          <div class="mock-input">
+            <span class="symbol">₱</span>
+            <span>58,000</span>
+          </div>
+          <div class="mock-slider-track">
+            <div class="mock-slider-fill"></div>
+            <div class="mock-slider-thumb"></div>
+          </div>
+
+          <div class="mock-form-row">
+            <div>
+              <div class="mock-label">Period</div>
+              <div class="mock-toggle-group">
+                <div class="mock-toggle-btn active">Monthly</div>
+                <div class="mock-toggle-btn">Annual</div>
+              </div>
+            </div>
+            <div>
+              <div class="mock-label">Status</div>
+              <div class="mock-toggle-group">
+                <div class="mock-toggle-btn active">Single</div>
+                <div class="mock-toggle-btn">Married</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mock-label">Dependents</div>
+          <div class="mock-input" style="margin-bottom:12px;">
+            <span style="color:var(--forest-400);">0 qualifying dependents</span>
+          </div>
+
+          <div style="background: rgba(193,39,45,0.1); border: 1px solid rgba(193,39,45,0.25); border-radius: 3px; padding: 10px 12px; border-left: 2px solid var(--ph-accent);">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ph-accent);margin-bottom:3px;">Expat Mode</div>
+            <div style="font-size:11px;color:var(--forest-300);">Flat 25% rate applies · Contributions excluded</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Results -->
+        <div class="mock-card">
+          <div class="mock-card-title">Tax Breakdown</div>
+
+          <div class="results-hero">
+            <div class="results-label">Monthly Take-Home</div>
+            <div class="results-amount"><span class="currency">₱ </span>47,823</div>
+            <div class="results-rate">
+              <span class="rate-badge">18.2% effective rate</span>
+              <span>on ₱ 58,000 gross</span>
+            </div>
+          </div>
+
+          <div class="results-bar">
+            <div class="bar-net"></div>
+            <div class="bar-tax"></div>
+            <div class="bar-contrib"></div>
+          </div>
+
+          <div class="results-row">
+            <span class="row-label">
+              <span class="row-dot" style="background:var(--forest-400)"></span>
+              Gross Salary
+            </span>
+            <span class="row-amount">₱ 58,000</span>
+          </div>
+          <div class="results-row">
+            <span class="row-label">
+              <span class="row-dot" style="background:var(--ph-accent)"></span>
+              Income Tax
+            </span>
+            <span class="row-amount negative">− ₱ 5,200</span>
+          </div>
+          <div class="results-row">
+            <span class="row-label">
+              <span class="row-dot" style="background:var(--gold-500)"></span>
+              SSS
+            </span>
+            <span class="row-amount negative">− ₱ 1,900</span>
+          </div>
+          <div class="results-row">
+            <span class="row-label">
+              <span class="row-dot" style="background:var(--gold-400)"></span>
+              PhilHealth
+            </span>
+            <span class="row-amount negative">− ₱ 900</span>
+          </div>
+          <div class="results-row">
+            <span class="row-label">
+              <span class="row-dot" style="background:var(--gold-300)"></span>
+              Pag-IBIG
+            </span>
+            <span class="row-amount negative">− ₱ 177</span>
+          </div>
+          <div class="results-row" style="background: rgba(255,255,255,0.03); margin: 0 -22px; padding: 12px 22px; border-radius: 0 0 4px 4px;">
+            <span class="row-label" style="color: var(--cream); font-weight:700;">Net Take-Home</span>
+            <span class="row-amount gold" style="font-size:15px;">₱ 47,823</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

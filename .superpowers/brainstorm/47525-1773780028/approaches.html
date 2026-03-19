@@ -1,0 +1,40 @@
+<h2>How should the pages be structured?</h2>
+<p class="subtitle">Three approaches for expanding the Health Insurance and Digital Nomad pages</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Inline page expansion</h3>
+      <p>Keep the current <code>page.tsx</code> structure. Add country-by-country sections directly in the file with headings, general guidance paragraphs, and practical tips. No new components needed — same pattern as the existing stub pages but fully written out.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>Pros</h4><ul><li>Simplest to implement</li><li>No component changes</li><li>Fast to ship</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>No cross-links to currency conversion</li><li>Less consistent with expat guides</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Article-style (ArticleBody pattern)</h3>
+      <p>Convert both pages to use the existing <code>ArticleBody.tsx</code> component (same pattern as the expat guides). Content defined as typed sections in TypeScript, rendered with the article island that supports inline currency conversion.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>Pros</h4><ul><li>Consistent with guide pages</li><li>Gets inline USD/EUR/GBP currency toggle for free</li><li>Structured content type</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>More setup work</li><li>Currency conversion less relevant for these topics</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Hybrid: Overview + country sections</h3>
+      <p>Short general intro, then one collapsible/accordion section per country — each with 3–5 bullet points covering the key info. Uses inline <code>page.tsx</code> (no new components) but structured as a scannable reference rather than a long-form article.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>Pros</h4><ul><li>Scannable for nomads comparing countries</li><li>Compact — users don't read top-to-bottom</li><li>No new components</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Less depth per country</li><li>Accordion requires client component</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>

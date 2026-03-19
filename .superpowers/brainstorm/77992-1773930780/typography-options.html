@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typography Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest-900: #0d2018;
+    --forest-800: #112d1e;
+    --forest-700: #1a4028;
+    --forest-600: #235435;
+    --forest-400: #4a8f5f;
+    --forest-300: #6db88a;
+    --forest-200: #9fd4b2;
+    --gold-500: #c9a84c;
+    --gold-400: #d4b86a;
+    --cream: #f2ede3;
+    --ph-accent: #c1272d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060f09;
+    color: var(--cream);
+    padding: 40px 24px 80px;
+    min-height: 100vh;
+  }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+  .subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    color: var(--forest-300);
+    margin-bottom: 36px;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .option {
+    border: 1px solid var(--forest-700);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .option:hover { border-color: var(--forest-500); }
+  .option.selected { border-color: var(--gold-500); }
+  .option.selected .option-letter { background: var(--gold-500); color: #0d2018; }
+
+  .option-preview {
+    background: var(--forest-900);
+    padding: 22px;
+    border-bottom: 1px solid var(--forest-700);
+    min-height: 300px;
+  }
+
+  .option-meta {
+    background: var(--forest-800);
+    padding: 16px 18px;
+  }
+  .option-letter {
+    width: 24px;
+    height: 24px;
+    background: var(--forest-700);
+    color: var(--cream);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .option-meta h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .option-meta p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--forest-300);
+    line-height: 1.5;
+  }
+
+  /* Shared card elements */
+  .preview-flag-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--forest-400);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .preview-flag-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--forest-700);
+  }
+  .preview-net-label {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--forest-400);
+    margin-bottom: 4px;
+  }
+  .preview-currency {
+    color: var(--gold-500);
+  }
+  .preview-rate {
+    font-size: 10px;
+    color: var(--forest-300);
+    margin-top: 4px;
+    margin-bottom: 18px;
+  }
+  .preview-bar {
+    display: flex;
+    height: 4px;
+    gap: 2px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-a { background: var(--forest-400); flex: 74; }
+  .bar-b { background: var(--ph-accent); flex: 14; }
+  .bar-c { background: var(--gold-500); flex: 12; }
+
+  .preview-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--forest-800);
+    font-size: 11px;
+  }
+  .preview-row:last-child { border-bottom: none; }
+  .preview-row .lbl { color: var(--forest-300); }
+  .preview-row .amt { font-weight: 700; color: var(--cream); }
+  .preview-row .amt.neg { color: var(--ph-accent); }
+  .preview-row .amt.gold { color: var(--gold-400); }
+
+  /* === FONT A: SYNE === */
+  .font-syne .preview-flag-label,
+  .font-syne .preview-net-label { font-family: 'Syne', sans-serif; }
+  .font-syne .preview-net-amount { font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800; color: var(--cream); letter-spacing: -1.5px; line-height: 1; }
+  .font-syne .preview-rate,
+  .font-syne .preview-row { font-family: 'Syne', sans-serif; }
+  .font-syne .preview-row .amt { font-family: 'Syne', sans-serif; font-weight: 700; }
+  .font-syne .preview-section-title { font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--forest-400); margin-bottom: 14px; }
+
+  /* === FONT B: SPACE GROTESK === */
+  .font-spaceG .preview-flag-label,
+  .font-spaceG .preview-net-label { font-family: 'Space Grotesk', sans-serif; }
+  .font-spaceG .preview-net-amount { font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; color: var(--cream); letter-spacing: -1px; line-height: 1; }
+  .font-spaceG .preview-rate,
+  .font-spaceG .preview-row { font-family: 'Space Grotesk', sans-serif; }
+  .font-spaceG .preview-row .amt { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+
+  /* === FONT C: PLUS JAKARTA SANS === */
+  .font-jakarta .preview-flag-label,
+  .font-jakarta .preview-net-label { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-jakarta .preview-net-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 38px; font-weight: 800; color: var(--cream); letter-spacing: -1.5px; line-height: 1; }
+  .font-jakarta .preview-rate,
+  .font-jakarta .preview-row { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-jakarta .preview-row .amt { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+
+  .selection-hint {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--forest-400);
+    text-align: center;
+    margin-top: 24px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<div style="max-width:1100px;margin:0 auto;">
+  <h2>Typography — Three Directions</h2>
+  <p class="subtitle">Same Jungle Modernism palette, same layout. Only the typeface changes. Which feels most like the site you want?</p>
+
+  <div class="options">
+
+    <!-- A: SYNE -->
+    <div class="option font-syne" data-choice="syne" onclick="this.classList.toggle('selected'); document.querySelectorAll('.option').forEach(o => o !== this && o.classList.remove('selected'));">
+      <div class="option-preview font-syne">
+        <div class="preview-flag-label">🇵🇭 Philippines · 2025</div>
+        <div class="preview-net-label">Monthly Take-Home</div>
+        <div class="preview-net-amount"><span class="preview-currency">₱ </span>47,823</div>
+        <div class="preview-rate">18.2% effective rate · ₱ 58,000 gross</div>
+        <div class="preview-bar"><div class="bar-a"></div><div class="bar-b"></div><div class="bar-c"></div></div>
+        <div class="preview-row"><span class="lbl">Gross Salary</span><span class="amt">₱ 58,000</span></div>
+        <div class="preview-row"><span class="lbl">Income Tax</span><span class="amt neg">− ₱ 5,200</span></div>
+        <div class="preview-row"><span class="lbl">SSS</span><span class="amt neg">− ₱ 1,900</span></div>
+        <div class="preview-row"><span class="lbl">PhilHealth</span><span class="amt neg">− ₱ 900</span></div>
+        <div class="preview-row"><span class="lbl">Net Take-Home</span><span class="amt gold">₱ 47,823</span></div>
+      </div>
+      <div class="option-meta">
+        <div class="option-letter">A</div>
+        <h3 style="font-family:'Syne',sans-serif;">Syne</h3>
+        <p>Architectural, slightly futuristic. Wide letterforms with strong geometric bones. Feels designed — almost avant-garde. Popular in design studios and creative agencies.</p>
+      </div>
+    </div>
+
+    <!-- B: SPACE GROTESK -->
+    <div class="option font-spaceG" data-choice="spaceG" onclick="this.classList.toggle('selected'); document.querySelectorAll('.option').forEach(o => o !== this && o.classList.remove('selected'));">
+      <div class="option-preview font-spaceG">
+        <div class="preview-flag-label">🇵🇭 Philippines · 2025</div>
+        <div class="preview-net-label">Monthly Take-Home</div>
+        <div class="preview-net-amount"><span class="preview-currency">₱ </span>47,823</div>
+        <div class="preview-rate">18.2% effective rate · ₱ 58,000 gross</div>
+        <div class="preview-bar"><div class="bar-a"></div><div class="bar-b"></div><div class="bar-c"></div></div>
+        <div class="preview-row"><span class="lbl">Gross Salary</span><span class="amt">₱ 58,000</span></div>
+        <div class="preview-row"><span class="lbl">Income Tax</span><span class="amt neg">− ₱ 5,200</span></div>
+        <div class="preview-row"><span class="lbl">SSS</span><span class="amt neg">− ₱ 1,900</span></div>
+        <div class="preview-row"><span class="lbl">PhilHealth</span><span class="amt neg">− ₱ 900</span></div>
+        <div class="preview-row"><span class="lbl">Net Take-Home</span><span class="amt gold">₱ 47,823</span></div>
+      </div>
+      <div class="option-meta">
+        <div class="option-letter">B</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;">Space Grotesk</h3>
+        <p>Geometric but slightly quirky — small irregularities in the letterforms give it warmth and character. Feels handcrafted rather than template-generated. Very readable.</p>
+      </div>
+    </div>
+
+    <!-- C: PLUS JAKARTA SANS -->
+    <div class="option font-jakarta" data-choice="jakarta" onclick="this.classList.toggle('selected'); document.querySelectorAll('.option').forEach(o => o !== this && o.classList.remove('selected'));">
+      <div class="option-preview font-jakarta">
+        <div class="preview-flag-label">🇵🇭 Philippines · 2025</div>
+        <div class="preview-net-label">Monthly Take-Home</div>
+        <div class="preview-net-amount"><span class="preview-currency">₱ </span>47,823</div>
+        <div class="preview-rate">18.2% effective rate · ₱ 58,000 gross</div>
+        <div class="preview-bar"><div class="bar-a"></div><div class="bar-b"></div><div class="bar-c"></div></div>
+        <div class="preview-row"><span class="lbl">Gross Salary</span><span class="amt">₱ 58,000</span></div>
+        <div class="preview-row"><span class="lbl">Income Tax</span><span class="amt neg">− ₱ 5,200</span></div>
+        <div class="preview-row"><span class="lbl">SSS</span><span class="amt neg">− ₱ 1,900</span></div>
+        <div class="preview-row"><span class="lbl">PhilHealth</span><span class="amt neg">− ₱ 900</span></div>
+        <div class="preview-row"><span class="lbl">Net Take-Home</span><span class="amt gold">₱ 47,823</span></div>
+      </div>
+      <div class="option-meta">
+        <div class="option-letter">C</div>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;">Plus Jakarta Sans</h3>
+        <p>Named after the Indonesian capital. Humanist warmth in a geometric structure — feels premium and refined without coldness. Extremely legible at small sizes.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="selection-hint">Click a card to highlight your pick, then let me know in the terminal.</p>
+</div>
+
+</body>
+</html>
