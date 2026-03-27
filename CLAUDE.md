@@ -1,4 +1,6 @@
-# CLAUDE.md — SEA Tax Calculator
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
@@ -42,8 +44,8 @@ app/
     banking/page.tsx              # Banking & money guide
     relocation/page.tsx           # Relocation hub (country cards)
     relocation/[country]/page.tsx # Per-country relocation checklist
-    health-insurance/page.tsx     # Health insurance guide (stub)
-    digital-nomad/page.tsx        # Digital nomad hub (stub)
+    health-insurance/page.tsx     # Health insurance guide (country-by-country requirements)
+    digital-nomad/page.tsx        # Digital nomad hub (visa options, co-working, internet by country)
   layout.tsx            # Root layout — header (CountrySwitcher + Resources nav link), footer
   page.tsx              # Redirects to /philippines
   robots.ts             # robots.txt (metadata export)
@@ -68,6 +70,8 @@ lib/
   types.ts              # All TypeScript interfaces (see below)
   countries.ts          # Country metadata (slug, currency, salary defaults/ranges)
   useExchangeRates.ts   # React hook — fetches USD base rates from open.er-api.com
+  articles/
+    index.ts            # ARTICLES array — article metadata + content for expat guides
   calculators/
     index.ts            # Routes calculate(country, params) to correct module
     philippines.ts      # TRAIN Law: 6 income brackets, SSS/PhilHealth/Pag-IBIG
@@ -204,9 +208,14 @@ Visa and cost-of-living data live in `lib/resources/visaData.ts` and `lib/resour
 
 7. **Add cost data** in `lib/resources/costData.ts` — add a new `CountryCostData` entry to `COST_DATA`.
 
-8. **Update sitemap** `app/sitemap.ts` — add any new static routes.
+8. **Add relocation checklist data** in `app/resources/relocation/[country]/page.tsx`:
+   - Add a new entry to the `CHECKLISTS` const keyed by the country slug
+   - Follow the `CountryChecklist` shape: `{ intro: string, sections: ChecklistSection[] }`
+   - Each section has a `title` and `items: string[]`
 
-9. **Verify:** `npm run build` must succeed with no TypeScript or lint errors.
+9. **Update sitemap** `app/sitemap.ts` — add any new static routes.
+
+10. **Verify:** `npm run build` must succeed with no TypeScript or lint errors.
 
 ## How to Update Tax Rates
 
@@ -248,7 +257,7 @@ Never merge to `main` if `npm run build` fails.
 
 ## Design System — Jungle Modernism
 
-The active design on `feat/jungle-modernism` (merged: see git log) uses the **Jungle Modernism** visual language. The original white/gray Tailwind design is preserved on `main` (pre-merge snapshot).
+The codebase uses the **Jungle Modernism** visual language (merged to `main`).
 
 ### Direction
 Deep forest greens + warm gold + per-country flag accent colors. Plus Jakarta Sans typography. Noise grain + batik diamond watermarks via `body::before` / `body::after` in `globals.css`.

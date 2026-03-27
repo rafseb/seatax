@@ -45,21 +45,21 @@ const TOOLS: {
     title: 'Health Insurance Guide',
     description: 'Mandatory vs private health coverage for expats — what you need and recommended providers.',
     href: '/resources/health-insurance',
-    status: 'stub',
+    status: 'live',
   },
   {
     icon: '📋',
     title: 'Relocation Checklist',
     description: 'Step-by-step country-specific checklist: visa, accommodation, SIM card, banking, tax registration.',
     href: '/resources/relocation',
-    status: 'stub',
+    status: 'live',
   },
   {
     icon: '💻',
     title: 'Digital Nomad Hub',
     description: 'Visa options, co-working spaces, internet quality, and nomad communities across SEA.',
     href: '/resources/digital-nomad',
-    status: 'stub',
+    status: 'live',
   },
 ];
 
