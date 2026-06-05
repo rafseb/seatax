@@ -4,20 +4,13 @@ import { useMemo } from 'react';
 import { COUNTRIES } from '@/lib/countries';
 import { calculate } from '@/lib/calculators';
 import type { ExchangeRates } from '@/lib/useExchangeRates';
+import { formatLocalAmount } from '@/lib/formatCurrency';
 
 interface Props {
   grossUSD: number;
   period: 'monthly' | 'annual';
   isExpat: boolean;
   exchangeRates: ExchangeRates;
-}
-
-function fmtLocal(amount: number, currency: string, symbol: string): string {
-  const absAmount = Math.abs(amount);
-  if (currency === 'VND' || currency === 'IDR') {
-    return `${symbol}${new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(absAmount)}`;
-  }
-  return `${symbol}${new Intl.NumberFormat('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(absAmount)}`;
 }
 
 const cardStyle = {
@@ -105,10 +98,10 @@ export default function ComparisonView({ grossUSD, period, isExpat, exchangeRate
             {rows.map(({ country, result }) => {
               const isBest = country.slug === bestSlug;
               const contribTotal = result.contributions.reduce((s, c) => s + c.amount, 0);
-              const displayGross = fmtLocal(period === 'monthly' ? result.grossMonthly : result.grossAnnual, result.currency, result.currencySymbol);
-              const displayTax = fmtLocal(period === 'monthly' ? result.incomeTax / 12 : result.incomeTax, result.currency, result.currencySymbol);
-              const displayContrib = fmtLocal(period === 'monthly' ? contribTotal / 12 : contribTotal, result.currency, result.currencySymbol);
-              const displayNet = fmtLocal(period === 'monthly' ? result.netMonthly : result.netAnnual, result.currency, result.currencySymbol);
+              const displayGross = formatLocalAmount(period === 'monthly' ? result.grossMonthly : result.grossAnnual, result.currency, result.currencySymbol);
+              const displayTax = formatLocalAmount(period === 'monthly' ? result.incomeTax / 12 : result.incomeTax, result.currency, result.currencySymbol);
+              const displayContrib = formatLocalAmount(period === 'monthly' ? contribTotal / 12 : contribTotal, result.currency, result.currencySymbol);
+              const displayNet = formatLocalAmount(period === 'monthly' ? result.netMonthly : result.netAnnual, result.currency, result.currencySymbol);
               return (
                 <tr
                   key={country.slug}
