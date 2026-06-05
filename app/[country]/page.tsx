@@ -350,12 +350,18 @@ export default async function CountryPage({ params }: Props) {
                 </div>
               ))}
             </div>
-            <div className="mt-6">
+            <div className="mt-6 space-y-2">
               <Link
                 href={`/resources/guides/${guide.articleSlug}`}
-                className="nav-link text-sm font-medium hover:underline"
+                className="nav-link text-sm font-medium hover:underline block"
               >
                 Read our complete expat &amp; remote work guide for {country.name} →
+              </Link>
+              <Link
+                href="/compare"
+                className="nav-link text-sm font-medium hover:underline block"
+              >
+                Compare {country.name} with another country →
               </Link>
             </div>
           </section>

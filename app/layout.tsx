@@ -70,6 +70,9 @@ export default function RootLayout({
               </span>
             </div>
             <CountrySwitcher />
+            <Link href="/compare" className="nav-link text-sm whitespace-nowrap">
+              Compare
+            </Link>
             <Link href="/resources" className="nav-link text-sm whitespace-nowrap">
               Resources
             </Link>

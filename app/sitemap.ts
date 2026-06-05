@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { COUNTRIES } from '@/lib/countries';
 import { ARTICLES } from '@/lib/articles';
+import { CANONICAL_PAIR_SLUGS } from '@/lib/comparisons';
 
 export const dynamic = 'force-static';
 
@@ -30,6 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
+    {
+      url: 'https://rafseb.github.io/seatax/compare',
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    ...CANONICAL_PAIR_SLUGS.map((pair) => ({
+      url: `https://rafseb.github.io/seatax/compare/${pair}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     ...ARTICLES.map((article) => ({
       url: `https://rafseb.github.io/seatax/resources/guides/${article.slug}`,
       lastModified: new Date(article.publishDate),
