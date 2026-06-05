@@ -185,7 +185,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
       },
       {
         q: 'Is Indonesia or Thailand better for digital nomads?',
-        a: 'Indonesia offers the E33G digital-nomad visa, while Thailand offers the Destination Thailand Visa (DTV) for remote workers. Both have dedicated routes — see the visa snapshot below for stay length and income requirements.',
+        a: 'Indonesia offers the E33G digital-nomad visa, while Thailand offers a dedicated long-stay visa for remote workers. Both have dedicated routes — see the visa snapshot below for stay length and income requirements.',
       },
     ],
   },
@@ -251,7 +251,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
       },
       {
         q: 'Is Malaysia or Thailand better for digital nomads?',
-        a: "Both have dedicated routes: Malaysia’s DE Rantau Nomad Pass and Thailand’s Destination Thailand Visa (DTV). The visa snapshot below compares stay length and income requirements.",
+        a: "Both have dedicated routes: Malaysia’s DE Rantau Nomad Pass and Thailand’s long-stay remote-worker visa. The visa snapshot below compares stay length and income requirements.",
       },
     ],
   },
@@ -295,7 +295,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
       },
       {
         q: 'Is the Philippines or Thailand better for digital nomads?',
-        a: 'Thailand offers the Destination Thailand Visa (DTV) for remote workers; the Philippines mostly relies on tourist-visa extensions. The visa snapshot and verdict strip below show the difference.',
+        a: 'Thailand offers a dedicated long-stay visa for remote workers; the Philippines mostly relies on tourist-visa extensions. The visa snapshot and verdict strip below show the difference.',
       },
     ],
   },
@@ -339,7 +339,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
       },
       {
         q: 'Is Thailand or Vietnam better for digital nomads?',
-        a: 'Thailand offers the dedicated Destination Thailand Visa (DTV); Vietnam currently relies on business/tourist e-visas. The verdict strip and visa snapshot below summarise the difference.',
+        a: 'Thailand offers a dedicated long-stay remote-worker visa; Vietnam currently relies on business/tourist e-visas. The verdict strip and visa snapshot below summarise the difference.',
       },
     ],
   },
