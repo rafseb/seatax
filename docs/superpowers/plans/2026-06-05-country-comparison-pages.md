@@ -504,8 +504,9 @@ export default function CompareView({ a, b, costWinnerSlug, nomadWinnerSlug }: P
       const result = calculate(country.slug, { grossSalary: localGross, period, isExpat });
       if (!result) return null;
       const toUSD = exchangeRates.getRate(country.currency, 'USD');
+      if (toUSD === null) return null;
       const netLocal = period === 'monthly' ? result.netMonthly : result.netAnnual;
-      const netUSD = toUSD === null ? 0 : netLocal * toUSD;
+      const netUSD = netLocal * toUSD;
       return { country, result, netUSD };
     };
     const ra = build(a);
@@ -589,18 +590,18 @@ export default function CompareView({ a, b, costWinnerSlug, nomadWinnerSlug }: P
             />
           </label>
           <div className="flex gap-2">
-            <button type="button" onClick={() => setPeriod('monthly')} style={toggleBtn(period === 'monthly')}>
+            <button type="button" aria-pressed={period === 'monthly'} onClick={() => setPeriod('monthly')} style={toggleBtn(period === 'monthly')}>
               Monthly
             </button>
-            <button type="button" onClick={() => setPeriod('annual')} style={toggleBtn(period === 'annual')}>
+            <button type="button" aria-pressed={period === 'annual'} onClick={() => setPeriod('annual')} style={toggleBtn(period === 'annual')}>
               Annual
             </button>
           </div>
           <div className="flex gap-2">
-            <button type="button" onClick={() => setIsExpat(false)} style={toggleBtn(!isExpat)}>
+            <button type="button" aria-pressed={!isExpat} onClick={() => setIsExpat(false)} style={toggleBtn(!isExpat)}>
               Resident
             </button>
-            <button type="button" onClick={() => setIsExpat(true)} style={toggleBtn(isExpat)}>
+            <button type="button" aria-pressed={isExpat} onClick={() => setIsExpat(true)} style={toggleBtn(isExpat)}>
               Expat
             </button>
           </div>
@@ -608,6 +609,8 @@ export default function CompareView({ a, b, costWinnerSlug, nomadWinnerSlug }: P
 
         {exchangeRates.loading ? (
           <p className="text-sm text-center" style={{ color: 'var(--forest-400)' }}>Loading exchange rates…</p>
+        ) : grossUSD <= 0 ? (
+          <p className="text-sm text-center" style={{ color: 'var(--forest-400)' }}>Enter a salary above to compare.</p>
         ) : !rows ? (
           <p className="text-sm text-center" style={{ color: 'var(--forest-400)' }}>Exchange rates unavailable. Cannot show comparison.</p>
         ) : (
