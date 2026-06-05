@@ -79,7 +79,7 @@ export function monthlyBasketUSD(slug: string): number {
 }
 
 /**
- * The cheaper country slug, or null if within 5% (treated as a tie) or data missing.
+ * The cheaper country slug, or null if the gap is less than 5% (treated as a tie) or data missing.
  */
 export function cheaperCountry(a: string, b: string): string | null {
   const ca = monthlyBasketUSD(a);
@@ -92,10 +92,21 @@ export function cheaperCountry(a: string, b: string): string | null {
 
 // --- Deterministic verdict: nomad visa --------------------------------------
 
-/** True if the country has any visa categorised as a digital-nomad visa. */
+/**
+ * True if the country has a *formal* digital-nomad visa. Entries categorised as
+ * digital-nomad but flagged in their name as an informal workaround (e.g.
+ * Vietnam's "E-Visa Workaround (no formal visa exists)") do not count — they
+ * would otherwise produce a misleading "easier nomad visa" verdict and
+ * contradict the authored FAQ copy.
+ */
 export function hasNomadVisa(slug: string): boolean {
   const data = getVisaData(slug);
-  return !!data && data.visas.some((v) => v.category === 'digital-nomad');
+  return (
+    !!data &&
+    data.visas.some(
+      (v) => v.category === 'digital-nomad' && !/no formal visa|workaround/i.test(v.name),
+    )
+  );
 }
 
 /**
