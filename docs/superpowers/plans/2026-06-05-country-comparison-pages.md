@@ -852,8 +852,8 @@ export default async function ComparePage({ params }: Props) {
               })}
               <tr style={{ borderTop: '2px solid var(--forest-700)' }}>
                 <td className="py-2.5 pr-3 font-semibold" style={{ color: 'var(--cream)' }}>Basket total</td>
-                <td className="py-2.5 px-3 text-right font-semibold" style={{ color: basketA <= basketB ? 'var(--gold-400)' : 'var(--cream)' }}>${basketA}</td>
-                <td className="py-2.5 pl-3 text-right font-semibold" style={{ color: basketB <= basketA ? 'var(--gold-400)' : 'var(--cream)' }}>${basketB}</td>
+                <td className="py-2.5 px-3 text-right font-semibold" style={{ color: basketA > 0 && basketB > 0 && basketA < basketB ? 'var(--gold-400)' : 'var(--cream)' }}>${basketA}</td>
+                <td className="py-2.5 pl-3 text-right font-semibold" style={{ color: basketA > 0 && basketB > 0 && basketB < basketA ? 'var(--gold-400)' : 'var(--cream)' }}>${basketB}</td>
               </tr>
             </tbody>
           </table>
