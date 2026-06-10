@@ -7,6 +7,7 @@ const article: Article = {
     'Complete guide to Thailand personal income tax (PIT), the 180-day residency rule, Social Security Fund, work permit requirements, TIN registration, and tips for remote workers on a Thai Elite Visa in 2025.',
   country: 'thailand',
   publishDate: '2025-01-15',
+  category: 'tax-guide',
   sections: [
     {
       heading: 'Tax Residency: The 180-Day Rule',

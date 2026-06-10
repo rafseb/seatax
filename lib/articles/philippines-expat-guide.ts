@@ -7,6 +7,7 @@ const article: Article = {
     'Complete guide to income tax, BIR registration, SSS/PhilHealth/Pag-IBIG contributions, and practical tips for expats and remote workers living in the Philippines in 2025.',
   country: 'philippines',
   publishDate: '2025-01-15',
+  category: 'tax-guide',
   sections: [
     {
       heading: 'Tax Residency Rules in the Philippines',

@@ -7,6 +7,7 @@ const article: Article = {
     'Complete guide to Indonesia PPh 21 income tax for foreigners, the 183-day residency rule, BPJS contributions, NPWP tax registration, KITAS work visa, and remote work considerations for 2025.',
   country: 'indonesia',
   publishDate: '2025-01-15',
+  category: 'tax-guide',
   sections: [
     {
       heading: 'Tax Residency: The 183-Day Rule',

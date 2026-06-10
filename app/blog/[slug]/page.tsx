@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ARTICLES, getArticle } from '@/lib/articles';
+import { LEGACY_BLOG_SLUGS, getArticle } from '@/lib/articles';
 import { COUNTRIES } from '@/lib/countries';
 import ArticleBody from '@/components/ArticleBody';
 
@@ -12,7 +12,7 @@ interface Props {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return ARTICLES.map((a) => ({ slug: a.slug }));
+  return LEGACY_BLOG_SLUGS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
