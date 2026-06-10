@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { COUNTRIES } from '@/lib/countries';
-import { ARTICLES } from '@/lib/articles';
+import { ARTICLES, LEGACY_BLOG_SLUGS } from '@/lib/articles';
 import { CANONICAL_PAIR_SLUGS } from '@/lib/comparisons';
 
 export const dynamic = 'force-static';
@@ -98,9 +98,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
-    ...ARTICLES.map((article) => ({
-      url: `https://rafseb.github.io/seatax/blog/${article.slug}`,
-      lastModified: new Date(article.publishDate),
+    ...LEGACY_BLOG_SLUGS.map((slug) => ({
+      url: `https://rafseb.github.io/seatax/blog/${slug}`,
+      lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
     })),

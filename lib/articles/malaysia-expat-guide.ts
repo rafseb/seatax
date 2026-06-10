@@ -7,6 +7,7 @@ const article: Article = {
     'Complete guide to Malaysia income tax for foreigners, the 182-day residency rule, EPF, SOCSO and EIS contributions, tax reliefs and deductions, MyTax registration, and cost of living in Kuala Lumpur for 2024.',
   country: 'malaysia',
   publishDate: '2025-01-15',
+  category: 'tax-guide',
   sections: [
     {
       heading: 'Tax Residency: The 182-Day Rule',

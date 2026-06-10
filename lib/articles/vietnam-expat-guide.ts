@@ -7,6 +7,7 @@ const article: Article = {
     'Complete guide to Vietnam personal income tax (PIT), the 183-day residency rule, compulsory social insurance for expats since 2018, PIT registration and filing, and remote work considerations for 2025.',
   country: 'vietnam',
   publishDate: '2025-01-15',
+  category: 'tax-guide',
   sections: [
     {
       heading: 'Tax Residency: The 183-Day Rule',
