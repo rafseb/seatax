@@ -16,7 +16,7 @@ const WEBSITE_SCHEMA = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rafseb.github.io'),
+  metadataBase: new URL('https://rafseb.github.io/seatax'),
   title: {
     default: 'SEA Tax Calculator — Philippines, Thailand, Vietnam, Indonesia',
     template: '%s | SEA Tax Calculator',

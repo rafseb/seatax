@@ -299,10 +299,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: seo.title,
       description: seo.description,
-      url: `/seatax/${slug}`,
+      url: `/${slug}`,
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: seo.title,
       description: seo.description,
     },
