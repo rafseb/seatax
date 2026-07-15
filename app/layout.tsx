@@ -4,6 +4,16 @@ import Link from "next/link";
 import CountrySwitcher from "@/components/CountrySwitcher";
 import ConsentBanner from "@/components/ConsentBanner";
 import AdSenseLoader from "@/components/AdSenseLoader";
+import GoatCounterAnalytics from "@/components/GoatCounterAnalytics";
+
+const WEBSITE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'SEA Tax Calculator',
+  url: 'https://rafseb.github.io/seatax/',
+  description:
+    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rafseb.github.io'),
@@ -50,7 +60,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }}
+        />
         <AdSenseLoader />
+        <GoatCounterAnalytics />
         <header className="sticky top-0 z-10 border-b" style={{ background: 'var(--forest-900)', borderColor: 'var(--forest-700)' }}>
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-3">

@@ -30,6 +30,11 @@ export default function ConsentBanner() {
   }
 
   function handleDecline() {
+    try {
+      localStorage.setItem(CONSENT_KEY, 'declined');
+    } catch {
+      // localStorage unavailable
+    }
     setVisible(false);
   }
 
