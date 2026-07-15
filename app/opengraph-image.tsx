@@ -8,7 +8,7 @@ export const alt =
 
 export default function Image() {
   return ogCard({
-    tag: 'Southeast Asia · 2025',
+    tag: 'Southeast Asia · 2026',
     title: 'Income Tax & Take-Home Pay Calculator',
     subtitle: 'Philippines · Thailand · Vietnam · Indonesia · Malaysia',
     accent: accentFor(),

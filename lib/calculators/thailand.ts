@@ -27,8 +27,9 @@ export function calculate(params: CalculatorParams): TaxResult {
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
-  // SSF: 5% employee, salary cap THB 15,000/month → max THB 750/month
-  const ssfMonthly = Math.min(grossMonthly, 15000) * 0.05;
+  // SSF: 5% employee, salary cap THB 17,500/month → max THB 875/month
+  // (ceiling raised from THB 15,000 effective 1 January 2026)
+  const ssfMonthly = Math.min(grossMonthly, 17500) * 0.05;
   const ssfAnnual = ssfMonthly * 12;
 
   let incomeTax: number;

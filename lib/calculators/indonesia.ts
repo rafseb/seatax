@@ -35,8 +35,9 @@ export function calculate(params: CalculatorParams): TaxResult {
   const jhtMonthly = grossMonthly * 0.02;
   const jhtAnnual = jhtMonthly * 12;
 
-  // BPJS JP (Pension): 1% employee, salary cap IDR 10,547,400/month (2025)
-  const pensionMonthly = Math.min(grossMonthly, 10547400) * 0.01;
+  // BPJS JP (Pension): 1% employee, salary cap IDR 11,086,300/month
+  // (from March 2026 per BPJS Ketenagakerjaan circular B/1226/022026)
+  const pensionMonthly = Math.min(grossMonthly, 11086300) * 0.01;
   const pensionAnnual = pensionMonthly * 12;
 
   let incomeTax: number;

@@ -1,14 +1,13 @@
 import type { CalculatorParams, TaxResult } from '../types';
 
 // Vietnam PIT brackets (monthly taxable income after personal deduction)
+// 5-bracket schedule under the amended PIT Law, effective for the 2026 tax year
 const TAX_BRACKETS = [
-  { min: 0, max: 5000000, base: 0, rate: 0.05 },
-  { min: 5000000, max: 10000000, base: 250000, rate: 0.10 },
-  { min: 10000000, max: 18000000, base: 750000, rate: 0.15 },
-  { min: 18000000, max: 32000000, base: 1950000, rate: 0.20 },
-  { min: 32000000, max: 52000000, base: 4750000, rate: 0.25 },
-  { min: 52000000, max: 80000000, base: 9750000, rate: 0.30 },
-  { min: 80000000, max: Infinity, base: 18150000, rate: 0.35 },
+  { min: 0, max: 10000000, base: 0, rate: 0.05 },
+  { min: 10000000, max: 30000000, base: 500000, rate: 0.10 },
+  { min: 30000000, max: 60000000, base: 2500000, rate: 0.20 },
+  { min: 60000000, max: 100000000, base: 8500000, rate: 0.30 },
+  { min: 100000000, max: Infinity, base: 20500000, rate: 0.35 },
 ];
 
 function computeProgressiveTax(monthlyTaxable: number): number {
@@ -26,17 +25,20 @@ export function calculate(params: CalculatorParams): TaxResult {
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
-  // Social Insurance: 8% employee, salary cap VND 36,000,000/month
-  const siBase = Math.min(grossMonthly, 36000000);
+  // Social Insurance: 8% employee, salary cap 20× reference salary of VND 2,530,000
+  // = VND 50,600,000/month (Decree 161/2026/ND-CP, effective 1 July 2026)
+  const siBase = Math.min(grossMonthly, 50600000);
   const siMonthly = siBase * 0.08;
   const siAnnual = siMonthly * 12;
 
-  // Health Insurance: 1.5% employee, salary cap VND 36,000,000/month
+  // Health Insurance: 1.5% employee, same cap as Social Insurance
   const hiMonthly = siBase * 0.015;
   const hiAnnual = hiMonthly * 12;
 
-  // Unemployment Insurance: 1% employee, salary cap VND 36,000,000/month
-  const uiMonthly = siBase * 0.01;
+  // Unemployment Insurance: 1% employee, salary cap 20× Region I minimum wage of
+  // VND 5,310,000 = VND 106,200,000/month (Decree 293/2025/ND-CP, from 1 Jan 2026)
+  const uiBase = Math.min(grossMonthly, 106200000);
+  const uiMonthly = uiBase * 0.01;
   const uiAnnual = uiMonthly * 12;
 
   let incomeTax: number;
@@ -47,10 +49,10 @@ export function calculate(params: CalculatorParams): TaxResult {
     incomeTax = grossAnnual * 0.20;
     contributions = [];
   } else {
-    // Personal deduction: VND 11,000,000/month
-    const personalDeduction = 11000000;
-    // Dependent deduction: ₫4,400,000/month per dependent
-    const dependentDeduction = dependents * 4400000;
+    // Personal deduction: VND 15,500,000/month (2026 tax year)
+    const personalDeduction = 15500000;
+    // Dependent deduction: ₫6,200,000/month per dependent (2026 tax year)
+    const dependentDeduction = dependents * 6200000;
     const monthlyTaxable = Math.max(0, grossMonthly - siMonthly - hiMonthly - uiMonthly - personalDeduction - dependentDeduction);
     const monthlyTax = computeProgressiveTax(monthlyTaxable);
     incomeTax = monthlyTax * 12;

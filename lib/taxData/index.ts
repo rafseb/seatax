@@ -21,8 +21,8 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
       { income: '₱8,000,001+', rate: '35%' },
     ],
     contributions: [
-      { label: 'SSS', rate: '5%', note: 'Capped at ₱35,000 monthly salary (2025)' },
-      { label: 'PhilHealth', rate: '2.5%', note: 'Min ₱500, max ₱2,500/month' },
+      { label: 'SSS', rate: '5%', note: 'Capped at ₱35,000 monthly salary (2026)' },
+      { label: 'PhilHealth', rate: '2.5%', note: 'Min ₱250, max ₱2,500/month (employee share)' },
       { label: 'Pag-IBIG', rate: '2%', note: 'Max ₱200/month' },
     ],
     expatNote: 'Non-residents are taxed at a flat 25% on gross Philippine-sourced compensation. Mandatory contributions (SSS, PhilHealth, Pag-IBIG) generally do not apply.',
@@ -45,7 +45,7 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
       { income: '฿5,000,001+', rate: '35%' },
     ],
     contributions: [
-      { label: 'Social Security (SSF)', rate: '5%', note: 'Capped at ฿750/month (salary cap ฿15,000)' },
+      { label: 'Social Security (SSF)', rate: '5%', note: 'Capped at ฿875/month (salary cap ฿17,500, from Jan 2026)' },
     ],
     expatNote: 'Non-residents are taxed at the same progressive rates on Thailand-sourced income. Social Security contributions generally do not apply to non-residents. Standard deductions and personal allowances are also excluded.',
     sources: [
@@ -55,18 +55,16 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
   },
   vietnam: {
     brackets: [
-      { income: '0 – ₫5,000,000/mo', rate: '5%' },
-      { income: '₫5,000,001 – ₫10,000,000/mo', rate: '10%' },
-      { income: '₫10,000,001 – ₫18,000,000/mo', rate: '15%' },
-      { income: '₫18,000,001 – ₫32,000,000/mo', rate: '20%' },
-      { income: '₫32,000,001 – ₫52,000,000/mo', rate: '25%' },
-      { income: '₫52,000,001 – ₫80,000,000/mo', rate: '30%' },
-      { income: '₫80,000,001+/mo', rate: '35%' },
+      { income: '0 – ₫10,000,000/mo', rate: '5%' },
+      { income: '₫10,000,001 – ₫30,000,000/mo', rate: '10%' },
+      { income: '₫30,000,001 – ₫60,000,000/mo', rate: '20%' },
+      { income: '₫60,000,001 – ₫100,000,000/mo', rate: '30%' },
+      { income: '₫100,000,001+/mo', rate: '35%' },
     ],
     contributions: [
-      { label: 'Social Insurance (SI)', rate: '8%', note: 'Capped at ₫36,000,000/month' },
-      { label: 'Health Insurance (HI)', rate: '1.5%', note: 'Capped at ₫36,000,000/month' },
-      { label: 'Unemployment Insurance (UI)', rate: '1%', note: 'Capped at ₫36,000,000/month' },
+      { label: 'Social Insurance (SI)', rate: '8%', note: 'Capped at ₫50,600,000/month (from July 2026)' },
+      { label: 'Health Insurance (HI)', rate: '1.5%', note: 'Capped at ₫50,600,000/month (from July 2026)' },
+      { label: 'Unemployment Insurance (UI)', rate: '1%', note: 'Capped at ₫106,200,000/month (20× Region I minimum wage, 2026)' },
     ],
     expatNote: 'Non-residents are taxed at a flat 20% on Vietnam-sourced income. Social insurance and health insurance contributions generally do not apply to non-resident foreigners.',
     sources: [
@@ -85,7 +83,7 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
     contributions: [
       { label: 'BPJS Kesehatan', rate: '1%', note: 'Capped at Rp12,000,000/month salary' },
       { label: 'BPJS JHT (Old-Age)', rate: '2%', note: 'Employee share' },
-      { label: 'BPJS JP (Pension)', rate: '1%', note: 'Capped at Rp10,547,400/month salary (2025)' },
+      { label: 'BPJS JP (Pension)', rate: '1%', note: 'Capped at Rp11,086,300/month salary (from March 2026)' },
     ],
     expatNote: 'Non-residents are subject to a flat 20% withholding tax on Indonesia-sourced income. BPJS contributions generally do not apply. PTKP (non-taxable threshold of Rp54,000,000/year) is excluded for non-residents.',
     sources: [
@@ -109,12 +107,12 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
     ],
     contributions: [
       { label: 'EPF (Employee Provident Fund)', rate: '11%', note: 'Employee share; no salary ceiling' },
-      { label: 'SOCSO (PERKESO)', rate: '0.5%', note: 'Capped at RM5,000/month salary' },
-      { label: 'EIS (Employment Insurance)', rate: '0.2%', note: 'Capped at RM5,000/month salary' },
+      { label: 'SOCSO (PERKESO)', rate: '0.5%', note: 'Capped at RM6,000/month salary' },
+      { label: 'EIS (Employment Insurance)', rate: '0.2%', note: 'Capped at RM6,000/month salary' },
     ],
     expatNote: 'Non-residents are taxed at a flat 30% on Malaysia-sourced income. EPF, SOCSO, and EIS contributions do not apply. Tax reliefs (personal, EPF, spouse, child) are not available to non-residents.',
     sources: [
-      { label: 'LHDN — Income Tax Rates (YA 2024)', url: 'https://www.hasil.gov.my/en/individual/individual-life-cycle/how-to-declare-income/tax-rate/' },
+      { label: 'LHDN — Income Tax Rates (YA 2026)', url: 'https://www.hasil.gov.my/en/individual/individual-life-cycle/how-to-declare-income/tax-rate/' },
       { label: 'EPF — Contribution Rates', url: 'https://www.kwsp.gov.my/en/employer/contribution/contribution-rate' },
       { label: 'PERKESO — SOCSO & EIS Rates', url: 'https://www.perkeso.gov.my/index.php/en/employer/contribution-rate' },
     ],

@@ -35,7 +35,7 @@ For non-resident foreigners, a flat 20% withholding tax applies to gross Indones
       heading: 'BPJS Contributions for Expats',
       body: `BPJS (Badan Penyelenggara Jaminan Sosial) is Indonesia's social security agency, split into two bodies: BPJS Ketenagakerjaan (employment/labor social security) and BPJS Kesehatan (national health insurance).
 
-Foreign nationals working in Indonesia under a formal employment arrangement are required to enroll in BPJS Ketenagakerjaan. This covers three programs with the following employee contribution rates for 2025: JKN-KIS (BPJS Kesehatan, national health) at 1% of salary, capped at a salary ceiling of around Rp12,000,000/month; JHT (Jaminan Hari Tua, old-age savings) at 2% of salary; and JP (Jaminan Pensiun, pension) at 1% of salary, capped at the JP salary ceiling of Rp10,547,400/month.
+Foreign nationals working in Indonesia under a formal employment arrangement are required to enroll in BPJS Ketenagakerjaan. This covers three programs with the following employee contribution rates for 2026: JKN-KIS (BPJS Kesehatan, national health) at 1% of salary, capped at a salary ceiling of around Rp12,000,000/month; JHT (Jaminan Hari Tua, old-age savings) at 2% of salary; and JP (Jaminan Pensiun, pension) at 1% of salary, capped at the JP salary ceiling of Rp11,086,300/month (from March 2026).
 
 Employers contribute significantly more: 4% for JKN-KIS (health), 3.7% for JHT, 2% for JP, plus accident insurance (JKK) at 0.24%–1.74% depending on job risk category, and death insurance (JKM) at 0.3%. The total employer burden can reach 10%–12% of salary on top of the employee's gross.
 

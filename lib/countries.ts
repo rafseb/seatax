@@ -11,7 +11,7 @@ export const COUNTRIES: Country[] = [
     salaryStep: 5000,
     salaryMin: 10000,
     salaryMax: 1000000,
-    taxYear: '2025',
+    taxYear: '2026',
   },
   {
     slug: 'thailand',
@@ -23,7 +23,7 @@ export const COUNTRIES: Country[] = [
     salaryStep: 5000,
     salaryMin: 15000,
     salaryMax: 2000000,
-    taxYear: '2025',
+    taxYear: '2026',
   },
   {
     slug: 'vietnam',
@@ -35,7 +35,7 @@ export const COUNTRIES: Country[] = [
     salaryStep: 1000000,
     salaryMin: 3000000,
     salaryMax: 200000000,
-    taxYear: '2025',
+    taxYear: '2026',
   },
   {
     slug: 'indonesia',
@@ -47,7 +47,7 @@ export const COUNTRIES: Country[] = [
     salaryStep: 500000,
     salaryMin: 3000000,
     salaryMax: 500000000,
-    taxYear: '2025',
+    taxYear: '2026',
   },
   {
     slug: 'malaysia',
@@ -59,7 +59,7 @@ export const COUNTRIES: Country[] = [
     salaryStep: 500,
     salaryMin: 1500,
     salaryMax: 150000,
-    taxYear: '2024',
+    taxYear: '2026',
   },
 ];
 

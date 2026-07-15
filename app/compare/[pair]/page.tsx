@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const a = getCountry(aSlug);
   const b = getCountry(bSlug);
   if (!a || !b) return {};
-  const title = `${a.name} vs ${b.name}: Income Tax & Cost of Living Compared (2025)`;
-  const description = `Compare ${a.name} and ${b.name} for expats and remote workers: income tax, take-home pay, monthly cost of living, and visa options side by side (2025).`;
+  const title = `${a.name} vs ${b.name}: Income Tax & Cost of Living Compared (2026)`;
+  const description = `Compare ${a.name} and ${b.name} for expats and remote workers: income tax, take-home pay, monthly cost of living, and visa options side by side (2026).`;
   return {
     title,
     description,
@@ -119,7 +119,7 @@ export default async function ComparePage({ params }: Props) {
           Country Comparison
         </p>
         <h1 className="text-2xl font-bold mb-3" style={{ color: 'var(--cream)' }}>
-          {a.flag} {a.name} vs {b.flag} {b.name}: Income Tax &amp; Cost of Living (2025)
+          {a.flag} {a.name} vs {b.flag} {b.name}: Income Tax &amp; Cost of Living (2026)
         </h1>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-300)' }}>{content.intro}</p>
       </div>

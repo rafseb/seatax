@@ -1,6 +1,6 @@
 import type { CalculatorParams, TaxResult } from '../types';
 
-// YA 2024 income tax brackets (annual, MYR)
+// YA 2026 income tax brackets (annual, MYR) — unchanged since YA 2024 (confirmed by Budget 2026)
 const TAX_BRACKETS = [
   { min: 0, max: 5000, base: 0, rate: 0.0 },
   { min: 5000, max: 20000, base: 0, rate: 0.01 },
@@ -40,13 +40,13 @@ export function calculate(params: CalculatorParams): TaxResult {
     const epfMonthly = grossMonthly * 0.11;
     const epfAnnual = epfMonthly * 12;
 
-    // SOCSO: 0.5% employee, salary capped at RM5,000/month
-    const socsoBase = Math.min(grossMonthly, 5000);
+    // SOCSO: 0.5% employee, salary capped at RM6,000/month (ceiling raised 1 Oct 2024)
+    const socsoBase = Math.min(grossMonthly, 6000);
     const socsoMonthly = socsoBase * 0.005;
     const socsoAnnual = socsoMonthly * 12;
 
-    // EIS: 0.2% employee, salary capped at RM5,000/month
-    const eisBase = Math.min(grossMonthly, 5000);
+    // EIS: 0.2% employee, salary capped at RM6,000/month (ceiling raised 1 Oct 2024)
+    const eisBase = Math.min(grossMonthly, 6000);
     const eisMonthly = eisBase * 0.002;
     const eisAnnual = eisMonthly * 12;
 

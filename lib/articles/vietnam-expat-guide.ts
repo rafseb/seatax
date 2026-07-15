@@ -23,11 +23,11 @@ Vietnam has tax treaties with approximately 80 countries. If your home country h
     },
     {
       heading: 'Personal Income Tax for Foreign Employees',
-      body: `Vietnamese PIT for employment income uses monthly progressive brackets. Tax residents compute taxable income after deducting mandatory insurance contributions and the personal deduction of ₫11,000,000 per month (₫132,000,000 per year). An additional ₫4,400,000/month is deductible for each registered dependent.
+      body: `Vietnamese PIT for employment income uses monthly progressive brackets. Tax residents compute taxable income after deducting mandatory insurance contributions and the personal deduction of ₫15,500,000 per month (₫186,000,000 per year). An additional ₫6,200,000/month is deductible for each registered dependent.
 
-The monthly bracket rates for 2025 are: 5% on taxable income up to ₫5,000,000; 10% on ₫5,000,001–₫10,000,000; 15% on ₫10,000,001–₫18,000,000; 20% on ₫18,000,001–₫32,000,000; 25% on ₫32,000,001–₫52,000,000; 30% on ₫52,000,001–₫80,000,000; and 35% on income above ₫80,000,000 per month.
+The monthly bracket rates for the 2026 tax year (under the amended PIT Law, which cut the schedule from seven brackets to five) are: 5% on taxable income up to ₫10,000,000; 10% on ₫10,000,001–₫30,000,000; 20% on ₫30,000,001–₫60,000,000; 30% on ₫60,000,001–₫100,000,000; and 35% on income above ₫100,000,000 per month.
 
-For practical calculation, taxable monthly income = gross salary − social insurance (8%) − health insurance (1.5%) − unemployment insurance (1%) − ₫11,000,000 personal deduction. Note that insurance contribution deductions are capped at 20 times the base salary (₫36,000,000/month in 2025).
+For practical calculation, taxable monthly income = gross salary − social insurance (8%) − health insurance (1.5%) − unemployment insurance (1%) − ₫15,500,000 personal deduction. Note that social and health insurance contributions are capped at 20 times the reference salary (₫50,600,000/month from July 2026), while unemployment insurance is capped at 20 times the regional minimum wage.
 
 Non-resident foreigners pay a flat 20% on gross Vietnam-sourced employment income with no deductions — a significantly higher effective rate for lower earners compared to the progressive resident brackets.
 
@@ -39,7 +39,7 @@ Expats employed by Vietnamese companies have PIT withheld monthly by their emplo
 
 Foreign nationals who hold a work permit, practice certificate, or practicing license issued in Vietnam and work under indefinite-term or fixed-term employment contracts of one year or more are now subject to mandatory social insurance.
 
-Under the current contribution structure, employees contribute a total of 10.5% of monthly salary to three schemes: 8% to the social insurance fund, 1.5% to health insurance, and 1% to unemployment insurance. These contributions are capped at 20 times the general minimum wage (₫36,000,000/month in 2025) — meaning the maximum combined employee contribution is ₫3,780,000/month, regardless of actual salary level.
+Under the current contribution structure, employees contribute a total of 10.5% of monthly salary to three schemes: 8% to the social insurance fund, 1.5% to health insurance, and 1% to unemployment insurance. Social and health insurance contributions are capped at 20 times the reference salary (₫50,600,000/month from July 2026), and unemployment insurance at 20 times the regional minimum wage (₫106,200,000/month in Region I in 2026) — so the combined employee contribution tops out around ₫5,870,000/month, regardless of actual salary level.
 
 Employers contribute an additional 21.5% on top of the employee salary (covering pension/retirement, illness/maternity, occupational accidents, health insurance, and unemployment insurance funds). This cost is borne by the employer and does not reduce the employee's take-home pay directly.
 
@@ -85,11 +85,11 @@ Vietnam's currency, the Vietnamese Dong (VND), trades at approximately ₫24,000
     },
     {
       q: 'Are expats required to pay social insurance in Vietnam?',
-      a: 'Yes, since December 1, 2018. Foreign nationals holding a valid work permit and working under a contract of one year or more are subject to compulsory social insurance. Employees contribute 10.5% (8% SI + 1.5% HI + 1% UI), capped at ₫36,000,000/month.',
+      a: 'Yes, since December 1, 2018. Foreign nationals holding a valid work permit and working under a contract of one year or more are subject to compulsory social insurance. Employees contribute 10.5% (8% SI + 1.5% HI + 1% UI); SI and HI are capped at ₫50,600,000/month (from July 2026).',
     },
     {
       q: 'What is the personal deduction for PIT in Vietnam?',
-      a: 'The personal deduction is ₫11,000,000 per month (₫132,000,000/year). Each registered dependent (child, unemployed spouse, dependent parent) reduces taxable income by an additional ₫4,400,000/month.',
+      a: 'From the 2026 tax year the personal deduction is ₫15,500,000 per month (₫186,000,000/year). Each registered dependent (child, unemployed spouse, dependent parent) reduces taxable income by an additional ₫6,200,000/month.',
     },
     {
       q: 'How is PIT calculated for non-residents in Vietnam?',

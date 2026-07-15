@@ -37,7 +37,7 @@ Expats who qualify under certain tax treaties may be able to claim reduced rates
 
 SSS covers private-sector employees for sickness, maternity, disability, retirement, and death benefits. The employee contribution rate for 2025 is 5% of monthly salary credit, capped at a ₱35,000 salary ceiling — meaning the maximum employee contribution is ₱1,750 per month. Your employer contributes a matching amount on top.
 
-PhilHealth provides basic health insurance coverage. The 2025 premium rate is 5% of basic monthly salary, split equally between employee and employer at 2.5% each. The salary floor is ₱10,000/month and the ceiling is ₱100,000/month, so the maximum employee contribution is ₱2,500/month.
+PhilHealth provides basic health insurance coverage. The 2026 premium rate is 5% of basic monthly salary, split equally between employee and employer at 2.5% each. The salary floor is ₱10,000/month and the ceiling is ₱100,000/month, so the maximum employee contribution is ₱2,500/month.
 
 Pag-IBIG (HDMF) is a housing and provident fund program. Employees contribute 2% of monthly compensation, capped at ₱200/month (₱10,000 salary ceiling). The employer contributes an equal amount.
 

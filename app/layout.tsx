@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: '%s | SEA Tax Calculator',
   },
   description:
-    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, and Indonesia. 2025 tax rates.',
+    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, and Indonesia. 2026 tax rates.',
   keywords: [
     'Philippines income tax calculator',
     'Thailand income tax calculator',
@@ -96,7 +96,7 @@ export default function RootLayout({
         <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
         <footer className="max-w-5xl mx-auto px-4 py-6 text-center text-xs" style={{ color: 'var(--forest-400)' }}>
           For illustrative purposes only. Consult a qualified tax professional
-          before making financial decisions. Tax rates reflect 2025 regulations.
+          before making financial decisions. Tax rates reflect 2026 regulations.
         </footer>
         <ConsentBanner />
       </body>

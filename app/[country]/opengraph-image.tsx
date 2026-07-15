@@ -19,7 +19,7 @@ export default async function Image({
   const country = getCountry(slug);
   const name = country?.name ?? 'Southeast Asia';
   return ogCard({
-    tag: `${name} · 2025`,
+    tag: `${name} · 2026`,
     title: `${name} Income Tax Calculator`,
     subtitle: 'Net take-home pay after tax & mandatory contributions',
     accent: accentFor(slug),

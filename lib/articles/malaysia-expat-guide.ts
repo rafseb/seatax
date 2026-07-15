@@ -25,7 +25,7 @@ Malaysia has double taxation agreements (DTAs) with over 70 countries. If your h
       heading: 'Income Tax for Employees (YA 2024 Rates)',
       body: `Individual income tax in Malaysia is assessed on a Year of Assessment (YA) basis corresponding to the calendar year. For resident employees, the progressive tax brackets for YA 2024 apply to chargeable income — that is, gross employment income minus approved deductions and personal reliefs.
 
-The YA 2024 tax brackets for residents are: 0% on the first RM5,000; 1% on RM5,001–RM20,000; 3% on RM20,001–RM35,000; 8% on RM35,001–RM50,000; 13% on RM50,001–RM70,000; 21% on RM70,001–RM100,000; 24% on RM100,001–RM400,000; 24.5% on RM400,001–RM600,000; 25% on RM600,001–RM2,000,000; and 30% on income above RM2,000,000.
+The YA 2026 tax brackets for residents (unchanged since YA 2024) are: 0% on the first RM5,000; 1% on RM5,001–RM20,000; 3% on RM20,001–RM35,000; 8% on RM35,001–RM50,000; 13% on RM50,001–RM70,000; 21% on RM70,001–RM100,000; 24% on RM100,001–RM400,000; 24.5% on RM400,001–RM600,000; 25% on RM600,001–RM2,000,000; and 30% on income above RM2,000,000.
 
 Malaysian employers are required to withhold monthly income tax under the Schedular Tax Deduction (STD) system, known locally as PCB (Potongan Cukai Bulanan). PCB is not a final tax — it is a monthly withholding that is reconciled when you file your annual return. If your actual tax liability differs from the PCB withheld, you will either pay the shortfall or receive a refund.
 
@@ -39,9 +39,9 @@ It is important to understand that the tax brackets apply to chargeable income a
 
 The Employees Provident Fund (EPF, or KWSP) is Malaysia's mandatory retirement savings scheme. Employee contributions are 11% of monthly salary with no salary ceiling — so higher earners contribute proportionally more. Employers contribute an additional 12% (or 13% for salaries below RM5,000). EPF contributions are deductible for income tax purposes, subject to a cap of RM4,000 per year on the employee's EPF contribution relief.
 
-SOCSO (Social Security Organisation, or PERKESO) covers work injury and invalidity protection. The employee contribution is 0.5% of monthly salary, capped at a monthly salary ceiling of RM5,000 — so the maximum employee SOCSO contribution is RM25/month (RM300/year). Unlike EPF, SOCSO contributions are not deductible for income tax purposes.
+SOCSO (Social Security Organisation, or PERKESO) covers work injury and invalidity protection. The employee contribution is 0.5% of monthly salary, capped at a monthly salary ceiling of RM6,000 — so the maximum employee SOCSO contribution is RM30/month (RM360/year). Unlike EPF, SOCSO contributions are not deductible for income tax purposes.
 
-EIS (Employment Insurance System) provides short-term unemployment benefits. The employee contributes 0.2% of monthly salary, also capped at the RM5,000 salary ceiling — so the maximum employee EIS contribution is RM10/month (RM120/year). EIS contributions are likewise not tax-deductible for employees.
+EIS (Employment Insurance System) provides short-term unemployment benefits. The employee contributes 0.2% of monthly salary, also capped at the RM6,000 salary ceiling — so the maximum employee EIS contribution is RM12/month (RM144/year). EIS contributions are likewise not tax-deductible for employees.
 
 Foreign nationals are generally required to contribute to EPF and SOCSO if they hold a valid Employment Pass and work for a Malaysian employer. However, some categories of foreign workers (particularly those on short-term assignments) may be exempt from EPF. Upon departing Malaysia permanently, foreign EPF contributors can make a full withdrawal of their EPF savings — a key benefit that makes EPF a meaningful component of total compensation for expats planning to repatriate.`,
     },

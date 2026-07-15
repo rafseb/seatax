@@ -24,13 +24,14 @@ export function calculate(params: CalculatorParams): TaxResult {
   const grossMonthly = period === 'monthly' ? grossSalary : grossSalary / 12;
   const grossAnnual = grossMonthly * 12;
 
-  // SSS: 5% employee, monthly salary capped at PHP 35,000 (2025 rate per RA 11199)
+  // SSS: 5% employee, monthly salary capped at PHP 35,000 (rate per RA 11199, unchanged for 2026)
   const sssBase = Math.min(grossMonthly, 35000);
   const sssMonthly = sssBase * 0.05;
   const sssAnnual = sssMonthly * 12;
 
-  // PhilHealth: 2.5% employee, salary cap PHP 100,000/mo, floor PHP 500, ceiling PHP 2,500
-  const philhealthMonthly = Math.min(Math.max(grossMonthly * 0.025, 500), 2500);
+  // PhilHealth: 2.5% employee (half of the 5% premium), salary floor PHP 10,000 / cap PHP 100,000
+  // → employee share floor PHP 250, ceiling PHP 2,500 (unchanged for 2026)
+  const philhealthMonthly = Math.min(Math.max(grossMonthly * 0.025, 250), 2500);
   const philhealthAnnual = philhealthMonthly * 12;
 
   // Pag-IBIG: 2% employee, salary cap PHP 10,000, max PHP 200/month

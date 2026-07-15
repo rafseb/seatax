@@ -125,7 +125,7 @@ export function easierNomadCountry(a: string, b: string): string | null {
 export const COMPARISONS: Record<string, ComparisonContent> = {
   'indonesia-vs-malaysia': {
     intro:
-      "Indonesia and Malaysia are two of Southeast Asia’s most popular expat bases, and the choice between them often comes down to tax treatment, cost of living, and how easy it is to get a long-stay visa. Whether you’re weighing Malaysia vs Indonesia for a job offer or a remote-work move, this page compares income tax, take-home pay, monthly costs, and visa routes side by side for 2025.",
+      "Indonesia and Malaysia are two of Southeast Asia’s most popular expat bases, and the choice between them often comes down to tax treatment, cost of living, and how easy it is to get a long-stay visa. Whether you’re weighing Malaysia vs Indonesia for a job offer or a remote-work move, this page compares income tax, take-home pay, monthly costs, and visa routes side by side for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Indonesia or Malaysia?',
@@ -147,7 +147,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'indonesia-vs-philippines': {
     intro:
-      "Indonesia and the Philippines both draw expats with low costs and large English- or service-friendly cities, but their tax systems differ sharply. Whether you’re comparing the Philippines vs Indonesia for an employer relocation or a remote move, this page lines up income tax, net pay, living costs, and visas for 2025.",
+      "Indonesia and the Philippines both draw expats with low costs and large English- or service-friendly cities, but their tax systems differ sharply. Whether you’re comparing the Philippines vs Indonesia for an employer relocation or a remote move, this page lines up income tax, net pay, living costs, and visas for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Indonesia or the Philippines?',
@@ -169,7 +169,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'indonesia-vs-thailand': {
     intro:
-      "Indonesia and Thailand are perennial favourites for expats and nomads in the region. Whether you’re weighing Thailand vs Indonesia for tax efficiency or lifestyle, this page compares income tax, take-home pay, monthly costs, and visa options side by side for 2025.",
+      "Indonesia and Thailand are perennial favourites for expats and nomads in the region. Whether you’re weighing Thailand vs Indonesia for tax efficiency or lifestyle, this page compares income tax, take-home pay, monthly costs, and visa options side by side for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Indonesia or Thailand?',
@@ -191,7 +191,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'indonesia-vs-vietnam': {
     intro:
-      "Indonesia and Vietnam are fast-growing bases for expats and remote workers. Whether you’re comparing Vietnam vs Indonesia for a posting or a nomad stint, this page sets income tax, net pay, living costs, and visa routes side by side for 2025.",
+      "Indonesia and Vietnam are fast-growing bases for expats and remote workers. Whether you’re comparing Vietnam vs Indonesia for a posting or a nomad stint, this page sets income tax, net pay, living costs, and visa routes side by side for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Indonesia or Vietnam?',
@@ -213,7 +213,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'malaysia-vs-philippines': {
     intro:
-      "Malaysia and the Philippines both offer English-friendly environments and established expat communities. Whether you’re weighing the Philippines vs Malaysia for an employer move or remote work, this page compares income tax, net pay, monthly costs, and visa options for 2025.",
+      "Malaysia and the Philippines both offer English-friendly environments and established expat communities. Whether you’re weighing the Philippines vs Malaysia for an employer move or remote work, this page compares income tax, net pay, monthly costs, and visa options for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Malaysia or the Philippines?',
@@ -235,7 +235,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'malaysia-vs-thailand': {
     intro:
-      "Malaysia and Thailand are top-tier expat hubs with strong infrastructure and international communities. Whether you’re comparing Thailand vs Malaysia for tax, lifestyle, or visa access, this page lines up income tax, take-home pay, costs, and visas for 2025.",
+      "Malaysia and Thailand are top-tier expat hubs with strong infrastructure and international communities. Whether you’re comparing Thailand vs Malaysia for tax, lifestyle, or visa access, this page lines up income tax, take-home pay, costs, and visas for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Malaysia or Thailand?',
@@ -257,7 +257,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'malaysia-vs-vietnam': {
     intro:
-      "Malaysia and Vietnam appeal to different expat priorities — polished infrastructure versus low cost and fast growth. Whether you’re weighing Vietnam vs Malaysia for a job or remote work, this page compares income tax, net pay, living costs, and visa routes for 2025.",
+      "Malaysia and Vietnam appeal to different expat priorities — polished infrastructure versus low cost and fast growth. Whether you’re weighing Vietnam vs Malaysia for a job or remote work, this page compares income tax, net pay, living costs, and visa routes for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Malaysia or Vietnam?',
@@ -279,7 +279,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'philippines-vs-thailand': {
     intro:
-      "The Philippines and Thailand are two of the most searched-for expat destinations in Southeast Asia. Whether you’re comparing Thailand vs the Philippines for tax efficiency, cost of living, or visa access, this page sets income tax, take-home pay, costs, and visas side by side for 2025.",
+      "The Philippines and Thailand are two of the most searched-for expat destinations in Southeast Asia. Whether you’re comparing Thailand vs the Philippines for tax efficiency, cost of living, or visa access, this page sets income tax, take-home pay, costs, and visas side by side for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, the Philippines or Thailand?',
@@ -301,7 +301,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'philippines-vs-vietnam': {
     intro:
-      "The Philippines and Vietnam both combine low costs with growing economies, but their tax and contribution systems are very different. Whether you’re weighing Vietnam vs the Philippines for an employer move or remote work, this page compares income tax, net pay, costs, and visas for 2025.",
+      "The Philippines and Vietnam both combine low costs with growing economies, but their tax and contribution systems are very different. Whether you’re weighing Vietnam vs the Philippines for an employer move or remote work, this page compares income tax, net pay, costs, and visas for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, the Philippines or Vietnam?',
@@ -323,7 +323,7 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
   },
   'thailand-vs-vietnam': {
     intro:
-      "Thailand and Vietnam are neighbouring heavyweights for expats and digital nomads, with very different tax structures. Whether you’re comparing Vietnam vs Thailand for tax, cost of living, or visas, this page lines up income tax, take-home pay, costs, and visa routes for 2025.",
+      "Thailand and Vietnam are neighbouring heavyweights for expats and digital nomads, with very different tax structures. Whether you’re comparing Vietnam vs Thailand for tax, cost of living, or visas, this page lines up income tax, take-home pay, costs, and visa routes for 2026.",
     faqs: [
       {
         q: 'Which has lower income tax, Thailand or Vietnam?',

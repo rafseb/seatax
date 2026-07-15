@@ -21,7 +21,7 @@ export default async function Image({
   const a = parsed ? getCountry(parsed[0]) : undefined;
   const b = parsed ? getCountry(parsed[1]) : undefined;
   return ogCard({
-    tag: 'Head-to-Head · 2025',
+    tag: 'Head-to-Head · 2026',
     title:
       a && b
         ? `${a.name} vs ${b.name}: Tax & Cost of Living`

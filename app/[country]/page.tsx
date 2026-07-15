@@ -17,10 +17,10 @@ const SEO: Record<string, {
   intro: string;
 }> = {
   philippines: {
-    title: 'Philippines Income Tax Calculator 2025 — Net Salary & TRAIN Law',
+    title: 'Philippines Income Tax Calculator 2026 — Net Salary & TRAIN Law',
     description:
-      'Free Philippines income tax calculator for 2025. Enter your gross salary to see net take-home pay after income tax (TRAIN Law brackets 0%–35%), SSS (5%), PhilHealth (2.5%), and Pag-IBIG contributions. Supports resident and expat modes.',
-    heading: 'Philippines Income Tax Calculator (2025)',
+      'Free Philippines income tax calculator for 2026. Enter your gross salary to see net take-home pay after income tax (TRAIN Law brackets 0%–35%), SSS (5%), PhilHealth (2.5%), and Pag-IBIG contributions. Supports resident and expat modes.',
+    heading: 'Philippines Income Tax Calculator (2026)',
     intro:
       'Calculate your net take-home pay under the TRAIN Law (Republic Act 10963). ' +
       'Covers income tax brackets from 0% to 35%, SSS (5%, capped at ₱35,000/month), ' +
@@ -28,51 +28,51 @@ const SEO: Record<string, {
       'Switch to expat mode for the flat 25% non-resident rate.',
   },
   thailand: {
-    title: 'Thailand Income Tax Calculator 2025 — Net Salary & PIT Brackets',
+    title: 'Thailand Income Tax Calculator 2026 — Net Salary & PIT Brackets',
     description:
-      'Free Thailand personal income tax (PIT) calculator for 2025. Enter your gross salary to see net take-home pay after PIT (0%–35%), standard deduction (50%, max ฿100,000), personal allowance (฿60,000), and Social Security Fund (SSF) contributions.',
-    heading: 'Thailand Income Tax Calculator (2025)',
+      'Free Thailand personal income tax (PIT) calculator for 2026. Enter your gross salary to see net take-home pay after PIT (0%–35%), standard deduction (50%, max ฿100,000), personal allowance (฿60,000), and Social Security Fund (SSF) contributions.',
+    heading: 'Thailand Income Tax Calculator (2026)',
     intro:
       'Calculate your net take-home pay under Thailand\'s personal income tax (PIT) system. ' +
       'Applies progressive rates from 0% to 35% on taxable income after a 50% standard deduction ' +
       '(max ฿100,000) and ฿60,000 personal allowance. ' +
-      'Includes Social Security Fund (SSF) at 5%, capped at ฿750/month. ' +
+      'Includes Social Security Fund (SSF) at 5%, capped at ฿875/month (salary ceiling ฿17,500 from January 2026). ' +
       'Non-residents pay the same progressive rates without deductions.',
   },
   vietnam: {
-    title: 'Vietnam Income Tax Calculator 2025 — Net Salary & PIT Brackets',
+    title: 'Vietnam Income Tax Calculator 2026 — Net Salary & PIT Brackets',
     description:
-      'Free Vietnam personal income tax (PIT) calculator for 2025. See net take-home pay after income tax (5%–35% monthly brackets), social insurance (8%), health insurance (1.5%), unemployment insurance (1%), and ₫11,000,000 personal deduction.',
-    heading: 'Vietnam Income Tax Calculator (2025)',
+      'Free Vietnam personal income tax (PIT) calculator for 2026. See net take-home pay under the new 5-bracket PIT law (5%–35% monthly brackets), social insurance (8%), health insurance (1.5%), unemployment insurance (1%), and the ₫15,500,000 personal deduction.',
+    heading: 'Vietnam Income Tax Calculator (2026)',
     intro:
-      'Calculate your net take-home pay under Vietnam\'s personal income tax (PIT) law. ' +
-      'Monthly progressive brackets from 5% to 35% apply after deducting social insurance (8%), ' +
-      'health insurance (1.5%), unemployment insurance (1%) — all capped at ₫36,000,000/month — ' +
-      'plus a ₫11,000,000 personal deduction. ' +
+      'Calculate your net take-home pay under Vietnam\'s amended personal income tax (PIT) law, ' +
+      'effective for the 2026 tax year. Five monthly progressive brackets from 5% to 35% apply ' +
+      'after deducting social insurance (8%) and health insurance (1.5%) — capped at ₫50,600,000/month — ' +
+      'unemployment insurance (1%), and the ₫15,500,000 personal deduction. ' +
       'Non-residents pay a flat 20% on Vietnam-sourced income.',
   },
   indonesia: {
-    title: 'Indonesia PPh 21 Tax Calculator 2025 — Net Salary & Income Tax',
+    title: 'Indonesia PPh 21 Tax Calculator 2026 — Net Salary & Income Tax',
     description:
-      'Free Indonesia PPh 21 income tax calculator for 2025. Enter your gross salary to see net take-home pay after income tax (5%–35%), PTKP non-taxable threshold (Rp54,000,000/year), BPJS Kesehatan (1%), BPJS JHT (2%), and BPJS JP (1%) pension contributions.',
-    heading: 'Indonesia Income Tax Calculator — PPh 21 (2025)',
+      'Free Indonesia PPh 21 income tax calculator for 2026. Enter your gross salary to see net take-home pay after income tax (5%–35%), PTKP non-taxable threshold (Rp54,000,000/year), BPJS Kesehatan (1%), BPJS JHT (2%), and BPJS JP (1%) pension contributions.',
+    heading: 'Indonesia Income Tax Calculator — PPh 21 (2026)',
     intro:
       'Calculate your net take-home pay under Indonesia\'s PPh 21 income tax law. ' +
       'Progressive brackets from 5% to 35% apply after subtracting the PTKP non-taxable threshold ' +
       '(Rp54,000,000/year for a single individual) and BPJS contributions: ' +
-      'Kesehatan (1%), JHT Old-Age savings (2%), and JP Pension (1%, capped at Rp10,547,400/month). ' +
+      'Kesehatan (1%), JHT Old-Age savings (2%), and JP Pension (1%, capped at Rp11,086,300/month). ' +
       'Non-residents pay a flat 20% withholding tax.',
   },
   malaysia: {
-    title: 'Malaysia Income Tax Calculator 2024 — Net Salary & EPF Contributions',
+    title: 'Malaysia Income Tax Calculator 2026 — Net Salary & EPF Contributions',
     description:
-      'Free Malaysia income tax calculator for YA 2024. Enter your gross salary to see net take-home pay after income tax (0%–30% progressive rates), EPF contributions (11%), SOCSO (0.5%, capped RM5,000/month), and EIS (0.2%). Includes personal relief (RM9,000) and EPF tax relief (up to RM4,000). Supports resident and expat modes.',
-    heading: 'Malaysia Income Tax Calculator (YA 2024)',
+      'Free Malaysia income tax calculator for YA 2026. Enter your gross salary to see net take-home pay after income tax (0%–30% progressive rates), EPF contributions (11%), SOCSO (0.5%, capped RM6,000/month), and EIS (0.2%). Includes personal relief (RM9,000) and EPF tax relief (up to RM4,000). Supports resident and expat modes.',
+    heading: 'Malaysia Income Tax Calculator (YA 2026)',
     intro:
-      'Calculate your net take-home pay under Malaysia\'s YA 2024 income tax rates. ' +
+      'Calculate your net take-home pay under Malaysia\'s YA 2026 income tax rates. ' +
       'Progressive brackets from 0% to 30% apply to chargeable income after personal relief (RM9,000) ' +
       'and EPF tax relief (up to RM4,000). Mandatory contributions: EPF at 11%, ' +
-      'SOCSO at 0.5% and EIS at 0.2% (both capped at RM5,000/month). ' +
+      'SOCSO at 0.5% and EIS at 0.2% (both capped at RM6,000/month). ' +
       'Non-residents pay a flat 30% withholding tax.',
   },
 };
@@ -80,15 +80,15 @@ const SEO: Record<string, {
 const FAQ: Record<string, { q: string; a: string }[]> = {
   philippines: [
     {
-      q: 'How is income tax calculated in the Philippines in 2025?',
+      q: 'How is income tax calculated in the Philippines in 2026?',
       a: 'Under the TRAIN Law (RA 10963), annual taxable income up to ₱250,000 is tax-free. Income from ₱250,001 to ₱400,000 is taxed at 15%; ₱400,001–₱800,000 at 20%; ₱800,001–₱2,000,000 at 25%; ₱2,000,001–₱8,000,000 at 30%; and above ₱8,000,000 at 35%.',
     },
     {
-      q: 'What is the SSS contribution rate in the Philippines for 2025?',
+      q: 'What is the SSS contribution rate in the Philippines for 2026?',
       a: 'The employee SSS contribution rate is 5% of monthly salary credit, capped at a ₱35,000 salary ceiling (max contribution ₱1,750/month).',
     },
     {
-      q: 'How much is PhilHealth contribution in 2025?',
+      q: 'How much is PhilHealth contribution in 2026?',
       a: 'PhilHealth premium is 5% of basic monthly salary, with the employee shoulder 2.5%. The salary floor is ₱10,000 and ceiling is ₱100,000.',
     },
     {
@@ -98,12 +98,12 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
   ],
   thailand: [
     {
-      q: 'How is personal income tax calculated in Thailand in 2025?',
+      q: 'How is personal income tax calculated in Thailand in 2026?',
       a: 'Thailand PIT uses progressive rates: 0% on the first ฿150,000; 5% on ฿150,001–฿300,000; 10% on ฿300,001–฿500,000; 15% on ฿500,001–฿750,000; 20% on ฿750,001–฿1,000,000; 25% on ฿1,000,001–฿2,000,000; 30% on ฿2,000,001–฿5,000,000; 35% above ฿5,000,000. Taxable income = gross income − 50% standard deduction (max ฿100,000) − ฿60,000 personal allowance.',
     },
     {
       q: 'What is the Social Security Fund (SSF) rate in Thailand?',
-      a: 'Employees contribute 5% of salary to the Social Security Fund, capped at ฿750/month (฿15,000 salary ceiling).',
+      a: 'Employees contribute 5% of salary to the Social Security Fund, capped at ฿875/month (฿17,500 salary ceiling, raised from ฿15,000 in January 2026).',
     },
     {
       q: 'What is the tax-free income threshold in Thailand?',
@@ -116,16 +116,16 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
   ],
   vietnam: [
     {
-      q: 'How is personal income tax calculated in Vietnam in 2025?',
-      a: 'Vietnam PIT applies progressive monthly brackets: 5% on ₫0–₫5M; 10% on ₫5M–₫10M; 15% on ₫10M–₫18M; 20% on ₫18M–₫32M; 25% on ₫32M–₫52M; 30% on ₫52M–₫80M; 35% above ₫80M. Taxable income = gross salary − social insurance (8%) − health insurance (1.5%) − unemployment insurance (1%) − ₫11,000,000 personal deduction.',
+      q: 'How is personal income tax calculated in Vietnam in 2026?',
+      a: 'From the 2026 tax year Vietnam PIT applies five progressive monthly brackets: 5% on ₫0–₫10M; 10% on ₫10M–₫30M; 20% on ₫30M–₫60M; 30% on ₫60M–₫100M; 35% above ₫100M. Taxable income = gross salary − social insurance (8%) − health insurance (1.5%) − unemployment insurance (1%) − ₫15,500,000 personal deduction.',
     },
     {
       q: 'What are the social insurance rates in Vietnam for employees?',
-      a: 'Employees contribute 8% for social insurance, 1.5% for health insurance, and 1% for unemployment insurance — a total of 10.5% of monthly salary, capped at 20× the base salary (₫36,000,000/month in 2025).',
+      a: 'Employees contribute 8% for social insurance, 1.5% for health insurance, and 1% for unemployment insurance — a total of 10.5% of monthly salary. SI and HI are capped at 20× the reference salary (₫50,600,000/month from July 2026); UI is capped at 20× the regional minimum wage (₫106,200,000/month in Region I).',
     },
     {
       q: 'What is the personal deduction for PIT in Vietnam?',
-      a: 'The personal deduction is ₫11,000,000 per month (₫132,000,000/year). Each dependent adds ₫4,400,000/month.',
+      a: 'From the 2026 tax year the personal deduction is ₫15,500,000 per month (₫186,000,000/year). Each dependent adds ₫6,200,000/month.',
     },
     {
       q: 'How are non-residents taxed in Vietnam?',
@@ -134,7 +134,7 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
   ],
   indonesia: [
     {
-      q: 'How is PPh 21 income tax calculated in Indonesia in 2025?',
+      q: 'How is PPh 21 income tax calculated in Indonesia in 2026?',
       a: 'Indonesia PPh 21 uses annual progressive brackets: 5% on Rp0–Rp60M; 15% on Rp60M–Rp250M; 25% on Rp250M–Rp500M; 30% on Rp500M–Rp5B; 35% above Rp5B. Taxable income = annual gross − PTKP (Rp54,000,000 for a single individual) − BPJS contributions.',
     },
     {
@@ -143,7 +143,7 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
     },
     {
       q: 'What are BPJS contribution rates in Indonesia for employees?',
-      a: 'Employees pay: BPJS Kesehatan (health) 1%; BPJS JHT (old-age savings) 2%; BPJS JP (pension) 1% capped at Rp10,547,400/month salary.',
+      a: 'Employees pay: BPJS Kesehatan (health) 1%; BPJS JHT (old-age savings) 2%; BPJS JP (pension) 1% capped at Rp11,086,300/month salary (from March 2026).',
     },
     {
       q: 'How are non-resident foreigners taxed in Indonesia?',
@@ -152,7 +152,7 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
   ],
   malaysia: [
     {
-      q: 'How is income tax calculated in Malaysia for YA 2024?',
+      q: 'How is income tax calculated in Malaysia for YA 2026?',
       a: 'Chargeable income is taxed at progressive rates: 0% up to RM5,000; 1% on RM5,001–RM20,000; 3% on RM20,001–RM35,000; 8% on RM35,001–RM50,000; 13% on RM50,001–RM70,000; 21% on RM70,001–RM100,000; 24% on RM100,001–RM400,000; 24.5% on RM400,001–RM600,000; 25% on RM600,001–RM2,000,000; 30% above RM2,000,000. Chargeable income = gross income minus personal relief (RM9,000) and other approved reliefs.',
     },
     {
@@ -161,7 +161,7 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
     },
     {
       q: 'What are SOCSO and EIS and do they apply to expats?',
-      a: 'SOCSO (Social Security Organisation) provides work injury and invalidity coverage at 0.5% employee contribution, capped at RM5,000/month salary. EIS (Employment Insurance System) provides unemployment benefits at 0.2%, also capped at RM5,000/month. Both generally apply to Employment Pass holders working for Malaysian employers. Neither is deductible for income tax purposes.',
+      a: 'SOCSO (Social Security Organisation) provides work injury and invalidity coverage at 0.5% employee contribution, capped at RM6,000/month salary. EIS (Employment Insurance System) provides unemployment benefits at 0.2%, also capped at RM6,000/month. Both generally apply to Employment Pass holders working for Malaysian employers. Neither is deductible for income tax purposes.',
     },
     {
       q: 'What is the tax rate for non-residents in Malaysia?',
@@ -193,7 +193,7 @@ const GUIDE: Record<string, { sections: { heading: string; body: string }[]; art
     sections: [
       {
         heading: 'Understanding Your Results',
-        body: 'The calculator deducts the Social Security Fund (SSF) contribution (5%, capped at ฿750/month) from your gross salary, then applies the 50% employment income deduction (max ฿100,000 per year) and the ฿60,000 personal allowance to arrive at taxable income. The resulting amount is taxed at progressive PIT rates from 0% to 35%. Your effective tax rate is the percentage of total income tax relative to your gross salary — this is typically much lower than the marginal rate for most income levels, because the lower brackets apply to the first portions of your income.',
+        body: 'The calculator deducts the Social Security Fund (SSF) contribution (5%, capped at ฿875/month) from your gross salary, then applies the 50% employment income deduction (max ฿100,000 per year) and the ฿60,000 personal allowance to arrive at taxable income. The resulting amount is taxed at progressive PIT rates from 0% to 35%. Your effective tax rate is the percentage of total income tax relative to your gross salary — this is typically much lower than the marginal rate for most income levels, because the lower brackets apply to the first portions of your income.',
       },
       {
         heading: 'For Expats & Remote Workers',
@@ -210,7 +210,7 @@ const GUIDE: Record<string, { sections: { heading: string; body: string }[]; art
     sections: [
       {
         heading: 'Understanding Your Results',
-        body: 'Vietnam\'s PIT system deducts mandatory insurance contributions from your gross salary before applying the personal deduction and progressive tax brackets. Social insurance (8%), health insurance (1.5%), and unemployment insurance (1%) are calculated on your salary, capped at ₫36,000,000/month. After deducting these contributions and the ₫11,000,000 personal deduction, the remaining taxable income is subject to monthly progressive brackets from 5% to 35%. The result is your net take-home pay in Vietnamese Dong. Use the currency converter to see this in USD or EUR.',
+        body: 'Vietnam\'s PIT system deducts mandatory insurance contributions from your gross salary before applying the personal deduction and progressive tax brackets. Social insurance (8%) and health insurance (1.5%) are calculated on your salary capped at ₫50,600,000/month, and unemployment insurance (1%) on salary capped at ₫106,200,000/month. After deducting these contributions and the ₫15,500,000 personal deduction, the remaining taxable income is subject to the five monthly progressive brackets (5% to 35%) of the 2026 PIT law. The result is your net take-home pay in Vietnamese Dong. Use the currency converter to see this in USD or EUR.',
       },
       {
         heading: 'For Expats & Remote Workers',
@@ -244,7 +244,7 @@ const GUIDE: Record<string, { sections: { heading: string; body: string }[]; art
     sections: [
       {
         heading: 'Understanding Your Results',
-        body: 'The calculator applies YA 2024 progressive brackets (0%–30%) to your chargeable income — that is, gross salary minus personal relief (RM9,000), EPF tax relief (up to RM4,000), and any spouse or child reliefs you have entered. EPF (11%), SOCSO (0.5%), and EIS (0.2%) are shown as separate contribution line items. Note that only EPF reduces your taxable income; SOCSO and EIS are not tax-deductible. Your effective tax rate is total deductions (tax + contributions) divided by gross salary.',
+        body: 'The calculator applies YA 2026 progressive brackets (0%–30%) to your chargeable income — that is, gross salary minus personal relief (RM9,000), EPF tax relief (up to RM4,000), and any spouse or child reliefs you have entered. EPF (11%), SOCSO (0.5%), and EIS (0.2%) are shown as separate contribution line items. Note that only EPF reduces your taxable income; SOCSO and EIS are not tax-deductible. Your effective tax rate is total deductions (tax + contributions) divided by gross salary.',
       },
       {
         heading: 'For Expats & Remote Workers',

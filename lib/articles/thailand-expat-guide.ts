@@ -21,7 +21,7 @@ The practical implication: if you spend more than 180 days in Thailand, you shou
     },
     {
       heading: 'Personal Income Tax for Non-Residents and Residents',
-      body: `Thailand's Personal Income Tax (PIT) uses progressive brackets that apply to both residents and non-residents earning Thailand-sourced income. For 2025, the brackets are as follows: the first ฿150,000 of net taxable income is exempt. Income from ฿150,001 to ฿300,000 is taxed at 5%. From ฿300,001 to ฿500,000, the rate is 10%. From ฿500,001 to ฿750,000, it is 15%. From ฿750,001 to ฿1,000,000, the rate is 20%. From ฿1,000,001 to ฿2,000,000, the rate is 25%. From ฿2,000,001 to ฿5,000,000, the rate is 30%. Income above ฿5,000,000 is taxed at 35%.
+      body: `Thailand's Personal Income Tax (PIT) uses progressive brackets that apply to both residents and non-residents earning Thailand-sourced income. For 2026, the brackets are as follows: the first ฿150,000 of net taxable income is exempt. Income from ฿150,001 to ฿300,000 is taxed at 5%. From ฿300,001 to ฿500,000, the rate is 10%. From ฿500,001 to ฿750,000, it is 15%. From ฿750,001 to ฿1,000,000, the rate is 20%. From ฿1,000,001 to ฿2,000,000, the rate is 25%. From ฿2,000,001 to ฿5,000,000, the rate is 30%. Income above ฿5,000,000 is taxed at 35%.
 
 For tax residents, taxable income is calculated after applying a 50% employment income deduction (capped at ฿100,000) and a personal allowance of ฿60,000. This means a resident employee earning ฿310,000/year effectively pays zero income tax after these deductions.
 
@@ -33,7 +33,7 @@ Thailand has tax treaties with over 60 countries. If your home country has a tre
       heading: 'Social Security Fund for Foreign Workers',
       body: `Thailand's Social Security Fund (SSF), governed by the Social Security Office (SSO), provides coverage for illness, maternity, disability, death, child allowance, old age pension, and unemployment benefits. Foreign nationals employed in Thailand under a work permit are required to enroll in the SSF.
 
-The employee contribution rate for 2025 is 5% of monthly salary, with a salary cap of ฿15,000/month — meaning the maximum employee deduction is ฿750/month, regardless of your actual salary. Employers contribute an equal 5%. The total combined contribution funds your SSF account and entitles you to the benefits listed above during your employment in Thailand.
+The employee contribution rate for 2026 is 5% of monthly salary, with a salary cap of ฿17,500/month (raised from ฿15,000 in January 2026) — meaning the maximum employee deduction is ฿875/month, regardless of your actual salary. Employers contribute an equal 5%. The total combined contribution funds your SSF account and entitles you to the benefits listed above during your employment in Thailand.
 
 One important consideration for expats: the pension benefits accumulated in the SSF during your Thai employment are portable. Upon leaving Thailand permanently, you can apply to receive a lump-sum refund of your contributions (both employee and employer portions, depending on your years of service). The process requires filing Form SSO 6-09 with your local Social Security Office before departing.
 
