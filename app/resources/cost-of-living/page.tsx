@@ -5,7 +5,7 @@ import { COUNTRIES } from '@/lib/countries';
 import CostComparisonTable from '@/components/CostComparisonTable';
 
 export const metadata: Metadata = {
-  title: 'Cost of Living in Southeast Asia — Expat Comparison 2025',
+  title: 'Cost of Living in Southeast Asia — Expat Comparison 2026',
   description:
     'Side-by-side monthly cost estimates for expats and digital nomads across 5 SEA countries. Housing, food, transport, and lifestyle costs in USD.',
   alternates: {

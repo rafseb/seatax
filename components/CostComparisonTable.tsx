@@ -149,7 +149,7 @@ export default function CostComparisonTable({ data, countries }: Props) {
       </div>
 
       <p className="mt-4 text-xs" style={{ color: 'var(--forest-400)' }}>
-        All figures are approximate USD equivalents based on mid-2025 exchange rates. Costs vary
+        All figures are approximate USD equivalents based on mid-2026 exchange rates. Costs vary
         significantly by neighbourhood and lifestyle.
       </p>
     </div>

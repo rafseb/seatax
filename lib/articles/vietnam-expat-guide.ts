@@ -2,9 +2,9 @@ import type { Article } from './types';
 
 const article: Article = {
   slug: 'working-in-vietnam-as-an-expat',
-  title: 'Working in Vietnam as an Expat: Tax Guide 2025',
+  title: 'Working in Vietnam as an Expat: Tax Guide 2026',
   description:
-    'Complete guide to Vietnam personal income tax (PIT), the 183-day residency rule, compulsory social insurance for expats since 2018, PIT registration and filing, and remote work considerations for 2025.',
+    'Complete guide to Vietnam personal income tax (PIT), the 183-day residency rule, compulsory social insurance for expats since 2018, PIT registration and filing, and remote work considerations for 2026.',
   country: 'vietnam',
   publishDate: '2025-01-15',
   category: 'tax-guide',

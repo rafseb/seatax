@@ -2,9 +2,9 @@ import type { Article } from './types';
 
 const article: Article = {
   slug: 'working-in-indonesia-as-an-expat',
-  title: 'Working in Indonesia as an Expat: Tax Guide 2025',
+  title: 'Working in Indonesia as an Expat: Tax Guide 2026',
   description:
-    'Complete guide to Indonesia PPh 21 income tax for foreigners, the 183-day residency rule, BPJS contributions, NPWP tax registration, KITAS work visa, and remote work considerations for 2025.',
+    'Complete guide to Indonesia PPh 21 income tax for foreigners, the 183-day residency rule, BPJS contributions, NPWP tax registration, KITAS work visa, and remote work considerations for 2026.',
   country: 'indonesia',
   publishDate: '2025-01-15',
   category: 'tax-guide',
@@ -23,7 +23,7 @@ Indonesia has signed double tax avoidance agreements (P3B) with approximately 70
       heading: 'PPh 21 Income Tax for Foreign Workers',
       body: `Income tax withheld from employees in Indonesia is governed by Article 21 of the Income Tax Law, commonly known as PPh 21. For tax residents, PPh 21 applies progressive annual brackets to taxable income after subtracting the PTKP (non-taxable income threshold) and certain deductions.
 
-For 2025, the PTKP for a single individual with no dependents is Rp54,000,000/year. A married individual receives an additional Rp4,500,000/year, and each dependent adds another Rp4,500,000/year (up to three dependents).
+For 2026, the PTKP for a single individual with no dependents is Rp54,000,000/year. A married individual receives an additional Rp4,500,000/year, and each dependent adds another Rp4,500,000/year (up to three dependents).
 
 After subtracting the PTKP, the remaining net income is taxed at progressive rates: 5% on annual net taxable income up to Rp60,000,000; 15% on Rp60,000,001–Rp250,000,000; 25% on Rp250,000,001–Rp500,000,000; 30% on Rp500,000,001–Rp5,000,000,000; and 35% on income above Rp5,000,000,000.
 
@@ -85,7 +85,7 @@ The Indonesian Rupiah (IDR) trades at approximately Rp15,000–Rp16,500 per US D
     },
     {
       q: 'What is PTKP and how does it affect foreign workers?',
-      a: 'PTKP (Penghasilan Tidak Kena Pajak) is the non-taxable income threshold. For a single individual in 2025, it is Rp54,000,000/year. Tax residents subtract PTKP before applying progressive brackets. Non-residents are not entitled to PTKP and pay a flat 20% on gross income.',
+      a: 'PTKP (Penghasilan Tidak Kena Pajak) is the non-taxable income threshold. For a single individual in 2026, it is Rp54,000,000/year. Tax residents subtract PTKP before applying progressive brackets. Non-residents are not entitled to PTKP and pay a flat 20% on gross income.',
     },
     {
       q: 'Can foreign workers claim BPJS contributions back when leaving Indonesia?',

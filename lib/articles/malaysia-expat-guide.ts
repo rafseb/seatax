@@ -2,9 +2,9 @@ import type { Article } from './types';
 
 const article: Article = {
   slug: 'working-in-malaysia-as-an-expat',
-  title: 'Working in Malaysia as an Expat: Tax Guide 2024',
+  title: 'Working in Malaysia as an Expat: Tax Guide 2026',
   description:
-    'Complete guide to Malaysia income tax for foreigners, the 182-day residency rule, EPF, SOCSO and EIS contributions, tax reliefs and deductions, MyTax registration, and cost of living in Kuala Lumpur for 2024.',
+    'Complete guide to Malaysia income tax for foreigners, the 182-day residency rule, EPF, SOCSO and EIS contributions, tax reliefs and deductions, MyTax registration, and cost of living in Kuala Lumpur for 2026.',
   country: 'malaysia',
   publishDate: '2025-01-15',
   category: 'tax-guide',
@@ -22,8 +22,8 @@ Non-residents — those present for fewer than 182 days — are taxed at a flat 
 Malaysia has double taxation agreements (DTAs) with over 70 countries. If your home country has a DTA with Malaysia, you may be entitled to exemptions or reduced withholding rates on certain income types. Claiming DTA benefits typically requires a Certificate of Tax Residence from your home country's tax authority.`,
     },
     {
-      heading: 'Income Tax for Employees (YA 2024 Rates)',
-      body: `Individual income tax in Malaysia is assessed on a Year of Assessment (YA) basis corresponding to the calendar year. For resident employees, the progressive tax brackets for YA 2024 apply to chargeable income — that is, gross employment income minus approved deductions and personal reliefs.
+      heading: 'Income Tax for Employees (YA 2026 Rates)',
+      body: `Individual income tax in Malaysia is assessed on a Year of Assessment (YA) basis corresponding to the calendar year. For resident employees, the progressive tax brackets for YA 2026 apply to chargeable income — that is, gross employment income minus approved deductions and personal reliefs.
 
 The YA 2026 tax brackets for residents (unchanged since YA 2024) are: 0% on the first RM5,000; 1% on RM5,001–RM20,000; 3% on RM20,001–RM35,000; 8% on RM35,001–RM50,000; 13% on RM50,001–RM70,000; 21% on RM70,001–RM100,000; 24% on RM100,001–RM400,000; 24.5% on RM400,001–RM600,000; 25% on RM600,001–RM2,000,000; and 30% on income above RM2,000,000.
 

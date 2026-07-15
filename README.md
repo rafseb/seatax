@@ -21,11 +21,11 @@ A net salary calculator for Southeast Asian countries. Enter your gross salary a
 - Visual donut chart breakdown of take-home vs. deductions
 - Expandable tax rate reference panel per country
 
-## Tax Data (2024/2025)
+## Tax Data (2025/2026)
 
 ### Philippines
 - Income tax: TRAIN Law brackets (0%–35%)
-- SSS: 5% employee, capped at Php 35,000/month MSC (2025)
+- SSS: 5% employee, capped at Php 35,000/month MSC (2026)
 - PhilHealth: 2.5% employee, min Php 500, max Php 2,500/month
 - Pag-IBIG: 2% employee, max Php 200/month
 - Expats: flat 25% on gross Philippine-sourced income
@@ -49,7 +49,7 @@ A net salary calculator for Southeast Asian countries. Enter your gross salary a
 - PTKP (non-taxable threshold): Rp 54,000,000/year (single)
 - BPJS Kesehatan: 1%, capped at Rp 12,000,000/month
 - BPJS JHT (Old-Age): 2%, no cap
-- BPJS JP (Pension): 1%, capped at Rp 10,547,400/month (2025)
+- BPJS JP (Pension): 1%, capped at Rp 10,547,400/month (2026)
 - Expats: flat 20% withholding, no BPJS/PTKP
 
 ## Tech Stack
@@ -70,4 +70,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Disclaimer
 
-This tool is for illustrative purposes only. Tax rules are complex and change frequently. Always consult a qualified tax professional before making financial decisions. Rates reflect 2024/2025 regulations to the best of our knowledge.
+This tool is for illustrative purposes only. Tax rules are complex and change frequently. Always consult a qualified tax professional before making financial decisions. Rates reflect 2025/2026 regulations to the best of our knowledge.

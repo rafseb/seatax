@@ -2,9 +2,9 @@ import type { Article } from './types';
 
 const article: Article = {
   slug: 'working-in-the-philippines-as-an-expat',
-  title: 'Working in the Philippines as an Expat: Tax Guide 2025',
+  title: 'Working in the Philippines as an Expat: Tax Guide 2026',
   description:
-    'Complete guide to income tax, BIR registration, SSS/PhilHealth/Pag-IBIG contributions, and practical tips for expats and remote workers living in the Philippines in 2025.',
+    'Complete guide to income tax, BIR registration, SSS/PhilHealth/Pag-IBIG contributions, and practical tips for expats and remote workers living in the Philippines in 2026.',
   country: 'philippines',
   publishDate: '2025-01-15',
   category: 'tax-guide',
@@ -25,7 +25,7 @@ The key practical takeaway: once you pass the 180-day mark in the Philippines in
       heading: 'TRAIN Law Income Tax Brackets for Foreigners',
       body: `The Tax Reform for Acceleration and Inclusion (TRAIN) Law, in effect since 2018, governs individual income tax rates in the Philippines. Resident aliens and non-resident aliens engaged in trade or business are subject to the same TRAIN Law brackets as Filipino citizens.
 
-For the 2025 tax year, annual taxable income is taxed as follows: the first ₱250,000 is completely tax-free. Income from ₱250,001 to ₱400,000 is taxed at 15% on the excess over ₱250,000. From ₱400,001 to ₱800,000, the rate is 20% on the excess, plus a fixed ₱22,500. From ₱800,001 to ₱2,000,000, the rate is 25% on the excess plus ₱102,500. From ₱2,000,001 to ₱8,000,000, the rate is 30% on the excess plus ₱402,500. Income above ₱8,000,000 is taxed at 35% on the excess plus ₱2,202,500.
+For the 2026 tax year, annual taxable income is taxed as follows: the first ₱250,000 is completely tax-free. Income from ₱250,001 to ₱400,000 is taxed at 15% on the excess over ₱250,000. From ₱400,001 to ₱800,000, the rate is 20% on the excess, plus a fixed ₱22,500. From ₱800,001 to ₱2,000,000, the rate is 25% on the excess plus ₱102,500. From ₱2,000,001 to ₱8,000,000, the rate is 30% on the excess plus ₱402,500. Income above ₱8,000,000 is taxed at 35% on the excess plus ₱2,202,500.
 
 For non-resident aliens not engaged in trade or business (under 180 days), the flat 25% rate applies to gross income without any deductions — meaning you pay tax on the full amount of Philippines-sourced income, not just the portion above ₱250,000.
 
@@ -35,7 +35,7 @@ Expats who qualify under certain tax treaties may be able to claim reduced rates
       heading: 'SSS, PhilHealth, and Pag-IBIG for Expats',
       body: `Foreign nationals working in the Philippines under an employment arrangement are generally required to contribute to the three mandatory social contribution programs: the Social Security System (SSS), PhilHealth, and Pag-IBIG (HDMF).
 
-SSS covers private-sector employees for sickness, maternity, disability, retirement, and death benefits. The employee contribution rate for 2025 is 5% of monthly salary credit, capped at a ₱35,000 salary ceiling — meaning the maximum employee contribution is ₱1,750 per month. Your employer contributes a matching amount on top.
+SSS covers private-sector employees for sickness, maternity, disability, retirement, and death benefits. The employee contribution rate for 2026 is 5% of monthly salary credit, capped at a ₱35,000 salary ceiling — meaning the maximum employee contribution is ₱1,750 per month. Your employer contributes a matching amount on top.
 
 PhilHealth provides basic health insurance coverage. The 2026 premium rate is 5% of basic monthly salary, split equally between employee and employer at 2.5% each. The salary floor is ₱10,000/month and the ceiling is ₱100,000/month, so the maximum employee contribution is ₱2,500/month.
 

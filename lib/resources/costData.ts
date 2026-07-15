@@ -64,7 +64,7 @@ export const COST_DATA: CountryCostData[] = [
   {
     country: 'philippines',
     city: 'Metro Manila (BGC / Makati)',
-    lastReviewed: '2025-07-01',
+    lastReviewed: '2026-07-15',
     costs: philippinesCosts,
     notes:
       'Mid-range prices reflect Makati CBD; expat prices reflect BGC and Rockwell, which command a significant premium over local neighbourhoods in Quezon City and Pasig.',
@@ -72,7 +72,7 @@ export const COST_DATA: CountryCostData[] = [
   {
     country: 'thailand',
     city: 'Bangkok',
-    lastReviewed: '2025-07-01',
+    lastReviewed: '2026-07-15',
     costs: thailandCosts,
     notes:
       'Mid-range prices reflect the Sukhumvit and Silom corridors; expat prices reflect prime areas such as Thonglor, Ekkamai, and Sathorn.',
@@ -80,7 +80,7 @@ export const COST_DATA: CountryCostData[] = [
   {
     country: 'vietnam',
     city: 'Ho Chi Minh City (Saigon)',
-    lastReviewed: '2025-07-01',
+    lastReviewed: '2026-07-15',
     costs: vietnamCosts,
     notes:
       'Mid-range prices reflect Districts 2 and 7 (Thao Dien, Phu My Hung); expat prices reflect serviced apartments in District 1 and the Binh Thanh expat enclave.',
@@ -88,7 +88,7 @@ export const COST_DATA: CountryCostData[] = [
   {
     country: 'indonesia',
     city: 'Jakarta',
-    lastReviewed: '2025-07-01',
+    lastReviewed: '2026-07-15',
     costs: indonesiaCosts,
     notes:
       'Mid-range prices reflect South Jakarta (Kemang, Cilandak); expat prices reflect the SCBD, Sudirman, and Kuningan CBD corridor.',
@@ -96,7 +96,7 @@ export const COST_DATA: CountryCostData[] = [
   {
     country: 'malaysia',
     city: 'Kuala Lumpur',
-    lastReviewed: '2025-07-01',
+    lastReviewed: '2026-07-15',
     costs: malaysiaCosts,
     notes:
       "Mid-range prices reflect Mont Kiara and Chow Kit fringe areas; expat prices reflect the KLCC, Bangsar, and Damansara Heights corridor.",

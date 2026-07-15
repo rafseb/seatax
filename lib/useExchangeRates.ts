@@ -15,7 +15,7 @@ export interface ExchangeRates {
 const CACHE_KEY = 'sea-tax-rates';
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
 
-// Fallback rates relative to USD (approximate as of 2025)
+// Fallback rates relative to USD (approximate as of 2026)
 const FALLBACK_RATES: Record<string, number> = {
   USD: 1,
   PHP: 56.5,

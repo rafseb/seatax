@@ -2,9 +2,9 @@ import type { Article } from './types';
 
 const article: Article = {
   slug: 'working-in-thailand-as-an-expat',
-  title: 'Working in Thailand as an Expat: Tax Guide 2025',
+  title: 'Working in Thailand as an Expat: Tax Guide 2026',
   description:
-    'Complete guide to Thailand personal income tax (PIT), the 180-day residency rule, Social Security Fund, work permit requirements, TIN registration, and tips for remote workers on a Thai Elite Visa in 2025.',
+    'Complete guide to Thailand personal income tax (PIT), the 180-day residency rule, Social Security Fund, work permit requirements, TIN registration, and tips for remote workers on a Thai Elite Visa in 2026.',
   country: 'thailand',
   publishDate: '2025-01-15',
   category: 'tax-guide',
