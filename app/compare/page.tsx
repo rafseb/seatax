@@ -1,14 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getCountry } from '@/lib/countries';
 import { CANONICAL_PAIRS, pairSlug } from '@/lib/comparisons';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Compare Southeast Asia: Tax & Cost of Living by Country',
   description:
     'Side-by-side comparisons of income tax, take-home pay, cost of living, and visas for every pair of Southeast Asian countries — Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
-  alternates: { canonical: 'https://rafseb.github.io/seatax/compare' },
-};
+  path: '/compare',
+});
 
 const cardStyle = {
   background: 'var(--forest-800)',

@@ -1,16 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES } from '@/lib/articles';
 import { COUNTRIES } from '@/lib/countries';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'SEA Expat Resources — Visas, Cost of Living & Guides',
   description:
     'Complete resource hub for expats and digital nomads in Southeast Asia. Visa guides, cost of living data, banking tips, and tax calculators for Philippines, Thailand, Vietnam, Indonesia and Malaysia.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources',
-  },
-};
+  path: '/resources',
+});
 
 const TOOLS: {
   icon: string;

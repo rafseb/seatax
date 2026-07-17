@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ARTICLES, getArticle } from '@/lib/articles';
 import { COUNTRIES } from '@/lib/countries';
 import ArticleBody from '@/components/ArticleBody';
+import { breadcrumbList } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -30,6 +31,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: article.description,
       type: 'article',
       publishedTime: article.publishDate,
+      url: `/resources/guides/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
     },
   };
 }
@@ -62,11 +69,21 @@ export default async function ResourceGuideArticlePage({ params }: Props) {
     })),
   };
 
+  const breadcrumbLd = breadcrumbList([
+    { name: 'Resources', path: '/resources' },
+    { name: 'Guides', path: '/resources/guides' },
+    { name: article.title, path: `/resources/guides/${article.slug}` },
+  ]);
+
   return (
     <div className="max-w-3xl mx-auto">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {article.faqs.length > 0 && (
         <script

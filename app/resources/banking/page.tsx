@@ -1,16 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import type { ArticleSection } from '@/lib/articles/types';
 import ArticleBody from '@/components/ArticleBody';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Banking Guide for Expats in Southeast Asia',
   description:
     'How to open a bank account as a foreigner in SEA, move money internationally with low fees, and manage finances as an expat in Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/banking',
-  },
-};
+  path: '/resources/banking',
+});
 
 const SECTIONS: ArticleSection[] = [
   {

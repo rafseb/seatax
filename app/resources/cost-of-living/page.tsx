@@ -1,17 +1,15 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { COST_DATA } from '@/lib/resources/costData';
 import { COUNTRIES } from '@/lib/countries';
 import CostComparisonTable from '@/components/CostComparisonTable';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Cost of Living in Southeast Asia — Expat Comparison 2026',
   description:
     'Side-by-side monthly cost estimates for expats and digital nomads across 5 SEA countries. Housing, food, transport, and lifestyle costs in USD.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/cost-of-living',
-  },
-};
+  path: '/resources/cost-of-living',
+});
 
 export default function CostOfLivingPage() {
   const costCountries = COUNTRIES.filter((c) => COST_DATA.some((d) => d.country === c.slug));

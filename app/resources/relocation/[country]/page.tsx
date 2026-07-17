@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { COUNTRIES } from '@/lib/countries';
+import { pageMetadata, breadcrumbList } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ country: string }>;
@@ -17,13 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { country: slug } = await params;
   const country = COUNTRIES.find((c) => c.slug === slug);
   if (!country) return {};
-  return {
+  return pageMetadata({
     title: `Relocating to ${country.name} — Expat Checklist`,
     description: `A step-by-step overview of the key tasks when relocating to ${country.name} as an expat — visa, banking, tax registration, health insurance, and more.`,
-    alternates: {
-      canonical: `https://rafseb.github.io/seatax/resources/relocation/${slug}`,
-    },
-  };
+    path: `/resources/relocation/${slug}`,
+  });
 }
 
 interface ChecklistSection {
@@ -465,8 +464,18 @@ export default async function RelocationCountryPage({ params }: Props) {
   const checklist = CHECKLISTS[slug];
   if (!checklist) notFound();
 
+  const breadcrumbLd = breadcrumbList([
+    { name: 'Resources', path: '/resources' },
+    { name: 'Relocation', path: '/resources/relocation' },
+    { name: country.name, path: `/resources/relocation/${slug}` },
+  ]);
+
   return (
     <div className="max-w-3xl mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <div className="mb-4">
         <Link href="/resources/relocation" className="text-sm nav-link">
           ← Relocation Checklists

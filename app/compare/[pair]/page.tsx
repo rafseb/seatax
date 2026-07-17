@@ -14,8 +14,7 @@ import {
   monthlyBasketUSD,
 } from '@/lib/comparisons';
 import CompareView from '@/components/CompareView';
-
-const BASE_URL = 'https://rafseb.github.io/seatax';
+import { BASE_URL, breadcrumbList } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ pair: string }>;
@@ -85,15 +84,10 @@ export default async function ComparePage({ params }: Props) {
     (v) => v.category === 'employment' || v.category === 'digital-nomad',
   );
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${BASE_URL}/compare` },
-      { '@type': 'ListItem', position: 3, name: `${a.name} vs ${b.name}`, item: `${BASE_URL}/compare/${pair}` },
-    ],
-  };
+  const breadcrumbLd = breadcrumbList([
+    { name: 'Compare', path: '/compare' },
+    { name: `${a.name} vs ${b.name}`, path: `/compare/${pair}` },
+  ]);
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

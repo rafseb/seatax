@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import CountrySwitcher from "@/components/CountrySwitcher";
+import { COUNTRIES } from "@/lib/countries";
 import ConsentBanner from "@/components/ConsentBanner";
 import AdSenseLoader from "@/components/AdSenseLoader";
 import GoatCounterAnalytics from "@/components/GoatCounterAnalytics";
@@ -94,9 +95,56 @@ export default function RootLayout({
           </div>
         </header>
         <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
-        <footer className="max-w-5xl mx-auto px-4 py-6 text-center text-xs" style={{ color: 'var(--forest-400)' }}>
-          For illustrative purposes only. Consult a qualified tax professional
-          before making financial decisions. Tax rates reflect 2026 regulations.
+        <footer className="border-t mt-8" style={{ borderColor: 'var(--forest-700)' }}>
+          <div className="max-w-5xl mx-auto px-4 py-8">
+            <div className="grid gap-8 sm:grid-cols-3 mb-8 text-sm">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[3px] mb-3" style={{ color: 'var(--gold-500)' }}>
+                  Tax Calculators
+                </p>
+                <ul className="space-y-2">
+                  {COUNTRIES.map((country) => (
+                    <li key={country.slug}>
+                      <Link href={`/${country.slug}`} className="nav-link">
+                        {country.flag} {country.name} Tax Calculator
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link href="/compare" className="nav-link">
+                      ⚖️ Compare Countries
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[3px] mb-3" style={{ color: 'var(--gold-500)' }}>
+                  Expat Resources
+                </p>
+                <ul className="space-y-2">
+                  <li><Link href="/resources" className="nav-link">Resource Hub</Link></li>
+                  <li><Link href="/resources/guides" className="nav-link">Country Tax Guides</Link></li>
+                  <li><Link href="/resources/visas" className="nav-link">Visa Options</Link></li>
+                  <li><Link href="/resources/cost-of-living" className="nav-link">Cost of Living</Link></li>
+                  <li><Link href="/resources/relocation" className="nav-link">Relocation Checklists</Link></li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[3px] mb-3" style={{ color: 'var(--gold-500)' }}>
+                  Guides
+                </p>
+                <ul className="space-y-2">
+                  <li><Link href="/resources/banking" className="nav-link">Banking &amp; Money</Link></li>
+                  <li><Link href="/resources/health-insurance" className="nav-link">Health Insurance</Link></li>
+                  <li><Link href="/resources/digital-nomad" className="nav-link">Digital Nomad Hub</Link></li>
+                </ul>
+              </div>
+            </div>
+            <p className="text-center text-xs" style={{ color: 'var(--forest-400)' }}>
+              For illustrative purposes only. Consult a qualified tax professional
+              before making financial decisions. Tax rates reflect 2026 regulations.
+            </p>
+          </div>
         </footer>
         <ConsentBanner />
       </body>

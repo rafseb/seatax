@@ -23,13 +23,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: article.title,
     description: article.description,
     alternates: {
-      canonical: `https://rafseb.github.io/seatax/blog/${slug}`,
+      // Canonical points to the /resources/guides/ version — the same article
+      // is served there and these legacy URLs exist only for link continuity.
+      canonical: `https://rafseb.github.io/seatax/resources/guides/${slug}`,
     },
     openGraph: {
       title: article.title,
       description: article.description,
       type: 'article',
       publishedTime: article.publishDate,
+      url: `/blog/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
     },
   };
 }

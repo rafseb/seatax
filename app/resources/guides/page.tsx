@@ -1,17 +1,15 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES } from '@/lib/articles';
 import type { Article, ArticleCategory } from '@/lib/articles/types';
 import { COUNTRIES } from '@/lib/countries';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'SEA Tax Guides — Expat & Remote Work Guides',
   description:
     'Expert guides for expats and remote workers on income tax, social contributions, visa requirements, city living, and cost of living in the Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/guides',
-  },
-};
+  path: '/resources/guides',
+});
 
 const cardStyle = {
   background: 'var(--forest-800)',

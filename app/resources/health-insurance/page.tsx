@@ -1,14 +1,12 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Health Insurance for Expats in SEA',
   description:
     'Guide to health insurance for expats in Southeast Asia — mandatory coverage requirements, recommended providers, and policy comparison tips for Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/health-insurance',
-  },
-};
+  path: '/resources/health-insurance',
+});
 
 const sectionHeadingStyle = { color: 'var(--cream)' };
 const bodyTextStyle = { color: 'var(--forest-300)' };

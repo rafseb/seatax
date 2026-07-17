@@ -1,16 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { COUNTRIES } from '@/lib/countries';
 import { VISA_DATA } from '@/lib/resources/visaData';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Visa Options in Southeast Asia — Expat Guide',
   description:
     'Explore visa types for tourists, remote workers, retirees, and professionals across Southeast Asia. Filter by category to find the right visa for your situation.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/visas',
-  },
-};
+  path: '/resources/visas',
+});
 
 const cardStyle = {
   background: 'var(--forest-800)',

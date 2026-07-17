@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { COUNTRIES } from '@/lib/countries';
 import { getVisaData } from '@/lib/resources/visaData';
+import { pageMetadata, breadcrumbList } from '@/lib/seo';
 import VisaTable from '@/components/VisaTable';
 
 interface Props {
@@ -19,13 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { country: slug } = await params;
   const country = COUNTRIES.find((c) => c.slug === slug);
   if (!country) return {};
-  return {
+  return pageMetadata({
     title: `Visa Options in ${country.name} — Expat & Nomad Guide`,
     description: `Complete guide to visa types in ${country.name} for tourists, digital nomads, retirees, and professionals. Filterable by category.`,
-    alternates: {
-      canonical: `https://rafseb.github.io/seatax/resources/visas/${slug}`,
-    },
-  };
+    path: `/resources/visas/${slug}`,
+  });
 }
 
 export default async function VisaCountryPage({ params }: Props) {
@@ -47,6 +46,12 @@ export default async function VisaCountryPage({ params }: Props) {
     })),
   };
 
+  const breadcrumbLd = breadcrumbList([
+    { name: 'Resources', path: '/resources' },
+    { name: 'Visas', path: '/resources/visas' },
+    { name: country.name, path: `/resources/visas/${slug}` },
+  ]);
+
   const lastReviewedLabel = new Date(visaData.lastReviewed).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -57,6 +62,10 @@ export default async function VisaCountryPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <div className="mb-4">

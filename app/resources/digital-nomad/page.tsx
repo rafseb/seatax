@@ -1,14 +1,12 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Digital Nomad Guide to Southeast Asia',
   description:
     'Everything digital nomads need to know about living and working remotely in Southeast Asia — visa options, co-working spaces, internet quality, and nomad communities.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/digital-nomad',
-  },
-};
+  path: '/resources/digital-nomad',
+});
 
 const bodyTextStyle = { color: 'var(--forest-300)' };
 const headingStyle = { color: 'var(--cream)' };

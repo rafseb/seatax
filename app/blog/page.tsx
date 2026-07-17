@@ -1,16 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES } from '@/lib/articles';
 import { COUNTRIES } from '@/lib/countries';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'SEA Tax Guides — Expat & Remote Work Guides',
   description:
     'Expert guides for expats and remote workers on income tax, social contributions, visa requirements, and cost of living in the Philippines, Thailand, Vietnam, and Indonesia.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/blog',
-  },
-};
+  path: '/blog',
+});
 
 export default function BlogPage() {
   return (

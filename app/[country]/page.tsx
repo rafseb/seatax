@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCountry, COUNTRIES } from "@/lib/countries";
+import { breadcrumbList } from "@/lib/seo";
 import TaxCalculator from "@/components/TaxCalculator";
 
 const BASE_URL = 'https://rafseb.github.io/seatax';
@@ -95,6 +96,22 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
       q: 'What is the Pag-IBIG contribution rate?',
       a: 'Employees contribute 2% of monthly compensation to Pag-IBIG, capped at ₱200/month (₱10,000 salary ceiling).',
     },
+    {
+      q: 'What salary is tax-free in the Philippines?',
+      a: 'Annual taxable income up to ₱250,000 — roughly ₱20,833 per month — is completely exempt from income tax under the TRAIN Law. Because mandatory SSS, PhilHealth, and Pag-IBIG contributions are excluded from taxable income, a slightly higher gross salary can still result in zero income tax.',
+    },
+    {
+      q: 'Is 13th month pay taxable in the Philippines?',
+      a: '13th month pay and other benefits (bonuses, incentives) are tax-exempt up to a combined ₱90,000 per year. Only the amount exceeding ₱90,000 is added to your taxable income.',
+    },
+    {
+      q: 'How much tax do I pay on a ₱50,000 monthly salary in the Philippines?',
+      a: 'On a ₱50,000 monthly salary (₱600,000 per year), income tax is roughly ₱5,200 per month and mandatory contributions come to about ₱3,950 (SSS ₱2,500, PhilHealth ₱1,250, Pag-IBIG ₱200), leaving an approximate take-home pay of ₱40,850. Enter your exact salary in the calculator above for a precise breakdown.',
+    },
+    {
+      q: 'Do freelancers pay income tax in the Philippines?',
+      a: 'Yes. Self-employed individuals and freelancers earning above ₱250,000 per year must register with the BIR and can choose between the graduated TRAIN Law rates or a simplified flat 8% tax on gross receipts above ₱250,000 (in lieu of both income tax and percentage tax).',
+    },
   ],
   thailand: [
     {
@@ -112,6 +129,18 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
     {
       q: 'How are non-residents taxed in Thailand?',
       a: 'Non-residents are subject to the same progressive PIT rates (0%–35%) but are generally not entitled to the standard deduction and personal allowance.',
+    },
+    {
+      q: 'How much take-home pay is ฿100,000 per month in Thailand?',
+      a: 'On a ฿100,000 monthly salary, income tax is roughly ฿10,200 per month and the Social Security Fund contribution is ฿875, leaving an approximate take-home pay of ฿88,900 for a tax resident with standard deductions. Use the calculator above for your exact figure.',
+    },
+    {
+      q: 'Is foreign income taxable in Thailand?',
+      a: 'Since January 2024, Thai tax residents (180+ days in Thailand) who remit foreign-sourced income into Thailand may owe Thai PIT on it, regardless of the year it was earned. Income kept offshore is generally not taxed. Digital nomads spending most of the year in Thailand should review their remittances carefully.',
+    },
+    {
+      q: 'When is the tax filing deadline in Thailand?',
+      a: 'The annual personal income tax return (Form PND.91 for employment income) is due by March 31 of the following year, with a short extension typically granted for online filing via the Revenue Department e-Filing portal.',
     },
   ],
   vietnam: [
@@ -131,6 +160,18 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
       q: 'How are non-residents taxed in Vietnam?',
       a: 'Non-residents pay a flat 20% withholding tax on Vietnam-sourced income, with no deductions applied.',
     },
+    {
+      q: 'How much take-home pay is ₫30,000,000 per month in Vietnam?',
+      a: 'On a ₫30,000,000 monthly salary, insurance contributions total about ₫3,150,000 (10.5%) and income tax about ₫635,000, leaving an approximate take-home pay of ₫26,200,000 for a single tax resident. Enter your salary in the calculator above for an exact breakdown.',
+    },
+    {
+      q: 'Is 13th month salary taxable in Vietnam?',
+      a: 'Yes. The 13th month salary and other bonuses are treated as ordinary employment income and taxed at the progressive PIT rates in the month they are paid. Unlike the Philippines, Vietnam has no tax-exempt bonus threshold.',
+    },
+    {
+      q: 'Do foreign workers pay social insurance in Vietnam?',
+      a: 'Yes. Since 2018, foreign employees with a work permit and a Vietnamese labor contract of one year or more are subject to compulsory social insurance and health insurance, giving a combined employee contribution of 9.5% (foreigners are exempt from the 1% unemployment insurance).',
+    },
   ],
   indonesia: [
     {
@@ -149,6 +190,22 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
       q: 'How are non-resident foreigners taxed in Indonesia?',
       a: 'Non-resident foreign employees are subject to a flat 20% withholding tax on Indonesia-sourced income, without PTKP deductions.',
     },
+    {
+      q: 'How much take-home pay is Rp10,000,000 per month in Indonesia?',
+      a: 'On a Rp10,000,000 monthly salary, BPJS employee contributions total about Rp400,000 (4%) and income tax about Rp265,000, leaving an approximate take-home pay of Rp9,300,000 for a single tax resident. Use the calculator above for your exact figure.',
+    },
+    {
+      q: 'Is THR (religious holiday allowance) taxable in Indonesia?',
+      a: 'Yes. THR — the mandatory 13th-salary equivalent paid before the religious holiday — is treated as ordinary employment income and is subject to PPh 21 at the progressive rates.',
+    },
+    {
+      q: 'Do I need an NPWP to work in Indonesia?',
+      a: 'Yes. All individuals earning income in Indonesia should register for an NPWP tax identification number. Without one, the PPh 21 withheld from your salary is surcharged by 20% (i.e. 120% of the normal rate), so registering promptly saves money.',
+    },
+    {
+      q: 'Does Indonesia’s digital nomad visa make me tax-free?',
+      a: 'The E33G remote worker visa targets nomads employed by companies outside Indonesia. Holders who stay more than 183 days in a 12-month period can still become Indonesian tax residents under domestic law, so long stays should be planned with professional advice — the visa itself is not a blanket tax exemption.',
+    },
   ],
   malaysia: [
     {
@@ -166,6 +223,22 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
     {
       q: 'What is the tax rate for non-residents in Malaysia?',
       a: 'Non-residents (present fewer than 182 days in Malaysia in a year) are taxed at a flat 30% on all Malaysia-sourced employment income. No personal reliefs, EPF deductions, or progressive brackets apply.',
+    },
+    {
+      q: 'How much take-home pay is RM8,000 per month in Malaysia?',
+      a: 'On an RM8,000 monthly salary, a tax resident pays roughly RM590 in monthly income tax plus RM880 EPF, about RM30 SOCSO, and RM12 EIS, leaving an approximate take-home pay of RM6,480. Enter your exact salary in the calculator above for a precise breakdown.',
+    },
+    {
+      q: 'Can foreigners withdraw their EPF when leaving Malaysia?',
+      a: 'Yes. Foreign workers who leave Malaysia permanently can withdraw their full EPF balance — both employee and employer contributions plus dividends — and the withdrawal is not taxed.',
+    },
+    {
+      q: 'Is foreign-sourced income taxable in Malaysia?',
+      a: 'Foreign-sourced income received in Malaysia by resident individuals is generally exempt from tax (an exemption currently extended to the end of 2036, subject to conditions such as the income having been subjected to tax abroad). Income earned in Malaysia is always taxable.',
+    },
+    {
+      q: 'What is PCB (Potongan Cukai Bulanan)?',
+      a: 'PCB, also called MTD (Monthly Tax Deduction), is Malaysia’s pay-as-you-earn withholding system: your employer deducts estimated income tax from each month’s salary and remits it to LHDN. Submitting Form TP1 for your reliefs keeps the monthly deduction close to your true liability.',
     },
   ],
 };
@@ -258,7 +331,7 @@ const GUIDE: Record<string, { sections: { heading: string; body: string }[]; art
   },
 };
 
-function buildJsonLd(slug: string, seo: { title: string; description: string }) {
+function buildJsonLd(slug: string, name: string, seo: { title: string; description: string }) {
   const url = `${BASE_URL}/${slug}`;
   const appSchema = {
     '@context': 'https://schema.org',
@@ -279,7 +352,10 @@ function buildJsonLd(slug: string, seo: { title: string; description: string }) 
       acceptedAnswer: { '@type': 'Answer', text: a },
     })),
   };
-  return [appSchema, faqSchema];
+  const breadcrumbSchema = breadcrumbList([
+    { name: `${name} Tax Calculator`, path: `/${slug}` },
+  ]);
+  return [appSchema, faqSchema, breadcrumbSchema];
 }
 
 export const dynamicParams = false;
@@ -319,7 +395,7 @@ export default async function CountryPage({ params }: Props) {
   const seo = SEO[slug];
   const guide = GUIDE[slug];
 
-  const jsonLd = buildJsonLd(slug, seo);
+  const jsonLd = buildJsonLd(slug, country.name, seo);
 
   return (
     <div>

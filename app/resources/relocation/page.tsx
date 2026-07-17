@@ -1,15 +1,13 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { COUNTRIES } from '@/lib/countries';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Relocation Checklists for Southeast Asia — Country Guides',
   description:
     'Step-by-step relocation checklists for expats moving to the Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
-  alternates: {
-    canonical: 'https://rafseb.github.io/seatax/resources/relocation',
-  },
-};
+  path: '/resources/relocation',
+});
 
 const cardStyle = {
   background: 'var(--forest-800)',
