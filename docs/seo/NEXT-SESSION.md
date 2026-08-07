@@ -3,36 +3,44 @@
 Carried forward from the 2026-08-07 session. All six items in [PLAN.md](./PLAN.md)'s build
 order are complete; see [PROGRESS.md](./PROGRESS.md) for what shipped and why.
 
-**Branch:** `seo/pillars-and-singapore` — 4 commits, pushed, **not merged to `main`**.
-Merging to `main` triggers `.github/workflows/deploy.yml` and publishes to GitHub Pages.
+**Status:** `seo/pillars-and-singapore` was fast-forward merged to `main` (`33b7d22 → fc64802`)
+and deployed on 2026-08-07. Live export verified: 77 sitemap URLs, 15 compare pairs (all five
+`*-vs-singapore` pages serving real content, not silent 404s), 22 guides, 5 frozen legacy blog
+routes. Lint, build, route sweep and calculator assertions all passed.
+
+**P0 is done.** P1 below is the active section.
+
+> Note: a docs-only commit to `main` still triggers a full Pages redeploy of an identical site.
+> That is harmless — don't work around it.
 
 ---
 
-## P0 — Blocking the merge
+## P0.5 — Search Console (user action, blocks nothing else)
 
-### 1. Manual browser QA
-The only verification step never completed. Everything else was checked programmatically.
+### 0. Submit the sitemap in Google Search Console
+The site has been live since 2026-03-06 but there is no evidence it is being discovered.
 
-Run `npm run dev` (serves at `http://localhost:3000` — **no `/seatax` prefix**, basePath is
-production-only), then work the checklist in `.claude/skills/verify-build/SKILL.md`:
+**Finding:** crawlers read `robots.txt` from the **origin root only**. `https://rafseb.github.io/robots.txt`
+returns **404** — there is no user-level Pages site, only the project site at `/seatax/`. The
+generated `robots.txt` at `/seatax/robots.txt` (200, with the `Sitemap:` directive) is therefore
+**never read by any crawler**. A 404 at the root means *allow all*, so this is a **sitemap
+discovery gap, not a crawl block** — nothing is being blocked, but nothing is being advertised
+either.
 
-- Slider at min / max / mid on each country
-- Monthly ↔ annual toggle
-- Resident ↔ expat toggle
-- Currency switch to USD / EUR / GBP and back — slider range restores
-- Donut chart matches the results table
-- Share button round-trips the scenario
-- All six country pages, each with its own accent colour
+This cannot be fixed from this repo; it would need a separate `rafseb/rafseb.github.io` repo,
+which is not worth it. Fix it in Search Console instead:
 
-**Prioritise `/singapore`** — its CPF-for-Citizens/PRs-only modelling is the one piece of
-calculator logic that does not follow the existing pattern.
+1. Add a **URL-prefix** property for `https://rafseb.github.io/seatax/`
+2. Verify via the HTML-file method (drop the file in `public/`, redeploy) — the meta-tag method
+   works too, via `app/layout.tsx`
+3. Submit `https://rafseb.github.io/seatax/sitemap.xml` under Sitemaps
+4. Use URL Inspection on `/` and `/singapore/` to request indexing directly
 
-### 2. Merge and deploy
-```bash
-git checkout main && git merge seo/pillars-and-singapore && git push
-```
-Then confirm the Actions run goes green and spot-check the live URLs, especially the five new
-`/compare/*-vs-singapore` pages.
+GSC is also the **only** ground truth on current index coverage — a `site:` query from a
+scripted search tool is not real Google and proves nothing either way.
+
+**Do not expect this to produce rankings for head terms** — see P4 item 13. Indexing and
+ranking are separate problems; this fixes the first only.
 
 ---
 
