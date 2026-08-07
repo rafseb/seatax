@@ -4,6 +4,7 @@ import thailand from './thailand-expat-guide';
 import vietnam from './vietnam-expat-guide';
 import indonesia from './indonesia-expat-guide';
 import malaysia from './malaysia-expat-guide';
+import singapore from './singapore-expat-guide';
 import bangkokCity from './living-in-bangkok-as-an-expat';
 import chiangMaiCity from './living-in-chiang-mai-as-a-digital-nomad';
 import baliCity from './living-in-bali-as-an-expat';
@@ -11,7 +12,15 @@ import hcmcCity from './living-in-ho-chi-minh-city-as-an-expat';
 import kualaLumpurCity from './living-in-kuala-lumpur-as-an-expat';
 import metroManilaCity from './living-in-metro-manila-as-an-expat';
 import thailandFreelancer from './thailand-freelancer-self-employed-tax-playbook';
+import philippinesFreelancer from './philippines-freelancer-self-employed-tax-playbook';
+import vietnamFreelancer from './vietnam-freelancer-self-employed-tax-playbook';
+import indonesiaFreelancer from './indonesia-freelancer-self-employed-tax-playbook';
+import malaysiaFreelancer from './malaysia-freelancer-self-employed-tax-playbook';
 import thailandCompliance from './thailand-annual-tax-filing-visa-renewal-guide';
+import philippinesCompliance from './philippines-annual-tax-filing-visa-renewal-guide';
+import vietnamCompliance from './vietnam-annual-tax-filing-visa-renewal-guide';
+import indonesiaCompliance from './indonesia-annual-tax-filing-visa-renewal-guide';
+import malaysiaCompliance from './malaysia-annual-tax-filing-visa-renewal-guide';
 
 export const ARTICLES: Article[] = [
   philippines,
@@ -19,6 +28,7 @@ export const ARTICLES: Article[] = [
   vietnam,
   indonesia,
   malaysia,
+  singapore,
   bangkokCity,
   chiangMaiCity,
   baliCity,
@@ -26,7 +36,15 @@ export const ARTICLES: Article[] = [
   kualaLumpurCity,
   metroManilaCity,
   thailandFreelancer,
+  philippinesFreelancer,
+  vietnamFreelancer,
+  indonesiaFreelancer,
+  malaysiaFreelancer,
   thailandCompliance,
+  philippinesCompliance,
+  vietnamCompliance,
+  indonesiaCompliance,
+  malaysiaCompliance,
 ];
 
 // The legacy /blog/[slug] route exists only to preserve the original five guide

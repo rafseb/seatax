@@ -384,12 +384,110 @@ const malaysiaVisas: VisaEntry[] = [
   },
 ];
 
+const singaporeVisas: VisaEntry[] = [
+  {
+    name: 'Visa-Free Short-Term Visit Pass',
+    category: 'tourist',
+    maxStay: '30–90 days depending on nationality',
+    renewable: false,
+    workPermitted: false,
+    notes:
+      'Most Western nationalities receive 90 days on arrival; many others receive 30 days. Extensions are possible but discretionary and not routinely granted for repeated long stays. Does not authorise work of any kind.',
+    officialUrl: 'https://www.ica.gov.sg/enter-depart/entry_requirements',
+  },
+  {
+    name: 'Employment Pass (EP)',
+    category: 'employment',
+    maxStay: '2 years initially (up to 3 years on renewal)',
+    renewable: true,
+    workPermitted: true,
+    minIncome: 'Qualifying salary rises with age and sector; higher thresholds apply to financial services',
+    notes:
+      'The main route for foreign professionals, sponsored by a Singapore-registered employer. Candidates are assessed under the points-based COMPASS framework covering salary, qualifications, employer diversity and local workforce support. No CPF contributions apply to EP holders.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits/employment-pass',
+  },
+  {
+    name: 'S Pass',
+    category: 'employment',
+    maxStay: '2 years (renewable)',
+    renewable: true,
+    workPermitted: true,
+    minIncome: 'Lower qualifying salary than the EP, also rising with age',
+    notes:
+      'For mid-skilled staff. Subject to a company-level quota (dependency ratio ceiling) and a monthly foreign worker levy payable by the employer, which materially affects whether a firm will sponsor one.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits/s-pass',
+  },
+  {
+    name: 'Overseas Networks & Expertise (ONE) Pass',
+    category: 'employment',
+    maxStay: '5 years (renewable)',
+    renewable: true,
+    workPermitted: true,
+    minIncome: 'Fixed monthly salary of S$30,000 or equivalent, or outstanding achievement in arts, sport, science or academia',
+    notes:
+      'A personalised pass for top-tier talent. Unlike the EP it is not tied to a single employer — holders may work for multiple companies concurrently and start businesses. The most flexible work status available to a foreigner in Singapore.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits/overseas-networks-expertise-pass',
+  },
+  {
+    name: 'EntrePass',
+    category: 'investor',
+    maxStay: '1 year initially (renewable)',
+    renewable: true,
+    workPermitted: true,
+    notes:
+      'For foreign entrepreneurs starting a venture-backed or innovative company in Singapore. Requires funding, incubator backing, intellectual property or research collaboration — an ordinary trading business will not qualify. Renewal is tied to business spending and local hiring milestones.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits/entrepass',
+  },
+  {
+    name: 'Personalised Employment Pass (PEP)',
+    category: 'employment',
+    maxStay: '3 years (non-renewable)',
+    renewable: false,
+    workPermitted: true,
+    minIncome: 'High fixed salary threshold; open to existing EP holders and overseas professionals',
+    notes:
+      'Not tied to an employer, so it survives a job change — but it cannot be renewed and holders may not be unemployed for more than a defined period. Effectively a one-time three-year window of employer independence.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits/personalised-employment-pass',
+  },
+  {
+    name: 'Dependant’s Pass / Long-Term Visit Pass',
+    category: 'dependent',
+    maxStay: 'Co-terminus with the principal pass',
+    renewable: true,
+    workPermitted: false,
+    notes:
+      'Dependant’s Pass covers spouses and unmarried children under 21 of eligible EP, S Pass and ONE Pass holders. To work, the holder needs their own work pass — the previous Letter of Consent route has been narrowed. Eligibility depends on the principal’s salary level.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits/dependants-pass',
+  },
+  {
+    name: 'Student’s Pass',
+    category: 'student',
+    maxStay: 'Duration of study',
+    renewable: true,
+    workPermitted: false,
+    notes:
+      'For international students at approved institutions, applied for through the ICA SOLAR system. Limited part-time work is permitted only for students at specified institutions and under defined conditions.',
+    officialUrl: 'https://www.ica.gov.sg/reside/STP/apply',
+  },
+  {
+    name: 'No Digital Nomad Visa',
+    category: 'digital-nomad',
+    maxStay: 'n/a',
+    renewable: false,
+    workPermitted: false,
+    notes:
+      'Singapore has no digital nomad visa and shows no sign of introducing one. Its policy direction is the opposite — tightening work pass criteria toward higher-earning, employer-sponsored talent. Remote workers stay on short-term visit passes, which do not authorise work, and the high cost of living makes it an unusual nomad base regardless. The ONE Pass and EntrePass are the closest routes to employer independence.',
+    officialUrl: 'https://www.mom.gov.sg/passes-and-permits',
+  },
+];
+
 export const VISA_DATA: CountryVisaData[] = [
   { country: 'philippines', lastReviewed: '2026-01-15', visas: philippinesVisas },
   { country: 'thailand',    lastReviewed: '2026-01-15', visas: thailandVisas },
   { country: 'vietnam',     lastReviewed: '2026-01-15', visas: vietnamVisas },
   { country: 'indonesia',   lastReviewed: '2026-01-15', visas: indonesiaVisas },
   { country: 'malaysia',    lastReviewed: '2026-01-15', visas: malaysiaVisas },
+  { country: 'singapore',   lastReviewed: '2026-08-07', visas: singaporeVisas },
 ];
 
 export function getVisaData(slug: string): CountryVisaData | undefined {

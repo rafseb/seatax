@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SEA Tax Calculator is a **fully static** Next.js 16 web app (no backend, no API routes, no database) that calculates net take-home salary after income tax and mandatory contributions for five Southeast Asian countries.
+SEA Tax Calculator is a **fully static** Next.js 16 web app (no backend, no API routes, no database) that calculates net take-home salary after income tax and mandatory contributions for six Southeast Asian countries.
 
 - **Live URL:** https://rafseb.github.io/seatax/
 - **Stack:** Next.js 16 (App Router) · React 19 · TypeScript 5 · Tailwind CSS v4 · Recharts
@@ -45,9 +45,17 @@ app/
     relocation/page.tsx           # Relocation hub (country cards)
     relocation/[country]/page.tsx # Per-country relocation checklist
     health-insurance/page.tsx     # Health insurance guide (country-by-country requirements)
-    digital-nomad/page.tsx        # Digital nomad hub (visa options, co-working, internet by country)
+    digital-nomad/page.tsx        # Digital nomad hub (CollectionPage + ItemList schema)
+    digital-nomad/tax-residency/page.tsx           # Day-count tests, worldwide vs territorial vs remittance
+    digital-nomad/internet-and-coworking/page.tsx  # Connectivity, SIMs, power, coworking by city
+    working-in-southeast-asia/page.tsx             # PILLAR — visa vs work permit, earning structures
+    working-in-southeast-asia/work-permits/page.tsx      # Per-country permit requirements
+    working-in-southeast-asia/employer-of-record/page.tsx # EOR vs entity vs contractor (commercial)
+    working-in-southeast-asia/getting-paid-abroad/page.tsx # FX, remittance and tax, documentation
+  compare/page.tsx      # All-country comparison
+  compare/[pair]/page.tsx # Canonical "a-vs-b" pairs, auto-generated from COUNTRIES
   layout.tsx            # Root layout — header (CountrySwitcher + Resources nav link), footer
-  page.tsx              # Redirects to /philippines
+  page.tsx              # SEO landing page (country cards + FAQPage schema)
   robots.ts             # robots.txt (metadata export)
   sitemap.ts            # sitemap.xml (metadata export)
   globals.css           # Tailwind CSS v4 global imports
@@ -57,7 +65,7 @@ components/
   SalaryForm.tsx        # Input: salary slider, monthly/annual toggle, expat toggle, currency selector
   ResultsPanel.tsx      # Output: breakdown table (gross, tax, contributions, net)
   BreakdownChart.tsx    # Donut chart showing tax vs contributions vs net (Recharts)
-  ComparisonView.tsx    # Side-by-side comparison of all five countries at current salary
+  ComparisonView.tsx    # Side-by-side comparison of all six countries at current salary
   CountrySwitcher.tsx   # Header navigation between countries
   TaxInfo.tsx           # Collapsible panel: tax brackets, rates, sources, expat rules
   ArticleBody.tsx       # 'use client' island — renders article sections with live inline currency conversion
@@ -78,7 +86,8 @@ lib/
     thailand.ts         # PIT: 8 brackets, SSF, standard 50% deduction (max ฿100k)
     vietnam.ts          # PIT: 7 monthly brackets, SI/HI/UI insurance
     indonesia.ts        # PPh 21: 5 brackets, PTKP threshold, BPJS contributions
-    malaysia.ts         # PCB: 13 brackets, EPF/SOCSO/EIS contributions (YA 2024)
+    malaysia.ts         # PCB: 10 brackets, EPF/SOCSO/EIS contributions (YA 2026)
+    singapore.ts        # Resident brackets 0%–24%, CPF (Citizens/PRs only), 15% non-resident floor
   resources/
     types.ts            # VisaEntry, VisaCategory, CountryCostData, CostCategory types
     visaData.ts         # VISA_DATA array + getVisaData(slug) lookup
@@ -181,41 +190,57 @@ Visa and cost-of-living data live in `lib/resources/visaData.ts` and `lib/resour
 
 ## How to Add a New Country
 
+> **Two touch-points are easy to miss and both break the build rather than degrading
+> quietly:** the `CountrySlug` union in `lib/resources/types.ts` (step 7) and the three
+> per-country content maps in `app/[country]/page.tsx` (step 5). The `add-country` skill
+> does not currently list either. Work through this list, not the skill's shorter one.
+
 1. **Add country metadata** in `lib/countries.ts`:
    ```typescript
-   { slug: 'malaysia', name: 'Malaysia', flag: '🇲🇾', currency: 'MYR',
-     currencySymbol: 'RM', defaultSalary: 8000, salaryStep: 500,
-     salaryMin: 1000, salaryMax: 100000 }
+   { slug: 'singapore', name: 'Singapore', flag: '🇸🇬', currency: 'SGD',
+     currencySymbol: 'S$', defaultSalary: 6000, salaryStep: 500,
+     salaryMin: 1500, salaryMax: 80000, taxYear: '2026' }
    ```
 
-2. **Create calculator** at `lib/calculators/malaysia.ts`:
-   - Implement progressive tax brackets
-   - Add mandatory contribution items
-   - Handle `isExpat` case
+2. **Create calculator** at `lib/calculators/<slug>.ts`:
+   - Export `calculate(params: CalculatorParams): TaxResult` (named export, not default)
+   - Bracket thresholds in **annual** amounts; convert the monthly input at the start
+   - Add mandatory contribution items and handle the `isExpat` (non-resident) case
 
-3. **Register in router** `lib/calculators/index.ts`:
-   ```typescript
-   import malaysia from './malaysia';
-   // add to switch/map: case 'malaysia': return malaysia(params);
-   ```
+3. **Register in router** `lib/calculators/index.ts` — import and add to the `calculators` map.
 
-4. **Add TaxInfo content** in `components/TaxInfo.tsx`:
-   - Add brackets table, contribution rates, official sources, expat rules
+4. **Add tax reference data** in `lib/taxData/index.ts` — brackets table, contribution rates
+   and notes, `expatNote`, and official source links. (`components/TaxInfo.tsx` renders this;
+   the component itself needs no change.)
 
-5. **Create expat guide** at `app/resources/guides/[new-slug]/` (copy an existing one as a template). Register the slug in `lib/articles/index.ts` and `app/sitemap.ts`.
+5. **Add the three content maps** in `app/[country]/page.tsx` — `SEO`, `FAQ` and `GUIDE`, each
+   keyed by slug. **Missing any of these fails the static export at prerender time**, not at
+   type-check, so the error surfaces as a runtime `Cannot read properties of undefined`.
 
-6. **Add visa data** in `lib/resources/visaData.ts` — add a new `CountryVisaData` entry to `VISA_DATA`.
+6. **Add the accent colour** in `app/globals.css` — both the `[data-country="<slug>"]` rule
+   and the print-media selector list further down.
 
-7. **Add cost data** in `lib/resources/costData.ts` — add a new `CountryCostData` entry to `COST_DATA`.
+7. **Extend the `CountrySlug` union** in `lib/resources/types.ts`. Without this, the visa and
+   cost data entries in steps 8–9 fail type-checking.
 
-8. **Add relocation checklist data** in `app/resources/relocation/[country]/page.tsx`:
-   - Add a new entry to the `CHECKLISTS` const keyed by the country slug
-   - Follow the `CountryChecklist` shape: `{ intro: string, sections: ChecklistSection[] }`
-   - Each section has a `title` and `items: string[]`
+8. **Add visa data** in `lib/resources/visaData.ts` — a new `CountryVisaData` entry in `VISA_DATA`.
 
-9. **Update sitemap** `app/sitemap.ts` — add any new static routes.
+9. **Add cost data** in `lib/resources/costData.ts` — a new `CountryCostData` entry in `COST_DATA`.
 
-10. **Verify:** `npm run build` must succeed with no TypeScript or lint errors.
+10. **Add relocation checklist data** in `app/resources/relocation/[country]/page.tsx`:
+    - New entry in the `CHECKLISTS` const keyed by the country slug
+    - Shape: `{ intro: string, sections: ChecklistSection[] }`, each section `{ title, items[] }`
+
+11. **Create the expat guide** at `lib/articles/<slug>-expat-guide.ts` and register it in the
+    `ARTICLES` array in `lib/articles/index.ts`. Do **not** add it to `LEGACY_BLOG_SLUGS` —
+    that list is frozen at the original five guides.
+
+12. **Sitemap** `app/sitemap.ts` — country pages, guides, visa, relocation and compare pairs all
+    derive from `COUNTRIES` and `ARTICLES` automatically. Only add entries for genuinely new
+    static routes.
+
+13. **Verify:** `npm run lint` and `npm run build` must both pass clean, then confirm the new
+    country page, its compare pairs, and its resource pages render.
 
 ## How to Update Tax Rates
 
@@ -238,7 +263,7 @@ There is **no automated test framework** in this project. Verify changes by:
    - Test monthly vs annual toggle
    - Test resident vs expat toggle
    - Test currency conversion (USD, EUR, GBP)
-   - Test all five country pages
+   - Test all six country pages
 
 ## Deployment
 

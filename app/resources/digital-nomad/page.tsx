@@ -1,19 +1,150 @@
 import Link from 'next/link';
-import { pageMetadata } from '@/lib/seo';
+import { BASE_URL, breadcrumbList, pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Digital Nomad Guide to Southeast Asia',
+  title: 'Digital Nomad Guide to Southeast Asia (2026)',
   description:
-    'Everything digital nomads need to know about living and working remotely in Southeast Asia — visa options, co-working spaces, internet quality, and nomad communities.',
+    'Everything digital nomads need to know about living and working remotely in Southeast Asia — visa options, tax residency rules, co-working spaces, internet quality, and nomad communities.',
   path: '/resources/digital-nomad',
 });
 
 const bodyTextStyle = { color: 'var(--forest-300)' };
 const headingStyle = { color: 'var(--cream)' };
 
+const cardStyle = {
+  background: 'var(--forest-800)',
+  border: '1px solid var(--forest-700)',
+  borderRadius: '4px',
+};
+
+/** Child pages and closely-related resources that make up the nomad cluster. */
+const HUB_LINKS: { icon: string; title: string; description: string; href: string }[] = [
+  {
+    icon: '🧾',
+    title: 'Tax Residency for Digital Nomads',
+    description:
+      'The day-count tests, worldwide vs territorial vs remittance taxation, and whether resident or non-resident status is cheaper at your income.',
+    href: '/resources/digital-nomad/tax-residency',
+  },
+  {
+    icon: '🛂',
+    title: 'Visa Options by Country',
+    description:
+      'Every visa route for nomads, retirees, employees and investors — filterable, with duration and requirements.',
+    href: '/resources/visas',
+  },
+  {
+    icon: '🌏',
+    title: 'Working in Southeast Asia',
+    description:
+      'Work permits vs visas, the four legal ways to get paid, and where remote work actually stands country by country.',
+    href: '/resources/working-in-southeast-asia',
+  },
+  {
+    icon: '📶',
+    title: 'Internet, SIMs & Coworking',
+    description:
+      'Connectivity, mobile data, power reliability and coworking norms city by city — and the setup that survives an outage mid-call.',
+    href: '/resources/digital-nomad/internet-and-coworking',
+  },
+  {
+    icon: '💰',
+    title: 'Cost of Living Comparison',
+    description: 'Monthly essentials across all six countries in USD, side by side.',
+    href: '/resources/cost-of-living',
+  },
+  {
+    icon: '🏦',
+    title: 'Banking & Money Transfers',
+    description: 'Opening accounts as a foreigner, receiving foreign payments, and cutting FX losses.',
+    href: '/resources/banking',
+  },
+  {
+    icon: '🏥',
+    title: 'Health Insurance',
+    description: 'What cover you need, what visas require proof of, and typical costs by country.',
+    href: '/resources/health-insurance',
+  },
+];
+
+/** Nomad-relevant city guides already published under /resources/guides. */
+const CITY_GUIDES: { slug: string; label: string }[] = [
+  { slug: 'living-in-chiang-mai-as-a-digital-nomad', label: '🇹🇭 Chiang Mai' },
+  { slug: 'living-in-bangkok-as-an-expat', label: '🇹🇭 Bangkok' },
+  { slug: 'living-in-bali-as-an-expat', label: '🇮🇩 Bali' },
+  { slug: 'living-in-ho-chi-minh-city-as-an-expat', label: '🇻🇳 Ho Chi Minh City' },
+  { slug: 'living-in-kuala-lumpur-as-an-expat', label: '🇲🇾 Kuala Lumpur' },
+  { slug: 'living-in-metro-manila-as-an-expat', label: '🇵🇭 Metro Manila' },
+];
+
+const FAQ: { q: string; a: string }[] = [
+  {
+    q: 'Which Southeast Asian countries have a digital nomad visa?',
+    a: 'Malaysia has the DE Rantau Digital Nomad Pass (3–12 months, renewable, minimum foreign income requirement). Thailand has the Long-Term Resident Work-from-Thailand Professional visa for high-income remote employees. Indonesia offers the Second Home Visa (E33G) as a long-stay route, though it grants residence rather than work rights. Vietnam and the Philippines have no formal digital nomad visa, and Singapore has none either — its policy is moving the other way, tightening work passes toward higher-earning, employer-sponsored talent.',
+  },
+  {
+    q: 'Where is the best internet in Southeast Asia for remote work?',
+    a: 'Malaysia and Thailand have the most consistently reliable fixed broadband, with strong fibre coverage in Kuala Lumpur, Bangkok and Chiang Mai. Vietnam performs well on urban speed in Da Nang, Ho Chi Minh City and Hanoi. Indonesia is the most variable — good in Canggu and Seminyak, patchier in Ubud and outside Bali, where a local SIM as backup is essential.',
+  },
+  {
+    q: 'Do digital nomads pay tax in Southeast Asia?',
+    a: 'It depends on residency, not on your visa. Each country applies a day-count test of 180–183 days, and the countries differ in what they tax: Vietnam and Indonesia tax residents on worldwide income, Malaysia exempts foreign-source income for individuals, Thailand taxes foreign income on remittance, and the Philippines taxes resident aliens on Philippine-source income only.',
+  },
+  {
+    q: 'Which country is cheapest for digital nomads in Southeast Asia?',
+    a: 'Vietnam is generally the lowest-cost base, followed by Indonesia and the Philippines outside Metro Manila. Thailand sits mid-range with Chiang Mai notably cheaper than Bangkok. Malaysia is the most expensive of the traditional nomad bases while still well below Western costs. Singapore is in a different bracket entirely — housing costs several times the regional norm, which is why almost no one bases there as a nomad.',
+  },
+];
+
 export default function DigitalNomadPage() {
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Digital Nomad Guide to Southeast Asia',
+    description:
+      'Visa options, tax residency rules, internet quality, cost of living and nomad communities across Southeast Asia.',
+    url: `${BASE_URL}/resources/digital-nomad`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: HUB_LINKS.map((link, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: link.title,
+        url: `${BASE_URL}${link.href}`,
+      })),
+    },
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+
+  const breadcrumbLd = breadcrumbList([
+    { name: 'Resources', path: '/resources' },
+    { name: 'Digital Nomad', path: '/resources/digital-nomad' },
+  ]);
+
   return (
     <div className="max-w-3xl mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <div className="mb-4">
         <Link href="/resources" className="text-sm nav-link">
           ← Resources
@@ -33,6 +164,23 @@ export default function DigitalNomadPage() {
         well-established nomad community infrastructure. Several countries have introduced
         dedicated visa pathways specifically for remote workers.
       </p>
+
+      <section className="mb-10">
+        <h2 className="text-[10px] font-bold uppercase tracking-[3px] mb-4" style={{ color: 'var(--gold-500)' }}>
+          Start Here
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {HUB_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className="block p-5 transition-all" style={cardStyle}>
+              <span className="text-2xl">{link.icon}</span>
+              <h3 className="text-base font-semibold mt-2 mb-2 leading-snug" style={headingStyle}>
+                {link.title}
+              </h3>
+              <p className="text-sm leading-relaxed" style={bodyTextStyle}>{link.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-3" style={headingStyle}>Formal Digital Nomad Visas</h2>
@@ -103,6 +251,16 @@ export default function DigitalNomadPage() {
         </section>
 
         <section>
+          <h2 className="text-lg font-bold mb-3" style={headingStyle}>🇸🇬 Singapore</h2>
+          <ul className="list-disc list-outside ml-5 space-y-2 leading-relaxed" style={bodyTextStyle}>
+            <li><strong style={{ color: 'var(--cream)' }}>Visa:</strong> No digital nomad visa, and none expected — policy is tightening toward higher-earning, employer-sponsored talent. Every mainstream work pass needs a Singapore-registered employer. The ONE Pass (5 years, not tied to one employer) and EntrePass are the closest routes to independence, and both set a high bar</li>
+            <li><strong style={{ color: 'var(--cream)' }}>Tax:</strong> Territorial — foreign-source income received by an individual is generally untaxed, there is no capital gains tax, and CPF applies only to Citizens and PRs, so foreigners on work passes pay no mandatory contributions at all</li>
+            <li><strong style={{ color: 'var(--cream)' }}>Internet:</strong> The best in the region — island-wide 5G, gigabit fibre in essentially every building, and extensive public Wi-Fi</li>
+            <li><strong style={{ color: 'var(--cream)' }}>Reality check:</strong> Housing costs several times the regional norm, which is why almost nobody bases here as a nomad. Singapore is a destination for employed professionals, not for location-independent freelancers — but it is an excellent short-stay hub with unmatched flight connections</li>
+          </ul>
+        </section>
+
+        <section>
           <h2 className="text-lg font-bold mb-3" style={headingStyle}>Quick comparison</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left border-collapse">
@@ -122,6 +280,7 @@ export default function DigitalNomadPage() {
                   ['🇻🇳 Vietnam', 'None', 'Budget nomads, beach life', 'Fast in cities', 'Very low'],
                   ['🇮🇩 Indonesia', 'Second Home / Social', 'Bali lifestyle', 'Variable', 'Low'],
                   ['🇲🇾 Malaysia', 'DE Rantau', 'Long-term stays', 'Excellent', 'Mid'],
+                  ['🇸🇬 Singapore', 'None', 'Employer-sponsored roles', 'Excellent', 'Very high'],
                 ].map((row) => (
                   <tr key={row[0]} style={{ borderBottom: '1px solid var(--forest-700)' }}>
                     {row.map((cell, i) => (
@@ -133,13 +292,46 @@ export default function DigitalNomadPage() {
             </table>
           </div>
           <p className="mt-4 text-sm" style={bodyTextStyle}>
-            See also:{' '}
-            <Link href="/resources/visas" className="nav-link">Visa Guide</Link>
-            {' · '}
-            <Link href="/resources/cost-of-living" className="nav-link">Cost of Living</Link>
-            {' · '}
-            <Link href="/philippines" className="nav-link">Tax Calculator</Link>
+            Cost level is only half the picture — what you keep depends on tax residency.{' '}
+            <Link href="/compare" className="nav-link">
+              Compare net take-home across all six countries
+            </Link>{' '}
+            at your income, then read{' '}
+            <Link href="/resources/digital-nomad/tax-residency" className="nav-link">
+              how tax residency works for digital nomads
+            </Link>
+            .
           </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold mb-3" style={headingStyle}>City guides</h2>
+          <p className="text-sm leading-relaxed mb-3" style={bodyTextStyle}>
+            Ground-level detail on rent, coworking, neighbourhoods and daily costs.
+          </p>
+          <ul className="grid gap-2 sm:grid-cols-2 text-sm">
+            {CITY_GUIDES.map((city) => (
+              <li key={city.slug}>
+                <Link href={`/resources/guides/${city.slug}`} className="nav-link">
+                  {city.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold mb-4" style={headingStyle}>
+            Frequently asked questions
+          </h2>
+          <div className="space-y-4">
+            {FAQ.map(({ q, a }) => (
+              <div key={q} className="p-5" style={cardStyle}>
+                <h3 className="text-base font-semibold mb-2" style={headingStyle}>{q}</h3>
+                <p className="text-sm leading-relaxed" style={bodyTextStyle}>{a}</p>
+              </div>
+            ))}
+          </div>
         </section>
       </div>
     </div>

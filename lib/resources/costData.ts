@@ -60,6 +60,18 @@ const malaysiaCosts: CostDataPoint[] = [
   { category: 'coworking-monthly', label: 'Co-working hot desk',                            usd: 130  },
 ];
 
+const singaporeCosts: CostDataPoint[] = [
+  { category: 'housing-budget',    label: 'Budget 1BR apartment / HDB rental',              usd: 1500 },
+  { category: 'housing-mid',       label: 'Mid-range 1BR apartment',                        usd: 2600 },
+  { category: 'housing-expat',     label: 'Expat-grade 1BR condo',                          usd: 4000 },
+  { category: 'meal-cheap',        label: 'Cheap local meal (hawker centre)',               usd: 5    },
+  { category: 'meal-mid',          label: 'Mid-range restaurant meal (per person)',          usd: 30   },
+  { category: 'internet-monthly',  label: 'Home broadband (500+ Mbps)',                     usd: 35   },
+  { category: 'gym-monthly',       label: 'Gym membership',                                 usd: 90   },
+  { category: 'transport-monthly', label: 'Monthly public transport (MRT / bus)',           usd: 90   },
+  { category: 'coworking-monthly', label: 'Co-working hot desk',                            usd: 300  },
+];
+
 export const COST_DATA: CountryCostData[] = [
   {
     country: 'philippines',
@@ -100,6 +112,14 @@ export const COST_DATA: CountryCostData[] = [
     costs: malaysiaCosts,
     notes:
       "Mid-range prices reflect Mont Kiara and Chow Kit fringe areas; expat prices reflect the KLCC, Bangsar, and Damansara Heights corridor.",
+  },
+  {
+    country: 'singapore',
+    city: 'Singapore',
+    lastReviewed: '2026-08-07',
+    costs: singaporeCosts,
+    notes:
+      'Comfortably the most expensive base in the region — housing drives almost all of the gap, and car ownership is prohibitive by design. Hawker food and public transport remain genuinely cheap, so the cost of a modest lifestyle is far closer to its neighbours than the headline rent figures suggest.',
   },
 ];
 

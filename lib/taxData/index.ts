@@ -117,4 +117,35 @@ export const TAX_INFO: Record<string, TaxInfoData> = {
       { label: 'PERKESO — SOCSO & EIS Rates', url: 'https://www.perkeso.gov.my/index.php/en/employer/contribution-rate' },
     ],
   },
+  singapore: {
+    brackets: [
+      { income: 'S$0 – S$20,000', rate: '0%' },
+      { income: 'S$20,001 – S$30,000', rate: '2%' },
+      { income: 'S$30,001 – S$40,000', rate: '3.5%' },
+      { income: 'S$40,001 – S$80,000', rate: '7%' },
+      { income: 'S$80,001 – S$120,000', rate: '11.5%' },
+      { income: 'S$120,001 – S$160,000', rate: '15%' },
+      { income: 'S$160,001 – S$200,000', rate: '18%' },
+      { income: 'S$200,001 – S$240,000', rate: '19%' },
+      { income: 'S$240,001 – S$280,000', rate: '19.5%' },
+      { income: 'S$280,001 – S$320,000', rate: '20%' },
+      { income: 'S$320,001 – S$500,000', rate: '22%' },
+      { income: 'S$500,001 – S$1,000,000', rate: '23%' },
+      { income: 'S$1,000,001+', rate: '24%' },
+    ],
+    contributions: [
+      {
+        label: 'CPF (Central Provident Fund)',
+        rate: '20%',
+        note: 'Employee share for members aged 55 and below, on Ordinary Wages up to the S$8,000/month ceiling (from 1 Jan 2026). Citizens and PRs only — foreigners on work passes do not contribute.',
+      },
+    ],
+    expatNote:
+      'Singapore has no CPF for foreigners: contributions are confined to Citizens and Permanent Residents, so Employment Pass and S Pass holders keep their full gross pay before tax. Tax residency is separate — stay 183 days or more and you are taxed at the resident progressive rates with reliefs. Below that you are a non-resident, and employment income is taxed at the higher of a flat 15% or the resident rates, with no personal reliefs. Note this calculator models residents as Citizens/PRs paying CPF; a foreigner who is tax resident pays the resident tax shown but no CPF, so read the tax line and disregard the CPF line. Singapore taxes on a territorial basis and does not tax capital gains.',
+    sources: [
+      { label: 'IRAS — Individual Income Tax Rates', url: 'https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-residency-and-tax-rates/individual-income-tax-rates' },
+      { label: 'IRAS — Tax Residency', url: 'https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-residency-and-tax-rates' },
+      { label: 'CPF Board — Contribution Rates', url: 'https://www.cpf.gov.sg/employer/employer-obligations/how-much-cpf-contributions-to-pay' },
+    ],
+  },
 };

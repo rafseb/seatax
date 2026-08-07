@@ -13,22 +13,24 @@ const WEBSITE_SCHEMA = {
   name: 'SEA Tax Calculator',
   url: 'https://rafseb.github.io/seatax/',
   description:
-    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rafseb.github.io/seatax'),
   title: {
-    default: 'SEA Tax Calculator — Philippines, Thailand, Vietnam, Indonesia',
+    default: 'SEA Tax Calculator — Philippines, Thailand, Vietnam, Indonesia, Malaysia, Singapore',
     template: '%s | SEA Tax Calculator',
   },
   description:
-    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for Philippines, Thailand, Vietnam, and Indonesia. 2026 tax rates.',
+    'Free income tax calculator for Southeast Asia. Calculate net take-home salary after income tax and mandatory contributions for the Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore. 2026 tax rates.',
   keywords: [
     'Philippines income tax calculator',
     'Thailand income tax calculator',
     'Vietnam income tax calculator',
     'Indonesia income tax calculator',
+    'Malaysia income tax calculator',
+    'Singapore income tax calculator',
     'SEA salary calculator',
     'net take-home pay',
     'TRAIN Law Philippines',
@@ -123,6 +125,7 @@ export default function RootLayout({
                 </p>
                 <ul className="space-y-2">
                   <li><Link href="/resources" className="nav-link">Resource Hub</Link></li>
+                  <li><Link href="/resources/working-in-southeast-asia" className="nav-link">Working in Southeast Asia</Link></li>
                   <li><Link href="/resources/guides" className="nav-link">Country Tax Guides</Link></li>
                   <li><Link href="/resources/visas" className="nav-link">Visa Options</Link></li>
                   <li><Link href="/resources/cost-of-living" className="nav-link">Cost of Living</Link></li>

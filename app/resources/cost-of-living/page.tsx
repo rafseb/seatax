@@ -7,7 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Cost of Living in Southeast Asia — Expat Comparison 2026',
   description:
-    'Side-by-side monthly cost estimates for expats and digital nomads across 5 SEA countries. Housing, food, transport, and lifestyle costs in USD.',
+    'Side-by-side monthly cost estimates for expats and digital nomads across 6 SEA countries. Housing, food, transport, and lifestyle costs in USD.',
   path: '/resources/cost-of-living',
 });
 
@@ -28,7 +28,7 @@ export default function CostOfLivingPage() {
       <h1 className="text-2xl font-bold mb-3" style={{ color: 'var(--cream)' }}>Cost of Living in Southeast Asia</h1>
 
       <p className="leading-relaxed mb-6" style={{ color: 'var(--forest-300)' }}>
-        Side-by-side monthly cost estimates for expats and digital nomads across 5 SEA countries.
+        Side-by-side monthly cost estimates for expats and digital nomads across 6 SEA countries.
         All figures are in USD for easy comparison.
       </p>
 

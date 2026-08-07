@@ -61,6 +61,18 @@ export const COUNTRIES: Country[] = [
     salaryMax: 150000,
     taxYear: '2026',
   },
+  {
+    slug: 'singapore',
+    name: 'Singapore',
+    flag: '🇸🇬',
+    currency: 'SGD',
+    currencySymbol: 'S$',
+    defaultSalary: 6000,
+    salaryStep: 500,
+    salaryMin: 1500,
+    salaryMax: 80000,
+    taxYear: '2026',
+  },
 ];
 
 export function getCountry(slug: string): Country | undefined {

@@ -448,6 +448,97 @@ const CHECKLISTS: Record<string, CountryChecklist> = {
       },
     ],
   },
+  singapore: {
+    intro:
+      'Singapore is the most administratively frictionless relocation in Southeast Asia and by some distance the most expensive. Almost everything is done online, English is the working language, and processes run to published timelines. The difficulty is not paperwork — it is the cost of housing and the fact that your entire status depends on an employer-sponsored pass you cannot obtain yourself.',
+    sections: [
+      {
+        title: '🛂 Visa & Immigration',
+        items: [
+          'There is no self-sponsored work route: an Employment Pass, S Pass or ONE Pass must be applied for by a Singapore-registered employer before you arrive',
+          'Employment Pass (EP): the standard professional route, assessed under the points-based COMPASS framework covering salary, qualifications, employer workforce diversity and local hiring — the qualifying salary rises with age and is higher in financial services',
+          'ONE Pass: 5 years, not tied to a single employer, for very high earners or those with outstanding achievement — the only genuinely portable long-term status',
+          'Personalised Employment Pass (PEP): 3 years, employer-independent but non-renewable, with limits on how long you may be unemployed',
+          'EntrePass: for founders of innovative or venture-backed companies; an ordinary trading business will not qualify',
+          'Dependant\'s Pass covers spouses and children under 21 where the principal meets the salary threshold; the spouse needs their own work pass to work',
+          'Singapore has no digital nomad visa and policy is moving the other way — toward higher-earning, employer-sponsored talent',
+        ],
+      },
+      {
+        title: '🏠 Housing',
+        items: [
+          'Housing is the single largest cost and the main reason Singapore sits far above its neighbours — budget accordingly before accepting an offer',
+          'HDB flats (public housing, rented from owners) are substantially cheaper than private condos and entirely respectable; foreigners may rent whole flats or rooms subject to eligibility rules',
+          'Private condos in Districts 9, 10 and 11 (Orchard, Bukit Timah, River Valley) command the biggest premium; the East Coast, Queenstown and Novena offer better value with good MRT access',
+          'Search via PropertyGuru or 99.co; agent commission is customarily paid by the landlord for higher-value leases and by the tenant for cheaper ones — confirm before viewing',
+          'Standard lease: 12 or 24 months, 1 month deposit for a 1-year lease and 2 months for 2 years, plus a stamp duty payable to IRAS by the tenant',
+          'A "diplomatic clause" allowing early termination if you leave Singapore is standard in 2-year leases — negotiate it in',
+        ],
+      },
+      {
+        title: '🏦 Banking',
+        items: [
+          'DBS/POSB, OCBC and UOB are the three local banks; DBS has the widest branch and ATM network and the strongest digital banking',
+          'Required documents: passport, work pass (or in-principle approval letter), proof of Singapore address, and employment letter — account opening is usually same-day',
+          'Some banks will open an account on an in-principle approval letter before your pass is issued; ask, because it removes a common first-week bottleneck',
+          'PayNow (linked to your mobile number or NRIC/FIN) is the universal peer-to-peer transfer system and is used for everything from rent to splitting dinner',
+          'Wise and Revolut work well for receiving foreign currency; Singapore has no capital controls and moving money in and out is straightforward',
+        ],
+      },
+      {
+        title: '📋 Tax Registration',
+        items: [
+          'Tax residency is based on 183 days or more of presence in a calendar year, and is decided separately from your immigration status',
+          'IRAS assigns your tax reference against your FIN; employers under the Auto-Inclusion Scheme submit your employment income directly, so many employees never enter salary figures manually',
+          'Singapore does not operate monthly withholding for most employees — you receive gross pay and settle the bill yourself, so set money aside from day one rather than being surprised in April',
+          'The annual filing deadline is 15 April (18 April for e-filing), for income earned in the preceding calendar year',
+          'CPF applies only to Citizens and Permanent Residents — foreigners on work passes make no CPF contributions and keep the full gross before tax',
+          'Before leaving Singapore permanently your employer must seek tax clearance (Form IR21) and may withhold your final pay until it is issued — raise it with HR as soon as you know your end date',
+          'See the Singapore tax calculator for current resident brackets, the non-resident rule and CPF ceilings',
+        ],
+      },
+      {
+        title: '🏥 Health Insurance',
+        items: [
+          'Foreigners on work passes are not covered by MediShield Life, which is confined to Citizens and PRs — private insurance is effectively essential',
+          'Most employers provide group medical cover for EP holders; check the outpatient limits and whether dependants are included, as these vary widely',
+          'S Pass and Work Permit holders must be covered by employer-purchased medical insurance meeting statutory minimum coverage',
+          'Healthcare quality is the best in the region and priced accordingly — a private specialist consultation costs multiples of the equivalent in Bangkok or Kuala Lumpur',
+          'Public hospitals (Singapore General, Tan Tock Seng, NUH) charge unsubsidised rates to foreigners but remain cheaper than private hospitals such as Mount Elizabeth and Gleneagles',
+        ],
+      },
+      {
+        title: '📱 SIM Card & Internet',
+        items: [
+          'Singtel, StarHub, M1 and Simba are the main carriers; Singtel has the broadest coverage, Simba is the value option',
+          'SIM registration requires your passport and, for postpaid plans, your work pass — prepaid is available immediately on arrival with a passport',
+          'Connectivity is excellent and near-universal: island-wide 5G, extensive free public Wi-Fi, and fibre in essentially every residential building',
+          'Home fibre from Singtel, StarHub, M1 or MyRepublic runs at gigabit speeds for a modest monthly cost — among the best value of any expense in Singapore',
+          'Most condo and HDB units are pre-wired for fibre; activation typically takes only a few days',
+        ],
+      },
+      {
+        title: '⚡ Utilities',
+        items: [
+          'SP Group supplies electricity, water and gas; the Open Electricity Market lets you switch retailer for a cheaper tariff, which is worth doing',
+          'Set up online with your NRIC/FIN, tenancy agreement and a deposit — foreigners pay a higher security deposit than citizens',
+          'Air conditioning dominates the bill: budget realistically for a 1-bedroom with regular use, and note that many leases require you to service the units quarterly at your own cost',
+          'Water is metered and inexpensive but priced deliberately to discourage waste, with a conservation tax applied on top',
+          'Condo maintenance fees are usually the landlord\'s responsibility — confirm in the lease, as it is a common point of dispute',
+        ],
+      },
+      {
+        title: '📍 Address Registration',
+        items: [
+          'Register your residential address with ICA within the required window after your pass is issued, and update it whenever you move — this is a legal obligation, not a formality',
+          'Your FIN (Foreign Identification Number) on your work pass card is your identifier for essentially everything: banking, healthcare, government services and telcos',
+          'Singpass is the digital identity that unlocks government and many private services — set it up in your first week, because a surprising number of processes assume you have one',
+          'Keep your address current with IRAS, your bank and your employer; official correspondence including tax notices goes to the registered address',
+          'There is no separate local-level registration equivalent to a barangay or kelurahan — ICA is the single point of record',
+        ],
+      },
+    ],
+  },
 };
 
 const sectionStyle = {

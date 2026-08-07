@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Relocation Checklists for Southeast Asia — Country Guides',
   description:
-    'Step-by-step relocation checklists for expats moving to the Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+    'Step-by-step relocation checklists for expats moving to the Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
   path: '/resources/relocation',
 });
 

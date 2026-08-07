@@ -32,6 +32,7 @@
 [data-country="vietnam"]     { --accent: #c17f00; }
 [data-country="indonesia"]   { --accent: #c1272d; }
 [data-country="malaysia"]    { --accent: #00457c; }
+[data-country="singapore"]   { --accent: #d6323c; }
 
 /* ─── Base Styles ─────────────────────────────────────────────────────────── */
 body {
@@ -91,7 +92,8 @@ header, main, footer, .relative { position: relative; z-index: 1; }
   [data-country="thailand"],
   [data-country="vietnam"],
   [data-country="indonesia"],
-  [data-country="malaysia"] {
+  [data-country="malaysia"],
+  [data-country="singapore"] {
     --forest-950: #ffffff;
     --forest-900: #f8f8f8;
     --forest-800: #f2f2f2;

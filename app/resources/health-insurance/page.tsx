@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Health Insurance for Expats in SEA',
   description:
-    'Guide to health insurance for expats in Southeast Asia — mandatory coverage requirements, recommended providers, and policy comparison tips for Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+    'Guide to health insurance for expats in Southeast Asia — mandatory coverage requirements, recommended providers, and policy comparison tips for Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
   path: '/resources/health-insurance',
 });
 

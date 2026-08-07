@@ -4,9 +4,9 @@ import { COUNTRIES } from '@/lib/countries';
 
 const BASE_URL = 'https://rafseb.github.io/seatax';
 
-const TITLE = 'Southeast Asia Tax Calculator 2026 — Take-Home Salary for Philippines, Thailand, Vietnam, Indonesia & Malaysia';
+const TITLE = 'Southeast Asia Tax Calculator 2026 — Take-Home Salary for Philippines, Thailand, Vietnam, Indonesia, Malaysia & Singapore';
 const DESCRIPTION =
-  'Free 2026 income tax calculator for Southeast Asia. See your net take-home salary after income tax and mandatory contributions in the Philippines, Thailand, Vietnam, Indonesia, and Malaysia — with expat rates, currency conversion, and side-by-side country comparison.';
+  'Free 2026 income tax calculator for Southeast Asia. See your net take-home salary after income tax and mandatory contributions in the Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore — with expat rates, currency conversion, and side-by-side country comparison.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -33,12 +33,13 @@ const COUNTRY_BLURBS: Record<string, string> = {
   vietnam: '2026 PIT law: five monthly brackets 5%–35%, plus SI, HI & UI insurance.',
   indonesia: 'PPh 21 brackets 5%–35%, PTKP threshold and BPJS contributions.',
   malaysia: 'YA 2026 rates 0%–30% with EPF, SOCSO & EIS contributions.',
+  singapore: 'Resident rates 0%–24%, territorial system, and no CPF for foreigners.',
 };
 
 const FAQ: { q: string; a: string }[] = [
   {
     q: 'Which Southeast Asian country has the lowest income tax?',
-    a: 'It depends on your salary level. At lower incomes the Philippines (tax-free up to ₱250,000/year) and Malaysia (near-zero tax below RM35,000 chargeable income) are very light. At higher incomes Malaysia tops out at 30% while the Philippines, Thailand, and Vietnam reach 35%. Use the compare tool to see all five countries side by side at your exact salary.',
+    a: 'It depends on your salary level and on what kind of income you have. At lower incomes the Philippines (tax-free up to ₱250,000/year), Malaysia (near-zero tax below RM35,000 chargeable income) and Singapore (0% on the first S$20,000) are very light. At higher incomes Singapore tops out at 24% and Malaysia at 30%, while the Philippines, Thailand and Vietnam reach 35%. Singapore and Malaysia also treat foreign-source income far more favourably, and Singapore has no capital gains tax. Use the compare tool to see all six countries side by side at your exact salary.',
   },
   {
     q: 'How is take-home salary calculated in this tool?',
@@ -46,11 +47,11 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Are the tax rates up to date for 2026?',
-    a: 'Yes. All five calculators use 2026 rules: the Philippine TRAIN Law schedule, Thailand’s PIT rates with the ฿17,500 SSF ceiling, Vietnam’s amended five-bracket PIT law with the ₫15,500,000 personal deduction, Indonesia’s PPh 21 brackets, and Malaysia’s YA 2026 rates.',
+    a: 'Yes. All six calculators use 2026 rules: the Philippine TRAIN Law schedule, Thailand’s PIT rates with the ฿17,500 SSF ceiling, Vietnam’s amended five-bracket PIT law with the ₫15,500,000 personal deduction, Indonesia’s PPh 21 brackets, Malaysia’s YA 2026 rates, and Singapore’s YA 2026 resident brackets with the S$8,000/month CPF Ordinary Wage ceiling.',
   },
   {
     q: 'How are expats and foreigners taxed in Southeast Asia?',
-    a: 'Every country distinguishes tax residents from non-residents, usually by a 180–183 day presence test. Non-residents typically pay a flat rate: 25% in the Philippines, 20% in Vietnam and Indonesia, 30% in Malaysia, while Thailand applies the same progressive rates without deductions. Each calculator has an expat mode that applies the non-resident rules.',
+    a: 'Every country distinguishes tax residents from non-residents, usually by a 180–183 day presence test. Non-residents typically pay a flat rate: 25% in the Philippines, 20% in Vietnam and Indonesia, and 30% in Malaysia. Thailand applies the same progressive rates without deductions, and Singapore charges the higher of a flat 15% or the resident rates. Singapore is also the one country where foreigners pay no mandatory contributions at all — CPF is confined to Citizens and Permanent Residents. Each calculator has an expat mode that applies the non-resident rules.',
   },
   {
     q: 'Can I see my salary in USD, EUR, or GBP?',
@@ -91,7 +92,7 @@ export default function Home() {
         </h1>
         <p className="leading-relaxed max-w-2xl" style={{ color: 'var(--forest-300)' }}>
           Find out exactly what lands in your bank account after income tax and mandatory
-          contributions in the Philippines, Thailand, Vietnam, Indonesia, and Malaysia.
+          contributions in the Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.
           Built for locals, expats, and remote workers — with non-resident tax modes,
           live USD/EUR/GBP conversion, and side-by-side country comparison using official
           2026 tax rules.
@@ -132,7 +133,7 @@ export default function Home() {
               </span>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-300)' }}>
-              Same salary, five tax systems — see where your take-home pay goes furthest.
+              Same salary, six tax systems — see where your take-home pay goes furthest.
             </p>
             <span className="mt-3 inline-block text-sm font-medium" style={{ color: 'var(--gold-500)' }}>
               Compare side by side →
@@ -173,7 +174,7 @@ export default function Home() {
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-300)' }}>
               Visa options, cost of living, banking, health insurance, and relocation checklists
-              for all five countries.
+              for all six countries.
             </p>
           </Link>
           <Link href="/resources/guides" className="block p-5 transition-all" style={cardStyle}>

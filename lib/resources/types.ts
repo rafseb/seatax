@@ -1,4 +1,10 @@
-export type CountrySlug = 'philippines' | 'thailand' | 'vietnam' | 'indonesia' | 'malaysia';
+export type CountrySlug =
+  | 'philippines'
+  | 'thailand'
+  | 'vietnam'
+  | 'indonesia'
+  | 'malaysia'
+  | 'singapore';
 
 export type VisaCategory =
   | 'tourist'

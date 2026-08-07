@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'SEA Expat Resources — Visas, Cost of Living & Guides',
   description:
-    'Complete resource hub for expats and digital nomads in Southeast Asia. Visa guides, cost of living data, banking tips, and tax calculators for Philippines, Thailand, Vietnam, Indonesia and Malaysia.',
+    'Complete resource hub for expats and digital nomads in Southeast Asia. Visa guides, cost of living data, banking tips, and tax calculators for Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
   path: '/resources',
 });
 
@@ -18,6 +18,13 @@ const TOOLS: {
   status: 'live' | 'stub';
 }[] = [
   {
+    icon: '🌏',
+    title: 'Working in Southeast Asia',
+    description: 'Pillar guide: work permits vs visas, the four ways to get paid legally, and when you become a local taxpayer.',
+    href: '/resources/working-in-southeast-asia',
+    status: 'live',
+  },
+  {
     icon: '🛂',
     title: 'Visa Guide by Country',
     description: 'Explore visa options for expats, digital nomads, retirees and investors — filterable by type.',
@@ -27,7 +34,7 @@ const TOOLS: {
   {
     icon: '💰',
     title: 'Cost of Living Comparison',
-    description: 'Side-by-side monthly cost breakdown across all 5 SEA countries in USD.',
+    description: 'Side-by-side monthly cost breakdown across all 6 SEA countries in USD.',
     href: '/resources/cost-of-living',
     status: 'live',
   },

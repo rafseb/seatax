@@ -7,7 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'SEA Tax Guides — Expat & Remote Work Guides',
   description:
-    'Expert guides for expats and remote workers on income tax, social contributions, visa requirements, city living, and cost of living in the Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+    'Expert guides for expats and remote workers on income tax, social contributions, visa requirements, city living, and cost of living in the Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
   path: '/resources/guides',
 });
 

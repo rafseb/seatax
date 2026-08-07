@@ -10,6 +10,7 @@ export const dynamic = 'force-static';
 // so lastModified reflects real changes instead of the build date.
 const CALCULATORS_UPDATED = new Date('2026-07-17'); // landing page + 2026 rates
 const RESOURCES_UPDATED = new Date('2026-06-01');
+const PILLARS_UPDATED = new Date('2026-08-07'); // working-in-SEA pillar + nomad cluster
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -100,6 +101,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${BASE_URL}/resources/digital-nomad`,
       lastModified: RESOURCES_UPDATED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/resources/digital-nomad/tax-residency`,
+      lastModified: PILLARS_UPDATED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/resources/digital-nomad/internet-and-coworking`,
+      lastModified: PILLARS_UPDATED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/resources/working-in-southeast-asia`,
+      lastModified: PILLARS_UPDATED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/working-in-southeast-asia/work-permits`,
+      lastModified: PILLARS_UPDATED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/resources/working-in-southeast-asia/employer-of-record`,
+      lastModified: PILLARS_UPDATED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/resources/working-in-southeast-asia/getting-paid-abroad`,
+      lastModified: PILLARS_UPDATED,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },

@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Compare Southeast Asia: Tax & Cost of Living by Country',
   description:
-    'Side-by-side comparisons of income tax, take-home pay, cost of living, and visas for every pair of Southeast Asian countries — Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+    'Side-by-side comparisons of income tax, take-home pay, cost of living, and visas for every pair of Southeast Asian countries — Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
   path: '/compare',
 });
 

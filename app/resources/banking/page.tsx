@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Banking Guide for Expats in Southeast Asia',
   description:
-    'How to open a bank account as a foreigner in SEA, move money internationally with low fees, and manage finances as an expat in Philippines, Thailand, Vietnam, Indonesia, and Malaysia.',
+    'How to open a bank account as a foreigner in SEA, move money internationally with low fees, and manage finances as an expat in Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore.',
   path: '/resources/banking',
 });
 
@@ -58,7 +58,7 @@ export default function BankingPage() {
         <p className="text-sm mb-4" style={{ color: 'var(--forest-300)' }}>
           Banking setup is easier when you know exactly how much you will take home. Use our free
           tax calculator to compare net salary after income tax and mandatory contributions across
-          all five SEA countries.
+          all six SEA countries.
         </p>
         <Link
           href="/resources"

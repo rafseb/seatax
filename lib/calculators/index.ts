@@ -4,6 +4,7 @@ import { calculate as calculateThailand } from './thailand';
 import { calculate as calculateVietnam } from './vietnam';
 import { calculate as calculateIndonesia } from './indonesia';
 import { calculate as calculateMalaysia } from './malaysia';
+import { calculate as calculateSingapore } from './singapore';
 
 const calculators: Record<string, (params: CalculatorParams) => TaxResult> = {
   philippines: calculatePhilippines,
@@ -11,6 +12,7 @@ const calculators: Record<string, (params: CalculatorParams) => TaxResult> = {
   vietnam: calculateVietnam,
   indonesia: calculateIndonesia,
   malaysia: calculateMalaysia,
+  singapore: calculateSingapore,
 };
 
 export function calculate(country: string, params: CalculatorParams): TaxResult | null {

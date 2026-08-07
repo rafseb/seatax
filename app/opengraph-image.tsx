@@ -4,7 +4,7 @@ export const dynamic = 'force-static';
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 export const alt =
-  'SEA Tax Calculator — net take-home pay for Philippines, Thailand, Vietnam, Indonesia, and Malaysia';
+  'SEA Tax Calculator — net take-home pay for Philippines, Thailand, Vietnam, Indonesia, Malaysia and Singapore';
 
 export default function Image() {
   return ogCard({

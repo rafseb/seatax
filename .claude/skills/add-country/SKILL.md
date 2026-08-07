@@ -1,47 +1,62 @@
 ---
 name: add-country
-description: Add a new Southeast Asian country to the SEA Tax Calculator following the standard 6-step process across all required files
+description: Add a new Southeast Asian country to the SEA Tax Calculator following the standard 13-step process across all required files
 ---
 
 Guide adding a new country to the SEA Tax Calculator. Ask for the country name if not provided.
 
-**All six steps are required. Do not skip any.**
+**The authoritative checklist is the "How to Add a New Country" section in `CLAUDE.md` at the
+repo root. Read it before starting and follow it step by step — it is kept in sync with the
+codebase and this file is not.**
 
-1. **`lib/countries.ts`** — add country metadata object:
-   ```typescript
-   { slug: '{slug}', name: '{Name}', flag: '{flag emoji}',
-     currency: '{CODE}', currencySymbol: '{symbol}',
-     defaultSalary: {n}, salaryStep: {n}, salaryMin: {n}, salaryMax: {n} }
-   ```
-   Choose `salaryMin/Max/defaultSalary` to reflect a realistic local salary range.
+All thirteen steps are required. Do not skip any. Two of them are easy to miss and both break
+the build rather than degrading quietly:
 
-2. **`lib/calculators/{slug}.ts`** — create the calculator module:
-   - Export a default function matching the `CalculatorParams → TaxResult` signature
-   - Implement progressive income tax brackets (annual thresholds)
-   - Add mandatory contribution items (social security, health, etc.) as `ContributionItem[]`
-   - Handle `isExpat` with a flat rate (20% unless the country specifies otherwise)
-   - Handle `dependents` and `maritalStatus` if they affect local tax (e.g. dependent allowances)
-   - All bracket thresholds in **annual** amounts; convert monthly `grossSalary` at the start
+- **`CountrySlug` union in `lib/resources/types.ts`** — omit it and the visa/cost data entries
+  fail type-checking.
+- **The `SEO`, `FAQ` and `GUIDE` maps in `app/[country]/page.tsx`** — omit any one and the
+  static export fails at prerender with an opaque `Cannot read properties of undefined
+  (reading 'title')`, not at type-check.
 
-3. **`lib/calculators/index.ts`** — register in the router:
-   ```typescript
-   import {slug} from './{slug}';
-   // add: case '{slug}': return {slug}(params);
-   ```
+## Quick reference
 
-4. **`components/TaxInfo.tsx`** — add information panel:
-   - Income tax brackets table with rates and thresholds
-   - Mandatory contribution rates and caps
-   - Link to official government tax authority source
-   - Expat/non-resident rules
+| # | File | What to add |
+|---|------|-------------|
+| 1 | `lib/countries.ts` | Country metadata object (slug, flag, currency, salary range, taxYear) |
+| 2 | `lib/calculators/<slug>.ts` | `export function calculate(params): TaxResult` — named export, annual bracket thresholds |
+| 3 | `lib/calculators/index.ts` | Import + entry in the `calculators` map |
+| 4 | `lib/taxData/index.ts` | Brackets table, contribution rates, `expatNote`, official sources |
+| 5 | `app/[country]/page.tsx` | `SEO`, `FAQ` **and** `GUIDE` entries keyed by slug |
+| 6 | `app/globals.css` | `[data-country="<slug>"]` accent **and** the print-media selector list |
+| 7 | `lib/resources/types.ts` | Extend the `CountrySlug` union |
+| 8 | `lib/resources/visaData.ts` | New `CountryVisaData` entry |
+| 9 | `lib/resources/costData.ts` | New `CountryCostData` entry |
+| 10 | `app/resources/relocation/[country]/page.tsx` | New `CHECKLISTS` entry |
+| 11 | `lib/articles/<slug>-expat-guide.ts` + `lib/articles/index.ts` | Guide article, registered in `ARTICLES`. **Do not** touch `LEGACY_BLOG_SLUGS` — it is frozen at the original five. |
+| 12 | `app/sitemap.ts` | Only genuinely new static routes; country/guide/visa/relocation/compare entries derive from `COUNTRIES` and `ARTICLES` automatically |
+| 13 | — | Verify (below) |
 
-5. **`app/blog/[slug]/page.tsx`** — create expat guide page:
-   - Follow the structure of an existing guide (e.g. `app/blog/working-in-the-philippines-as-an-expat/`)
-   - Cover: tax overview, mandatory contributions, expat rules, practical tips
+## Verify
 
-6. **`app/sitemap.ts`** — register the new country and blog slugs so they appear in the sitemap.
+```bash
+npm run lint     # zero errors
+npm run build    # must succeed — TypeScript checking and static export both run here
+```
 
-**After all edits:**
-- Run `npm run lint` — must pass with zero errors
-- Run `npm run build` — must succeed with no TypeScript errors
-- Confirm the new country page loads at `/seatax/{slug}` in `npm run dev`
+Then confirm the new country page, its compare pairs, and its resource pages render.
+
+## Finally: sweep the prose
+
+`lint` and `build` **cannot** catch copy that counts or enumerates the countries, and this is
+the step most likely to ship a factually wrong homepage. Sweep and fix:
+
+```bash
+grep -rn "five countr\|all five\|of the five\|5 SEA\|Indonesia and Malaysia\|Indonesia, and Malaysia" \
+  app components lib --include='*.tsx' --include='*.ts'
+```
+
+Check in particular: `app/page.tsx` (title, description, `COUNTRY_BLURBS`, and the FAQ answers
+that feed `FAQPage` JSON-LD), `app/layout.tsx` metadata, and every `pageMetadata` description
+under `app/resources/`. Also add the new country to the per-country arrays on the resource
+pages — the tax-residency day-count table, work-permits, getting-paid-abroad, employer-of-record
+and the digital-nomad hub — or those pages silently omit it.

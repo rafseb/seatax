@@ -1,4 +1,4 @@
-import { ARTICLES, getArticle } from '@/lib/articles';
+import { LEGACY_BLOG_SLUGS, getArticle } from '@/lib/articles';
 import { getCountry } from '@/lib/countries';
 import { ogCard, accentFor, OG_SIZE, OG_CONTENT_TYPE } from '@/lib/og';
 
@@ -14,8 +14,10 @@ const CATEGORY_TAGS: Record<string, string> = {
   compliance: 'Compliance Guide',
 };
 
+// Must mirror the page route, which only serves the five legacy slugs — otherwise
+// we emit OG images for /blog URLs that have no page.
 export function generateStaticParams() {
-  return ARTICLES.map((a) => ({ slug: a.slug }));
+  return LEGACY_BLOG_SLUGS.map((slug) => ({ slug }));
 }
 
 export default async function Image({

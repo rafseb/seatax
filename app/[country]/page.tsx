@@ -76,6 +76,18 @@ const SEO: Record<string, {
       'SOCSO at 0.5% and EIS at 0.2% (both capped at RM6,000/month). ' +
       'Non-residents pay a flat 30% withholding tax.',
   },
+  singapore: {
+    title: 'Singapore Income Tax Calculator 2026 — Net Salary & CPF',
+    description:
+      'Free Singapore income tax calculator for YA 2026. Enter your gross salary to see net take-home pay after resident progressive rates (0%–24%) and CPF. Employment Pass holders pay no CPF at all. Includes the non-resident rule (higher of flat 15% or resident rates) and expat mode.',
+    heading: 'Singapore Income Tax Calculator (YA 2026)',
+    intro:
+      'Calculate your net take-home pay under Singapore\'s YA 2026 rates. ' +
+      'Resident progressive brackets run from 0% on the first S$20,000 to 24% above S$1,000,000, ' +
+      'after reliefs capped at S$80,000. CPF (20% employee share up to the S$8,000/month ' +
+      'Ordinary Wage ceiling) applies to Citizens and PRs only — foreigners on work passes ' +
+      'contribute nothing. Non-residents pay the higher of a flat 15% or the resident rates.',
+  },
 };
 
 const FAQ: Record<string, { q: string; a: string }[]> = {
@@ -241,6 +253,28 @@ const FAQ: Record<string, { q: string; a: string }[]> = {
       a: 'PCB, also called MTD (Monthly Tax Deduction), is Malaysia’s pay-as-you-earn withholding system: your employer deducts estimated income tax from each month’s salary and remits it to LHDN. Submitting Form TP1 for your reliefs keeps the monthly deduction close to your true liability.',
     },
   ],
+  singapore: [
+    {
+      q: 'Do foreigners pay CPF in Singapore?',
+      a: 'No. CPF applies only to Singapore Citizens and Permanent Residents. Employment Pass, S Pass and ONE Pass holders make no CPF contributions, and neither do their employers on their behalf — so your gross salary is your pre-tax income. This is a real advantage over Malaysia, Vietnam or Indonesia, where employees lose 10% or more to mandatory schemes before tax is even calculated.',
+    },
+    {
+      q: 'How much tax do expats pay in Singapore?',
+      a: 'If you are a tax resident (183 days or more in a calendar year), you pay the resident progressive rates: 0% on the first S$20,000, rising through thirteen bands to 24% above S$1,000,000, with personal reliefs capped at S$80,000. If you are a non-resident, employment income is taxed at the higher of a flat 15% or the resident rates, with no reliefs at all.',
+    },
+    {
+      q: 'Does Singapore tax foreign income or capital gains?',
+      a: 'Generally no on both counts. Singapore taxes on a territorial basis, so foreign-sourced income received by an individual is in general not taxed, and there is no capital gains tax and no inheritance tax. For someone relocating from a worldwide-taxation country, this is often worth more than the rate schedule itself.',
+    },
+    {
+      q: 'When is the Singapore tax filing deadline?',
+      a: '15 April, or 18 April for e-filing through myTax Portal using Singpass, covering income earned in the preceding calendar year. Note that Singapore does not operate monthly withholding for most employees — you receive gross pay and settle the bill afterwards, so set money aside from your first payslip.',
+    },
+    {
+      q: 'Do I need tax clearance before leaving Singapore?',
+      a: 'Yes. When a foreign employee ceases employment or leaves Singapore for more than three months, the employer must file Form IR21 for tax clearance, generally at least one month before the cessation date, and must withhold all final monies — salary, bonus, unused leave — until IRAS issues clearance.',
+    },
+  ],
 };
 
 const GUIDE: Record<string, { sections: { heading: string; body: string }[]; articleSlug: string }> = {
@@ -326,6 +360,27 @@ const GUIDE: Record<string, { sections: { heading: string; body: string }[]; art
       {
         heading: 'Tax Filing Tips',
         body: 'Malaysian employers withhold monthly income tax via the PCB (Potongan Cukai Bulanan) Schedular Tax Deduction system. Submit Form TP1 to your employer to claim spouse, child, and other reliefs in the monthly PCB calculation — otherwise the default single-person rate is used and you may over-withhold. Annual income tax returns (Form BE for employment income) are due by 30 April. File online via the MyTax portal (mytax.hasil.gov.my). All earners must register with LHDN and obtain a Tax Identification Number (TIN) — registration is available through the MyTax portal or in person at any LHDN branch.',
+      },
+    ],
+  },
+  singapore: {
+    articleSlug: 'working-in-singapore-as-an-expat',
+    sections: [
+      {
+        heading: 'Understanding Your Results',
+        body: 'The calculator applies YA 2026 resident progressive brackets (0%–24%) to your chargeable income — gross salary minus CPF contributions, earned income relief, and any spouse or child reliefs you have entered, with total reliefs capped at S$80,000. CPF is shown as a contribution line item at the 20% employee rate for members aged 55 and below, applied to Ordinary Wages up to the S$8,000/month ceiling that takes effect from 1 January 2026. Your effective rate is total deductions (tax + CPF) divided by gross salary.',
+      },
+      {
+        heading: 'Important: CPF and Foreigners',
+        body: 'CPF applies only to Singapore Citizens and Permanent Residents. Foreigners on an Employment Pass, S Pass or ONE Pass contribute nothing, and neither do their employers. This calculator models the resident case as a Citizen or PR paying CPF, so if you are a foreigner who is tax resident in Singapore, read the income tax figure as accurate and disregard the CPF line — your actual take-home is higher by that amount. Expat mode models the non-resident rule instead: the higher of a flat 15% or the resident rates, with no CPF and no reliefs.',
+      },
+      {
+        heading: 'For Expats & Remote Workers',
+        body: 'Tax residency turns on 183 days or more of presence in a calendar year, decided separately from your immigration status. Residency is usually worth a great deal at modest incomes, because non-residents pay at least 15% from the first dollar while residents start at 0% on the first S$20,000. Singapore taxes territorially, so foreign-sourced income received by an individual is generally not taxed, and there is no capital gains tax. There is no digital nomad visa — every mainstream work pass requires an employer to sponsor you, and policy is tightening toward higher-earning, employer-sponsored talent.',
+      },
+      {
+        heading: 'Tax Filing Tips',
+        body: 'Singapore does not withhold tax monthly for most employees — you receive gross pay and settle the assessment afterwards, in a lump sum or by GIRO instalments. Budget for it from your first payslip; a first-year expat who has spent their full gross for twelve months faces an unwelcome April. Most employers are on the Auto-Inclusion Scheme and submit your income to IRAS directly, so your return is largely pre-filled. File by 15 April (18 April for e-filing) via myTax Portal using Singpass, which is worth setting up in your first week. Before leaving permanently, your employer must file Form IR21 for tax clearance and will withhold your final pay until IRAS issues it.',
       },
     ],
   },
