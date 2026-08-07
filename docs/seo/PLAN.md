@@ -77,17 +77,13 @@ resolves to a live computed result. No competitor can do this.
 
 All six items shipped on 2026-08-07. See [PROGRESS.md](./PROGRESS.md).
 
-## Next up (not yet started)
+## Next up
 
-1. **Source-verify the new content.** The 12 new pages and 9 new guides were written from
-   model knowledge, not checked against live official sources. Volatile figures carry
-   verify-before-acting language, but a pass against IRAS / LHDN / BIR / DJP / GDT / the Thai
-   Revenue Department is worth doing before this content ranks and starts being relied on.
-2. **Custom domain migration** — the prerequisite for competing on head terms.
-3. **Singapore cluster depth** — a freelancer playbook and an annual filing guide, matching
-   the other five countries.
-4. **Calculator UX** — result above the fold on mobile, sticky net-pay bar, and a
-   cost-of-living CTA under the result to close the calculator→content loop.
+Rates and thresholds have since been source-verified (see PROGRESS.md — every calculator
+constant was correct; the errors were all in prose). The full prioritised backlog for the next
+session lives in **[NEXT-SESSION.md](./NEXT-SESSION.md)**, covering manual browser QA and the
+merge, remaining accuracy follow-ups, Singapore cluster depth, schema and calculator UX, and
+the custom-domain migration.
 
 ## Definition of done per page
 
