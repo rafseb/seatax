@@ -13,7 +13,7 @@ const article: Article = {
       heading: 'Who This Playbook Is For',
       body: `This guide is for freelancers, independent contractors and self-employed professionals based in Malaysia — people billing clients directly rather than receiving a salary with monthly tax deduction (PCB) already applied.
 
-Malaysia is arguably the most favourable of the six countries on this site for a self-employed foreigner, for one structural reason: **foreign-source income received by individuals is exempt**. Combine that with the DE Rantau Digital Nomad Pass — the region's most straightforward formal route for remote workers with overseas clients — and Malaysia is the one place where the immigration path and the tax treatment actually line up.
+Malaysia is arguably the most favourable of the six countries on this site for a self-employed foreigner, for one structural reason: **foreign-source income received by individuals is exempt**, subject to a subject-to-tax condition covered in detail below. Combine that with the DE Rantau Digital Nomad Pass — the region's most straightforward formal route for remote workers with overseas clients — and Malaysia is the one place where the immigration path and the tax treatment actually line up.
 
 That does not make it frictionless. Domestic-source freelance income is fully taxable, the filing calendar differs from the employee one, and service tax catches more freelancers than they expect. Read this alongside our Malaysia expat tax guide and the tax residency guide for the 182-day mechanics.`,
     },
@@ -31,9 +31,15 @@ Registration with LHDN confers no work authorisation. Working in Malaysia requir
       heading: 'The Foreign-Source Income Exemption',
       body: `This is the provision that shapes everything for a location-independent freelancer in Malaysia.
 
-Malaysia operates on a **territorial basis for individuals**: income accruing in or derived from Malaysia is taxable; foreign-source income received in Malaysia by a resident individual is **exempt** under an exemption order currently legislated to run well into the 2030s. So a resident freelancer whose entire client base is overseas can, in principle, receive that income in Malaysia without Malaysian income tax on it.
+Malaysia operates on a **territorial basis for individuals**: income accruing in or derived from Malaysia is taxable; foreign-source income received in Malaysia by a resident individual is **exempt** under an exemption order that runs from 1 January 2022 to **31 December 2036** (extended by P.U.(A) 451/2024 from the original 2026 end date).
 
-Three qualifications matter. First, the exemption applies to foreign-source income — the source question is factual and turns on where the services are actually performed, not merely on where the client or the bank sits. A freelancer physically working from Kuala Lumpur is on notably weaker ground claiming foreign source than one whose work is genuinely performed abroad, and this is the point where confident internet advice most often outruns the law. Second, the exemption for individuals has been extended by order rather than being a permanent structural feature, so its continuation is a policy choice that can change. Third, exempt income still has reporting implications.
+Three qualifications matter, and the first is the one most commentary leaves out.
+
+**The income must already have been subject to tax of a similar character in the country where it arose.** This is relief from double taxation, not a route to paying tax nowhere — and you are expected to hold documentation showing the foreign tax was borne. For a freelancer invoicing clients in jurisdictions that withhold nothing on services, this condition is doing far more work than the headline "foreign income is exempt" suggests. Do not build a plan on the exemption without checking that you actually satisfy it.
+
+**Source is a factual question**, turning on where the services are actually performed rather than where the client or the bank sits. A freelancer physically working from Kuala Lumpur is on notably weaker ground claiming foreign source than one whose work is genuinely performed abroad. This is where confident internet advice most often outruns the law.
+
+**The exemption is an order, not a structural feature.** It has been extended once already, so its continuation past 2036 is a policy choice. Note also that it does not extend to foreign income arising from a partnership business in Malaysia, and exempt income still carries reporting implications.
 
 If your position depends materially on this exemption, get Malaysian advice on the source characterisation of your specific work. Getting it wrong is expensive and the argument is not one you want to have retrospectively.`,
     },
@@ -71,7 +77,7 @@ Keep records for seven years. Malaysia's audit activity around self-employed tax
   faqs: [
     {
       q: 'Does Malaysia tax foreign income for freelancers?',
-      a: 'Foreign-source income received in Malaysia by a resident individual is exempt under an exemption order currently legislated well into the 2030s — Malaysia is effectively territorial for individuals. The critical qualification is that source is a factual question turning on where the services are actually performed, so a freelancer physically working from Malaysia has a weaker foreign-source claim than commonly assumed. Get local advice if your position depends on it.',
+      a: 'Foreign-source income received in Malaysia by a resident individual is exempt under an exemption order running to 31 December 2036 — but with a condition that is often omitted: the income must already have been subject to tax of a similar character where it arose, with documentation to prove it. It is relief from double taxation, not a route to paying tax nowhere. Separately, source turns on where the services are actually performed, so a freelancer physically working from Malaysia has a weaker foreign-source claim than commonly assumed. Get local advice if your position depends on this.',
     },
     {
       q: 'When is the tax filing deadline for freelancers in Malaysia?',

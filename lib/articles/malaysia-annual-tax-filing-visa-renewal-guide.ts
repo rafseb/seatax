@@ -15,7 +15,7 @@ const article: Article = {
 
 Malaysia is the most administratively legible of the six countries on this site. Deadlines are fixed and published, e-Filing works, the Employment Pass process is document-driven, and DE Rantau gives remote workers a genuine formal route rather than a grey zone. The system rewards preparation and punishes improvisation, which is a fair trade.
 
-Two features shape the whole picture. First, **foreign-source income received by resident individuals is exempt** — Malaysia is effectively territorial for individuals. Second, **non-residents pay a flat 30% with no reliefs**, the harshest non-resident treatment in the region, which makes crossing the 182-day residency threshold unusually valuable. Read this alongside our Malaysia expat tax guide and use the Malaysia take-home pay calculator to see the resident/non-resident gap at your income.`,
+Two features shape the whole picture. First, **foreign-source income received by resident individuals is exempt** to 31 December 2036 — though only where that income was already subject to tax of a similar character in the country it arose in, which is a condition many summaries omit. Second, **non-residents pay a flat 30% with no reliefs**, the harshest non-resident treatment in the region, which makes crossing the 182-day residency threshold unusually valuable. Read this alongside our Malaysia expat tax guide and use the Malaysia take-home pay calculator to see the resident/non-resident gap at your income.`,
     },
     {
       heading: 'Registration and the Residency Question',

@@ -249,4 +249,52 @@ grep -L "vs" out/compare/*/index.html   # any hit is a missing COMPARISONS entry
 Still outstanding: the manual in-browser interaction checks (slider drag, currency switching,
 chart rendering) and the source-verification of tax figures.
 
+### 2026-08-07 — Source verification pass
+
+Checked the load-bearing figures against official and reputable secondary sources.
+**Every calculator constant verified correct.** The errors were all in prose.
+
+**Confirmed accurate:**
+
+| Country | Verified |
+|---|---|
+| Singapore | Full YA 2026 bracket table matches PwC's schedule **exactly** — every threshold and cumulative base. Relief cap S$80,000 ✓. Non-resident = higher of 15% or resident rates ✓. CPF OW ceiling S$8,000 from 1 Jan 2026 (up from S$7,400), employee 20% for age ≤55, annual ceiling S$102,000 ✓. |
+| Thailand | SSF ceiling raised ฿15,000 → ฿17,500 on 1 Jan 2026, max ฿875/month at 5% (Royal Gazette, 12 Dec 2025) ✓ |
+| Vietnam | Amended PIT Law: 5 brackets at 10/30/60/100m thresholds and 5/10/20/30/35% — matches exactly. Personal deduction ₫15.5m, dependent ₫6.2m ✓ |
+| Malaysia | YA 2026 brackets unchanged, 10 bands 0–30% ✓. EPF 11% ✓. SOCSO/EIS RM6,000 ceiling ✓ |
+| Philippines | SSS MSC ceiling ₱35,000, employee 5% ✓. PhilHealth 5% premium / 2.5% employee, floor ₱10,000 ceiling ₱100,000 → ₱250–₱2,500 ✓ |
+| Indonesia | PTKP Rp54,000,000 + Rp4.5m per spouse/dependent ✓. PPh 21 brackets match exactly ✓ |
+
+**Corrections made:**
+
+1. **Malaysia foreign-source exemption — a material omission.** The exemption runs to
+   31 December 2036 (extended by P.U.(A) 451/2024, so "into the 2030s" was right), but it
+   carries a condition I did not state anywhere: **the income must already have been subject
+   to tax of a similar character in the country where it arose**, with documentation. It is
+   double-tax relief, not a route to paying tax nowhere — which matters enormously for the
+   exact reader these pages target, a freelancer whose foreign clients withhold nothing.
+   Added to six places: the Malaysia freelancer playbook (headline claim, the dedicated
+   section, and its FAQ), the Malaysia filing guide, the tax-residency table and FAQ,
+   getting-paid-abroad, the nomad hub FAQ, and the README.
+2. **Pre-existing error in `malaysia-expat-guide.ts`** — it stated foreign-sourced income
+   became taxable from 1 January 2022, which is the opposite of the operative position and
+   directly contradicted the new content. Rewritten.
+3. **README, Thailand SSF** — said "capped at ฿750/month", a figure carried over from the old
+   stale README. The calculator, TaxInfo and landing copy all correctly said ฿875. Fixed.
+4. **README, PhilHealth** — said "min ₱500"; the floor is ₱250 (2.5% of the ₱10,000 floor),
+   as the calculator and TaxInfo both had. Fixed.
+5. **Indonesia VAT** — the guide hedged and told readers to check. Now verifiable and stated
+   precisely: the statutory rate is 12%, but non-luxury goods and services apply it to a base
+   of 11/12 of the selling price under PMK 131/2024, so the **effective rate on ordinary
+   services stays at 11%**. Only PPnBM luxury categories bear a true 12%.
+
+**Flagged, not resolved:** secondary sources give three different figures for the 2026 BPJS
+JP ceiling (10,977,600 / 11,074,800 / our 11,086,300). Impact is under IDR 1,100/month. Noted
+in a code comment to confirm against the BPJS circular at the next rate review.
+
+**Not yet verified:** the procedural detail in the 9 new guides — filing form numbers,
+deadlines, registration steps, visa document lists. The rates and thresholds are the
+load-bearing content and are now checked; the procedural claims carry the standing
+verify-before-acting language.
+
 **All six build-order items are complete.** Nothing is blocked.

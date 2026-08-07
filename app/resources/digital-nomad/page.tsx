@@ -88,7 +88,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Do digital nomads pay tax in Southeast Asia?',
-    a: 'It depends on residency, not on your visa. Each country applies a day-count test of 180–183 days, and the countries differ in what they tax: Vietnam and Indonesia tax residents on worldwide income, Malaysia exempts foreign-source income for individuals, Thailand taxes foreign income on remittance, and the Philippines taxes resident aliens on Philippine-source income only.',
+    a: 'It depends on residency, not on your visa. Each country applies a day-count test of 180–183 days, and the countries differ in what they tax: Vietnam and Indonesia tax residents on worldwide income, Singapore is territorial, Malaysia exempts foreign-source income for individuals to 2036 where it was already taxed abroad, Thailand taxes foreign income on remittance, and the Philippines taxes resident aliens on Philippine-source income only.',
   },
   {
     q: 'Which country is cheapest for digital nomads in Southeast Asia?',

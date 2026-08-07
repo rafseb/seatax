@@ -56,13 +56,13 @@ Legacy `/blog/{slug}` URLs are retained for the five original guides for SEO con
 ### Philippines
 - Income tax: TRAIN Law brackets (0%–35%)
 - SSS: 5% employee, capped at ₱35,000/month MSC
-- PhilHealth: 2.5% employee, min ₱500, max ₱2,500/month
+- PhilHealth: 2.5% employee (half the 5% premium), min ₱250, max ₱2,500/month
 - Pag-IBIG: 2% employee, max ₱200/month
 - Non-residents: flat 25% on gross Philippine-sourced income
 
 ### Thailand
 - Income tax: progressive brackets (0%–35%) on taxable income after deductions
-- Social Security (SSF): 5% employee, capped at ฿750/month
+- Social Security (SSF): 5% employee, capped at ฿875/month (wage ceiling raised ฿15,000 → ฿17,500 on 1 Jan 2026)
 - Deductions: 50% standard deduction (max ฿100,000) + ฿60,000 personal allowance
 - Non-residents: same progressive rates, no SSF and no deductions
 
@@ -84,6 +84,7 @@ Legacy `/blog/{slug}` URLs are retained for the five original guides for SEO con
 - SOCSO 0.5% · EIS 0.2%, both capped at RM6,000/month
 - Reliefs: personal RM9,000, EPF up to RM4,000, plus spouse and child reliefs
 - Non-residents: flat 30%, no reliefs
+- Foreign-source income exempt for residents to 31 Dec 2036, where already taxed abroad
 
 ### Singapore
 - Income tax: resident progressive brackets, 0% on the first S$20,000 rising to 24% above S$1,000,000

@@ -58,7 +58,7 @@ const RESIDENCY: ResidencyRow[] = [
     country: 'Malaysia',
     slug: 'malaysia',
     test: '182 days in a calendar year (with linking rules across years)',
-    scope: 'Effectively territorial for individuals — foreign-source income received in Malaysia is exempt under an exemption order currently legislated to run into the 2030s.',
+    scope: 'Effectively territorial for individuals — foreign-source income received in Malaysia is exempt under an order running to 31 December 2036. Important caveat: the income must already have been subject to tax of a similar character where it arose. It is double-tax relief, not a route to paying tax nowhere.',
     nonResidentRate: '30% flat, no personal reliefs',
   },
   {
@@ -109,7 +109,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Which Southeast Asian country does not tax foreign income?',
-    a: 'Singapore is genuinely territorial — foreign-source income received by an individual is generally not taxed, and there is no capital gains tax. Malaysia is close behind: foreign-source income received by residents is exempt under an exemption order legislated well into the 2030s. The Philippines taxes resident aliens on Philippine-source income only. Thailand taxes foreign income only when you remit it while resident. Vietnam and Indonesia tax residents on worldwide income.',
+    a: 'Singapore is genuinely territorial — foreign-source income received by an individual is generally not taxed, and there is no capital gains tax. Malaysia exempts foreign-source income for residents under an order running to 31 December 2036, but only where that income was already subject to tax of a similar character abroad — a real limitation if your foreign clients withhold nothing. The Philippines taxes resident aliens on Philippine-source income only. Thailand taxes foreign income only when you remit it while resident. Vietnam and Indonesia tax residents on worldwide income.',
   },
   {
     q: 'Does Thailand tax money I bring in from abroad?',

@@ -37,6 +37,9 @@ export function calculate(params: CalculatorParams): TaxResult {
 
   // BPJS JP (Pension): 1% employee, salary cap IDR 11,086,300/month
   // (from March 2026 per BPJS Ketenagakerjaan circular B/1226/022026)
+  // NOTE: secondary sources disagree on the 2026 JP ceiling (figures of 10,977,600
+  // and 11,074,800 also circulate). Impact is under IDR 1,100/month, but confirm
+  // against the BPJS circular before the next rate review.
   const pensionMonthly = Math.min(grossMonthly, 11086300) * 0.01;
   const pensionAnnual = pensionMonthly * 12;
 

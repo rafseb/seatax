@@ -32,7 +32,7 @@ const REMITTANCE: { flag: string; country: string; slug: string; rule: string }[
     country: 'Malaysia',
     slug: 'malaysia',
     rule:
-      'Foreign-source income received by resident individuals is exempt under an exemption order legislated well into the 2030s. Remitting is therefore not itself a taxable event — but source is a factual question about where the work was performed, not where the money moved.',
+      'Foreign-source income received by resident individuals is exempt under an order running to 31 December 2036, so remitting is not itself a taxable event. Two caveats: the income must already have been subject to tax of a similar character abroad — it is double-tax relief, not a route to paying tax nowhere — and source turns on where the work was performed, not where the money moved.',
   },
   {
     flag: '🇵🇭',

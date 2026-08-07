@@ -41,7 +41,7 @@ The comparison is not obvious. A consultant with minimal costs may do better und
       heading: 'VAT and the IDR 4.8 Billion Threshold',
       body: `The same IDR 4.8 billion figure that governs the small-business regimes is also the **VAT (PPN) registration threshold**. Cross it in gross turnover and registration as a taxable entrepreneur (PKP) becomes mandatory: you charge VAT, issue tax invoices through the e-Faktur system, and file monthly VAT returns.
 
-Indonesia restructured its VAT rates in 2025, and the headline rate applying to ordinary goods and services differs from the rate applying to designated luxury categories. Because this was revised close to implementation and commentary from the period is unreliable, confirm the current applicable rate with the DJP or an Indonesian accountant rather than trusting a figure from an article — including this one.
+Indonesia's 2025 VAT restructuring is widely misreported, so be precise about it. The statutory rate rose to 12%, but under PMK 131/2024 non-luxury goods and services apply that 12% to an alternative tax base of 11/12 of the selling price — which leaves the **effective rate on ordinary goods and services at 11%**, unchanged. Only goods in the luxury (PPnBM) categories bear a true 12%. Most freelance services therefore sit at an effective 11%.
 
 Exported services can qualify for zero-rated treatment in defined circumstances, which is materially different from exemption and carries documentation requirements. If your client base is entirely overseas, this is worth specific advice before you register.
 
@@ -81,7 +81,7 @@ Late filing attracts an administrative fine, and underpayment attracts monthly i
     },
     {
       q: 'What is the VAT registration threshold in Indonesia?',
-      a: 'IDR 4.8 billion in gross annual turnover — the same figure that caps the small-business regimes. Above it, registration as a taxable entrepreneur (PKP) is mandatory, with e-Faktur tax invoices and monthly VAT returns. Indonesia restructured its VAT rates in 2025, so confirm the current applicable rate with the DJP rather than relying on published commentary.',
+      a: 'IDR 4.8 billion in gross annual turnover — the same figure that caps the small-business regimes. Above it, registration as a taxable entrepreneur (PKP) is mandatory, with e-Faktur tax invoices and monthly VAT returns. On the rate: the 2025 restructuring raised the statutory rate to 12%, but non-luxury goods and services apply it to a tax base of 11/12 of the selling price, so the effective rate on ordinary services remains 11%. Only luxury (PPnBM) categories bear a true 12%.',
     },
     {
       q: 'Do self-employed foreigners in Indonesia need BPJS?',
