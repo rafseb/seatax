@@ -343,6 +343,116 @@ export const COMPARISONS: Record<string, ComparisonContent> = {
       },
     ],
   },
+  'indonesia-vs-singapore': {
+    intro:
+      "Indonesia and Singapore sit at opposite ends of almost every axis: Indonesia taxes residents on worldwide income and is one of the cheapest places to live in the region, while Singapore is territorial, charges no capital gains tax, and is by far the most expensive. Whether you’re weighing Singapore vs Indonesia for a job offer or a regional base, this page lines up income tax, take-home pay, living costs, and visa routes for 2026.",
+    faqs: [
+      {
+        q: 'Which has lower income tax, Indonesia or Singapore?',
+        a: 'Singapore, at almost every income level. Its resident brackets start at 0% on the first S$20,000 and top out at 24%, while Indonesia’s PPh 21 brackets reach 35%. The gap widens further once contributions are counted: Indonesian employees pay BPJS, whereas CPF applies only to Singapore Citizens and PRs, so a foreigner on an Employment Pass pays nothing. Use the calculator above to see the difference at your salary.',
+      },
+      {
+        q: 'Does either country tax foreign income?',
+        a: 'Indonesia does — residents are taxed on worldwide income with no remittance basis. Singapore generally does not: it is territorial, so foreign-source income received by an individual is normally untaxed, and there is no capital gains tax. For anyone with income outside the country this is the single biggest difference between them.',
+      },
+      {
+        q: 'How are non-resident expats taxed in each country?',
+        a: 'Indonesia applies a flat 20% to non-residents (present under 183 days) with no PTKP. Singapore taxes non-resident employment income at the higher of a flat 15% or the resident rates, with no reliefs. Both switch you to resident treatment once you cross the day threshold.',
+      },
+      {
+        q: 'Is Indonesia or Singapore better for digital nomads?',
+        a: 'Indonesia, comfortably. It offers the Second Home Visa (E33G) as a long-stay route and Bali has the deepest nomad ecosystem in the region. Singapore has no digital nomad visa and no sign of introducing one — every mainstream work pass requires an employer to sponsor you, and housing costs several times the Indonesian equivalent.',
+      },
+    ],
+  },
+  'malaysia-vs-singapore': {
+    intro:
+      "Malaysia and Singapore are the region’s two most administratively straightforward destinations, and the choice usually comes down to cost against salary. Both bundle work authorisation and residence into a single pass, and both treat foreign-source income favourably — but Singapore pays far more and charges far more to live there. This page compares income tax, take-home pay, monthly costs, and visa routes for 2026.",
+    faqs: [
+      {
+        q: 'Which has lower income tax, Malaysia or Singapore?',
+        a: 'Singapore in most cases: its resident brackets top out at 24% against Malaysia’s 30%, and it reaches 7% only above S$40,000. Malaysia offsets some of this with generous personal reliefs, and Malaysian employees pay 11% to EPF while foreigners in Singapore pay no CPF at all. The crossover depends on your salary — model both above.',
+      },
+      {
+        q: 'Do Malaysia and Singapore both exempt foreign income?',
+        a: 'Effectively yes, by different mechanisms. Singapore is territorial by design: foreign-source income received by an individual is generally untaxed and there is no capital gains tax. Malaysia exempts foreign-source income for resident individuals under an exemption order legislated into the 2030s — an extended concession rather than a permanent structural feature. In both, "source" turns on where the work is actually performed.',
+      },
+      {
+        q: 'How are non-resident expats taxed in each country?',
+        a: 'Malaysia applies a flat 30% with no reliefs to non-residents (under 182 days) — the harshest non-resident treatment in the region. Singapore charges the higher of a flat 15% or the resident rates on employment income (under 183 days). Establishing residency is worth a great deal in both, and Malaysia additionally has linking rules that can qualify a shorter period.',
+      },
+      {
+        q: 'Is Malaysia or Singapore better for remote workers?',
+        a: 'Malaysia, clearly. The DE Rantau Digital Nomad Pass is purpose-built for remote workers with foreign clients and is the cleanest legal route in Southeast Asia. Singapore has no equivalent and is tightening work passes toward higher-earning, employer-sponsored talent. Kuala Lumpur also costs a fraction of Singapore for comparable connectivity.',
+      },
+    ],
+  },
+  'philippines-vs-singapore': {
+    intro:
+      "The Philippines and Singapore are both unusually easy for English speakers, and both spare foreign residents from worldwide taxation — but they differ enormously on rates, contributions, and cost. Whether you’re comparing Singapore vs the Philippines for an employer relocation or a regional move, this page lines up income tax, net pay, living costs, and visas for 2026.",
+    faqs: [
+      {
+        q: 'Which has lower income tax, the Philippines or Singapore?',
+        a: 'Singapore at most income levels. Philippine TRAIN Law brackets reach 35% and jump to 15% immediately above the ₱250,000 exempt band, while Singapore stays at 0% to S$20,000 and tops out at 24%. Filipino employees also pay SSS, PhilHealth and Pag-IBIG, whereas foreigners in Singapore pay no CPF. Compare at your own salary above.',
+      },
+      {
+        q: 'Do either tax foreign income for foreign residents?',
+        a: 'Neither, broadly. The Philippines taxes resident aliens on Philippine-source income only — worldwide taxation applies to Filipino citizens, not foreign residents. Singapore is territorial, so foreign-source income received by an individual is generally untaxed, and it has no capital gains tax. This makes both unusually friendly to people earning abroad.',
+      },
+      {
+        q: 'How are non-resident expats taxed in each country?',
+        a: 'The Philippines applies a flat 25% to non-residents not engaged in trade or business. Singapore charges the higher of a flat 15% or the resident rates on employment income for non-residents (under 183 days), with no reliefs.',
+      },
+      {
+        q: 'Which is better for long stays and remote work?',
+        a: 'The Philippines for flexibility and cost: tourist visas extend in increments to roughly two years, which is why long-stay remote workers favour it, though it confers no work rights. Singapore has no digital nomad visa, requires employer sponsorship for every mainstream pass, and costs several times more to live in — but pays correspondingly higher salaries.',
+      },
+    ],
+  },
+  'singapore-vs-thailand': {
+    intro:
+      "Singapore and Thailand attract very different people: Singapore for employer-sponsored professional roles with high pay and high costs, Thailand for lifestyle, affordability, and the region’s most developed expat infrastructure. Their tax systems differ just as sharply, especially on foreign income. This page compares income tax, take-home pay, living costs, and visa routes for 2026.",
+    faqs: [
+      {
+        q: 'Which has lower income tax, Singapore or Thailand?',
+        a: 'Singapore, in most situations. Its resident brackets top out at 24% against Thailand’s 35%, and foreigners in Singapore pay no CPF while Thai employees contribute to the Social Security Fund. Thailand does offer a 50% standard deduction (capped at ฿100,000) plus a ฿60,000 personal allowance, which helps at lower incomes. Model both at your salary above.',
+      },
+      {
+        q: 'How do they treat foreign income differently?',
+        a: 'This is the decisive difference. Singapore is territorial — foreign-source income received by an individual is generally untaxed, with no capital gains tax. Thailand taxes foreign income when it is remitted into the country by a tax resident, and since the 2024 change in Revenue Department practice it is assessable in the year of remittance regardless of when it was earned. Thai rules here have been revised more than once, so verify current guidance.',
+      },
+      {
+        q: 'How are non-resident expats taxed in each country?',
+        a: 'Thailand applies the ordinary progressive rates to non-residents but strips the deductions — unusual in the region, where flat rates are the norm. Singapore charges the higher of a flat 15% or the resident rates, with no reliefs. Thailand’s threshold is 180 days; Singapore’s is 183.',
+      },
+      {
+        q: 'Is Singapore or Thailand better for digital nomads?',
+        a: 'Thailand, by a wide margin. It has the region’s most developed nomad infrastructure, and the LTR Work-from-Thailand Professional visa offers a formal route for higher-earning remote employees. Singapore has no digital nomad visa, requires employer sponsorship, and costs several times more — though it remains an excellent short-stay hub with unmatched flight connections.',
+      },
+    ],
+  },
+  'singapore-vs-vietnam': {
+    intro:
+      "Singapore and Vietnam represent the two extremes of the region: Vietnam is among the cheapest places to live and taxes residents on worldwide income, while Singapore is the most expensive and taxes territorially with no capital gains tax. Whether you’re weighing Vietnam vs Singapore for a role or a base, this page compares income tax, take-home pay, living costs, and visas for 2026.",
+    faqs: [
+      {
+        q: 'Which has lower income tax, Singapore or Vietnam?',
+        a: 'Singapore, and usually by a wide margin. Vietnam’s PIT brackets reach 35% and Vietnamese employees also pay social, health and unemployment insurance, while Singapore tops out at 24% and foreigners on work passes pay no CPF at all. Vietnam’s ₫15,500,000 monthly personal deduction narrows the gap at lower incomes. Compare at your salary above.',
+      },
+      {
+        q: 'Does either country tax worldwide income?',
+        a: 'Vietnam does — residents are taxed on worldwide income with no remittance basis and no territorial exemption, so foreign client income paid into a foreign account is still in scope. Singapore does not: foreign-source income received by an individual is generally untaxed. For anyone earning abroad this is the most consequential difference between them.',
+      },
+      {
+        q: 'How are non-resident expats taxed in each country?',
+        a: 'Vietnam applies a flat 20% on Vietnam-source income to non-residents. Singapore charges the higher of a flat 15% or the resident rates on employment income. Note Vietnam’s residency test also runs across any 12 consecutive months from arrival, not just the calendar year, so it catches people who never spend 183 days in a single year.',
+      },
+      {
+        q: 'Is Singapore or Vietnam better for digital nomads?',
+        a: 'Vietnam on cost and practicality — Da Nang and Ho Chi Minh City offer fast, cheap internet and a very low cost base, and the 90-day multiple-entry e-visa is easy to obtain, though no formal nomad visa exists and worldwide taxation applies once you become resident. Singapore has no nomad route at all and is priced for employed professionals.',
+      },
+    ],
+  },
 };
 
 export function getComparison(slug: string): ComparisonContent | undefined {

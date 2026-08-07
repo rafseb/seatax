@@ -1,6 +1,6 @@
 ---
 name: add-country
-description: Add a new Southeast Asian country to the SEA Tax Calculator following the standard 13-step process across all required files
+description: Add a new Southeast Asian country to the SEA Tax Calculator following the standard 14-step process across all required files
 ---
 
 Guide adding a new country to the SEA Tax Calculator. Ask for the country name if not provided.
@@ -9,14 +9,18 @@ Guide adding a new country to the SEA Tax Calculator. Ask for the country name i
 repo root. Read it before starting and follow it step by step — it is kept in sync with the
 codebase and this file is not.**
 
-All thirteen steps are required. Do not skip any. Two of them are easy to miss and both break
-the build rather than degrading quietly:
+All fourteen steps are required. Do not skip any. Three are easy to miss:
 
 - **`CountrySlug` union in `lib/resources/types.ts`** — omit it and the visa/cost data entries
   fail type-checking.
 - **The `SEO`, `FAQ` and `GUIDE` maps in `app/[country]/page.tsx`** — omit any one and the
   static export fails at prerender with an opaque `Cannot read properties of undefined
   (reading 'title')`, not at type-check.
+- **The `COMPARISONS` map in `lib/comparisons/index.ts`** — the dangerous one, because it
+  **fails silently**. Compare-pair slugs generate automatically from `COUNTRIES`, so a new
+  country immediately adds N new `/compare/*` routes and lists them in the sitemap, but any
+  pair without a `COMPARISONS` entry calls `notFound()` and exports a 404 page to a live,
+  indexed URL. Lint and build both pass.
 
 ## Quick reference
 
@@ -32,9 +36,10 @@ the build rather than degrading quietly:
 | 8 | `lib/resources/visaData.ts` | New `CountryVisaData` entry |
 | 9 | `lib/resources/costData.ts` | New `CountryCostData` entry |
 | 10 | `app/resources/relocation/[country]/page.tsx` | New `CHECKLISTS` entry |
-| 11 | `lib/articles/<slug>-expat-guide.ts` + `lib/articles/index.ts` | Guide article, registered in `ARTICLES`. **Do not** touch `LEGACY_BLOG_SLUGS` — it is frozen at the original five. |
-| 12 | `app/sitemap.ts` | Only genuinely new static routes; country/guide/visa/relocation/compare entries derive from `COUNTRIES` and `ARTICLES` automatically |
-| 13 | — | Verify (below) |
+| 11 | `lib/comparisons/index.ts` | A `COMPARISONS` entry (`intro` + `faqs`) for **every** new pair — one per existing country |
+| 12 | `lib/articles/<slug>-expat-guide.ts` + `lib/articles/index.ts` | Guide article, registered in `ARTICLES`. **Do not** touch `LEGACY_BLOG_SLUGS` — it is frozen at the original five. |
+| 13 | `app/sitemap.ts` | Only genuinely new static routes; country/guide/visa/relocation/compare entries derive from `COUNTRIES` and `ARTICLES` automatically |
+| 14 | — | Verify (below) |
 
 ## Verify
 
@@ -43,7 +48,12 @@ npm run lint     # zero errors
 npm run build    # must succeed — TypeScript checking and static export both run here
 ```
 
-Then confirm the new country page, its compare pairs, and its resource pages render.
+Then confirm the new country page, its compare pairs, and its resource pages render. Catch
+silently-404ing compare pages, which lint and build will not:
+
+```bash
+grep -L "vs" out/compare/*/index.html   # any hit is a missing COMPARISONS entry
+```
 
 ## Finally: sweep the prose
 

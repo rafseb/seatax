@@ -190,10 +190,14 @@ Visa and cost-of-living data live in `lib/resources/visaData.ts` and `lib/resour
 
 ## How to Add a New Country
 
-> **Two touch-points are easy to miss and both break the build rather than degrading
-> quietly:** the `CountrySlug` union in `lib/resources/types.ts` (step 7) and the three
-> per-country content maps in `app/[country]/page.tsx` (step 5). The `add-country` skill
-> does not currently list either. Work through this list, not the skill's shorter one.
+> **Three touch-points are easy to miss.** Two break the build: the `CountrySlug` union in
+> `lib/resources/types.ts` (step 7) and the three per-country content maps in
+> `app/[country]/page.tsx` (step 5). The third is worse because it **fails silently** — the
+> hand-written `COMPARISONS` map in `lib/comparisons/index.ts` (step 11). Compare-pair slugs
+> are generated automatically from `COUNTRIES`, so a new country immediately adds N new
+> `/compare/*` routes *and lists them in the sitemap*, but any pair missing a `COMPARISONS`
+> entry calls `notFound()` and exports a 404 page to a live, indexed URL. Lint and build both
+> pass. Work through this list, not the skill's shorter one.
 
 1. **Add country metadata** in `lib/countries.ts`:
    ```typescript
@@ -231,15 +235,22 @@ Visa and cost-of-living data live in `lib/resources/visaData.ts` and `lib/resour
     - New entry in the `CHECKLISTS` const keyed by the country slug
     - Shape: `{ intro: string, sections: ChecklistSection[] }`, each section `{ title, items[] }`
 
-11. **Create the expat guide** at `lib/articles/<slug>-expat-guide.ts` and register it in the
+11. **Add a `COMPARISONS` entry for every new pair** in `lib/comparisons/index.ts` — one for
+    each existing country, each with an `intro` and `faqs`. Adding the 6th country meant 5 new
+    pairs. Verify afterwards that no compare page exported as a 404:
+    ```bash
+    grep -L "vs" out/compare/*/index.html   # any hit is a missing COMPARISONS entry
+    ```
+
+12. **Create the expat guide** at `lib/articles/<slug>-expat-guide.ts` and register it in the
     `ARTICLES` array in `lib/articles/index.ts`. Do **not** add it to `LEGACY_BLOG_SLUGS` —
     that list is frozen at the original five guides.
 
-12. **Sitemap** `app/sitemap.ts` — country pages, guides, visa, relocation and compare pairs all
+13. **Sitemap** `app/sitemap.ts` — country pages, guides, visa, relocation and compare pairs all
     derive from `COUNTRIES` and `ARTICLES` automatically. Only add entries for genuinely new
     static routes.
 
-13. **Verify:** `npm run lint` and `npm run build` must both pass clean, then confirm the new
+14. **Verify:** `npm run lint` and `npm run build` must both pass clean, then confirm the new
     country page, its compare pairs, and its resource pages render.
 
 ## How to Update Tax Rates

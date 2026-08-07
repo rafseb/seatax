@@ -207,4 +207,46 @@ build-breaking touch-points, and still referenced the retired `app/blog/[slug]/`
 structure. It now points at CLAUDE.md as authoritative, carries a 13-row quick-reference
 table, and ends with the prose-sweep grep — the step that caused this whole section.
 
+### 2026-08-07 — Verification pass caught a silent 404 bug
+
+Ran the `verify-build` sequence. Lint and build were clean, but a route sweep found all five
+new Singapore compare pages returning 404 — **while lint, build and the sitemap all reported
+success**.
+
+Cause: `CANONICAL_PAIR_SLUGS` derives from `COUNTRIES`, so adding Singapore automatically
+created five new `/compare/*` routes and listed them in `sitemap.xml`. But `COMPARISONS` in
+`lib/comparisons/index.ts` is a **hand-written** map, so `getComparison()` returned undefined
+for every Singapore pair, `notFound()` fired, and the export happily wrote a 404 page to five
+live, sitemap-advertised URLs. Nothing in the toolchain flags this.
+
+Fixed by writing the five missing entries (indonesia/malaysia/philippines/thailand/vietnam vs
+Singapore), each with an intro and four FAQs built around the genuine contrasts —
+territorial vs worldwide taxation, no CPF for foreigners, and the absence of any nomad route.
+
+This is a **third** gap in the add-country procedure, and the worst of the three because it
+fails silently rather than breaking the build. CLAUDE.md is now a 14-step list with it called
+out up front, and both CLAUDE.md and the skill carry the detection command:
+
+```bash
+grep -L "vs" out/compare/*/index.html   # any hit is a missing COMPARISONS entry
+```
+
+**Verification evidence:**
+
+- `npm run lint` — clean.
+- `npm run build` — clean; 77 sitemap URLs, 15 compare pages, 22 guides.
+- Numeric calculator harness across all six countries × {min, mid, max} × {resident,
+  non-resident}: net positive and ≤ gross, monthly/annual toggle agreement, deduction totals
+  reconciling against contribution line items, monotonicity in gross, no contributions in
+  non-resident mode, unknown slug returning null. Plus hand-computed Singapore cases —
+  resident tax on S$6,000/mo = S$1,712, CPF = S$14,400, non-resident = S$10,800 (the 15%
+  floor binding over progressive), CPF ceiling capping at S$19,200 on S$20,000/mo, and the
+  resident rates correctly overtaking the 15% floor at high income. All green.
+- 30-route HTTP sweep against the dev server — all 200.
+- Whole-export scan for pages that rendered as not-found — only the genuine `/404` and
+  `/_not-found`.
+
+Still outstanding: the manual in-browser interaction checks (slider drag, currency switching,
+chart rendering) and the source-verification of tax figures.
+
 **All six build-order items are complete.** Nothing is blocked.
