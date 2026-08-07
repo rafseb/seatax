@@ -29,11 +29,11 @@ Substituted filing breaks in several common expat situations: you changed employ
       heading: 'The BIR Filing Calendar',
       body: `**Annual income tax return — 15 April.** The fixed anchor of the Philippine tax year, covering the calendar year just ended. Employees outside substituted filing use Form 1700; self-employed and professionals use 1701A or 1701 depending on their deduction method; mixed-income earners use 1701.
 
-**Quarterly income tax — May, August, November.** Applies to self-employed individuals and professionals, using Form 1701Q. Each quarter is cumulative rather than standalone: you compute year-to-date and credit prior payments. Our Philippines freelancer playbook covers this cycle in detail.
+**Quarterly income tax — 15 May, 15 August, 15 November.** Applies to self-employed individuals and professionals, using Form 1701Q, and covering Q1 through Q3 only — the annual return absorbs the fourth quarter. Each quarter is cumulative rather than standalone: you compute year-to-date and credit prior payments. Our Philippines freelancer playbook covers this cycle in detail.
 
-**Percentage tax or VAT.** Separate returns on their own periodic schedules, depending on registration status.
+**Percentage tax or VAT.** Separate returns on their own periodic schedules, depending on registration status. Percentage tax for non-VAT taxpayers is 3%, back at that rate since 1 July 2023 after the temporary CREATE Act reduction to 1% expired.
 
-**Annual registration fee.** Historically due at the end of January for registered businesses; the requirement has been subject to legislative change, so confirm current applicability with the BIR rather than assuming.
+**Annual registration fee — abolished.** The ₱500 fee was repealed by the Ease of Paying Taxes Act (RA 11976) with effect from 22 January 2024. There is no longer an end-of-January payment, no annual BIR Form 0605 for it, and no yearly renewal of your Certificate of Registration.
 
 Filing is through **eBIRForms** or **eFPS** depending on taxpayer classification. Both systems slow dramatically on deadline day — file at least a week early as a matter of routine. Penalties for late filing stack a surcharge, interest, and a compromise penalty, so a return filed late but paid in full still costs materially more than one filed on time.`,
     },
@@ -59,7 +59,7 @@ Set a recurring January reminder. Going in January rather than late February als
     },
     {
       heading: 'A Practical Annual Checklist',
-      body: `**January** — Book your BI Annual Report appointment. Chase your employer for Form 2316 covering the prior year. Confirm whether the annual registration fee applies to you if you are registered as self-employed.
+      body: `**January** — Book your BI Annual Report appointment. Chase your employer for Form 2316 covering the prior year. If you are registered as self-employed, note that there is no longer an annual registration fee to settle this month — it was abolished in January 2024.
 
 **February** — Complete the Annual Report before the end of the month. Verify your 2316 figures against your own records; errors are easier to fix now than in April.
 
@@ -85,7 +85,7 @@ Rules and fees change. Confirm current requirements with the BIR and BI directly
     },
     {
       q: 'When is the Philippine tax filing deadline?',
-      a: '15 April for the annual income tax return covering the previous calendar year. Self-employed individuals and professionals also file cumulative quarterly returns (Form 1701Q) due in May, August and November, plus separate percentage tax or VAT returns depending on registration status.',
+      a: '15 April for the annual income tax return covering the previous calendar year. Self-employed individuals and professionals also file cumulative quarterly returns (Form 1701Q) due 15 May, 15 August and 15 November, plus separate percentage tax or VAT returns depending on registration status.',
     },
     {
       q: 'Do I need an ECC to leave the Philippines?',

@@ -19,7 +19,9 @@ One point that matters enormously for foreign freelancers: resident aliens in th
     },
     {
       heading: 'Registering With the BIR',
-      body: `Self-employed individuals register with the Revenue District Office (RDO) covering their place of business or residence. The core steps are obtaining a Taxpayer Identification Number (TIN) if you do not already have one, filing the registration form for self-employed individuals and professionals, paying the annual registration fee where applicable, and having your books of accounts stamped.
+      body: `Self-employed individuals register with the Revenue District Office (RDO) covering their place of business or residence. The core steps are obtaining a Taxpayer Identification Number (TIN) if you do not already have one, filing the registration form for self-employed individuals and professionals, and having your books of accounts stamped.
+
+The ₱500 annual registration fee no longer exists. The Ease of Paying Taxes Act (Republic Act No. 11976) repealed it with effect from 22 January 2024, so there is no yearly BIR Form 0605 payment and no annual renewal of your Certificate of Registration. Guides still listing it are out of date — you should expect to pay only the documentary stamp tax on the certificate itself.
 
 You must also secure authority to print official receipts, or register for a BIR-accredited electronic receipting arrangement. This is the step freelancers most often skip and most often regret: issuing a compliant official receipt is a legal requirement for every service you bill, and corporate clients will refuse to pay without one.
 
@@ -39,7 +41,7 @@ The rough rule: the 8% option wins when your expense ratio is low — typical fo
       heading: 'VAT, Percentage Tax and the ₱3 Million Threshold',
       body: `The VAT registration threshold for the Philippines is ₱3,000,000 in gross annual sales or receipts. Cross it and VAT registration becomes mandatory: you charge 12% VAT, file VAT returns, and issue VAT-compliant invoices. Crossing the threshold also removes the 8% flat option — it is available only to non-VAT taxpayers.
 
-Below the threshold, non-VAT taxpayers on graduated rates pay percentage tax on gross receipts instead. Note that the percentage tax rate was temporarily reduced during the pandemic-era relief period and subsequently reverted; confirm the current rate with the BIR or your accountant rather than relying on older articles, which are frequently out of date on this exact point.
+Below the threshold, non-VAT taxpayers on graduated rates pay percentage tax on gross receipts instead, at **3%**. The CREATE Act cut this to 1% between 1 July 2020 and 30 June 2023 as pandemic relief; it reverted automatically to 3% on 1 July 2023 and has stayed there. Articles quoting 1% are describing an expired concession.
 
 Because the threshold is a gross-receipts test rather than a profit test, a high-turnover, low-margin business can cross it while earning very little. Track your rolling annual receipts deliberately — discovering the breach at year end means back-filing and penalties, not a warning letter.
 
@@ -59,7 +61,7 @@ Unlike an employee, none of this is deductible against the 8% flat option — an
       heading: 'The Filing Calendar',
       body: `The Philippine self-employed cycle is quarterly plus annual, and missing a quarter is the most common freelancer failure.
 
-**Quarterly income tax (Form 1701Q)** is filed for the first three quarters, with deadlines falling in May, August and November. Each return is cumulative — you compute year-to-date income and credit what you have already paid, rather than treating each quarter in isolation.
+**Quarterly income tax (Form 1701Q)** is filed for the first three quarters only — there is no fourth-quarter 1701Q, because the annual return covers it. On a calendar year the deadlines are **15 May** (Q1, covering January–March), **15 August** (Q2, April–June) and **15 November** (Q3, July–September). Each return is cumulative — you compute year-to-date income and credit what you have already paid, rather than treating each quarter in isolation.
 
 **Annual income tax return** is due 15 April following the close of the calendar year. Taxpayers using the 8% flat rate or the OSD generally file the simplified Form 1701A; those itemising deductions or with mixed income file Form 1701.
 
@@ -87,7 +89,7 @@ Books of accounts must be maintained and, for manual books, registered with the 
     },
     {
       q: 'What are the tax filing deadlines for freelancers in the Philippines?',
-      a: 'Quarterly income tax returns (Form 1701Q) are due in May, August and November on a cumulative basis, and the annual return (Form 1701A or 1701) is due 15 April. Percentage tax or VAT returns follow a separate schedule. Late filing attracts a surcharge, interest and a compromise penalty.',
+      a: 'Quarterly income tax returns (Form 1701Q) are due 15 May, 15 August and 15 November on a cumulative basis, and the annual return (Form 1701A or 1701) is due 15 April. There is no fourth-quarter 1701Q. Percentage tax or VAT returns follow a separate schedule. Late filing attracts a surcharge, interest and a compromise penalty.',
     },
   ],
 };
