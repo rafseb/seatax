@@ -31,9 +31,13 @@ Foreign nationals should also confirm their **residency status determination** w
       heading: 'PIT Finalisation: The Annual Reckoning',
       body: `Vietnam's annual process is called **PIT finalisation** (quyết toán thuế), and it reconciles what was withheld across the year against what you actually owe. The mechanism differs depending on who does it.
 
-**Employer finalisation.** If you had income from a single employer for the full year and authorise them to finalise on your behalf, the employer files and the deadline falls at the end of the third month following year end. This is the simplest path and covers most salaried expats.
+**Employer finalisation.** If you had income from a single employer for the full year and authorise them to finalise on your behalf, the employer files by the **last day of the third month** following year end — **31 March** on a calendar tax year. This is the simplest path and covers most salaried expats.
 
-**Self finalisation.** If you had income from more than one source during the year, if you arrived or departed mid-year, if you have foreign income, or if you are claiming a refund, you finalise yourself. The deadline for individual self-finalisation falls later than the employer deadline — commonly the end of the fourth month following year end — filed with the tax office covering your registered address.
+**Self finalisation.** If you had income from more than one source during the year, if you arrived or departed mid-year, if you have foreign income, or if you are claiming a refund, you finalise yourself, filing with the tax office covering your registered address. The individual deadline is a month later: the **last day of the fourth month**, so **30 April**. Where the date falls in a public holiday run it shifts to the next working day — the 2024 income year was pushed to 2 May 2025 by the Reunification and Labour Day holidays, so check the calendar rather than assuming 30 April.
+
+Both deadlines rest on Decree 126/2020/ND-CP under the Law on Tax Administration 38/2019/QH14, with procedure in Circular 80/2021/TT-BTC.
+
+**Leaving permanently.** A departure finalisation is due **within 45 days of departure**, which is a much tighter window than the annual cycle and is easy to miss if you leave mid-year expecting to deal with it the following spring.
 
 The scenarios that force self-finalisation are exactly the ones expats live in: mid-year arrival, a change of employer, a period of non-residence followed by residence, or income from foreign clients. Assume you are self-finalising until confirmed otherwise.
 
@@ -67,13 +71,13 @@ The point commonly missed: **the e-visa question and the tax question are indepe
 
 **February** — Gather income documentation from every source: employer withholding certificates for each employer, records of foreign client income, and bank statements evidencing inbound payments.
 
-**March** — Employer finalisation deadline falls at the end of this month. If you authorised your employer, confirm they have actually filed and obtain the confirmation.
+**31 March** — Employer finalisation deadline. If you authorised your employer, confirm they have actually filed and obtain the confirmation.
 
-**April** — Individual self-finalisation deadline. File if you had multiple sources, foreign income, a mid-year arrival or departure, or a refund to claim.
+**30 April** — Individual self-finalisation deadline, subject to the holiday shift. File if you had multiple sources, foreign income, a mid-year arrival or departure, or a refund to claim.
 
 **Ongoing, every quarter** — Check work permit and TRC expiry dates. Start renewals at least **90 days** before expiry, because supporting documents have their own validity windows and sequencing them wrong is the single most common cause of a status gap.
 
-**Before departing permanently** — Complete a departure finalisation covering the part-year, and settle any liability. Exit obligations are easier to complete while you are still resident and still have a local bank account open.
+**Before departing permanently** — Complete a departure finalisation covering the part-year, and settle any liability. It is due **within 45 days of departure**, so it cannot wait for the following spring. Exit obligations are easier to complete while you are still resident and still have a local bank account open.
 
 Vietnamese practice varies between provincial tax offices and has been actively revised, particularly around individual business income and e-invoicing. Confirm current requirements with a Vietnamese accountant before acting on any deadline.`,
     },
@@ -81,7 +85,7 @@ Vietnamese practice varies between provincial tax offices and has been actively 
   faqs: [
     {
       q: 'When is the Vietnam tax finalisation deadline?',
-      a: 'Employer finalisation falls at the end of the third month following year end; individual self-finalisation falls later, commonly the end of the fourth month. You must self-finalise if you had more than one income source, arrived or departed mid-year, have foreign income, or are claiming a refund — which covers most expat situations.',
+      a: 'Employer finalisation is due by the last day of the third month after year end — 31 March. Individual self-finalisation is due a month later, by the last day of the fourth month — 30 April, shifting to the next working day when holidays intervene. You must self-finalise if you had more than one income source, arrived or departed mid-year, have foreign income, or are claiming a refund — which covers most expat situations. Leaving Vietnam permanently triggers a separate finalisation due within 45 days of departure.',
     },
     {
       q: 'Does Vietnam tax expats on worldwide income?',

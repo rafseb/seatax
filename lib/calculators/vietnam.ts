@@ -1,7 +1,11 @@
 import type { CalculatorParams, TaxResult } from '../types';
 
 // Vietnam PIT brackets (monthly taxable income after personal deduction)
-// 5-bracket schedule under the amended PIT Law, effective for the 2026 tax year
+// 5-bracket schedule under the amended PIT Law (Law No. 109/2025/QH15, passed
+// 10 Dec 2025). The Law commences 1 July 2026, but its salary, wage and
+// business-income provisions — these brackets and the raised deductions — apply
+// from 1 January 2026, so they govern the whole 2026 tax year for employment
+// income. Verified 2026-08-07; see the Vietnam expat guide for the explanation.
 const TAX_BRACKETS = [
   { min: 0, max: 10000000, base: 0, rate: 0.05 },
   { min: 10000000, max: 30000000, base: 500000, rate: 0.10 },

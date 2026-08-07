@@ -27,6 +27,8 @@ Vietnam has tax treaties with approximately 80 countries. If your home country h
 
 The monthly bracket rates for the 2026 tax year (under the amended PIT Law, which cut the schedule from seven brackets to five) are: 5% on taxable income up to ₫10,000,000; 10% on ₫10,000,001–₫30,000,000; 20% on ₫30,000,001–₫60,000,000; 30% on ₫60,000,001–₫100,000,000; and 35% on income above ₫100,000,000 per month.
 
+**A note on when this took effect,** because the two dates in circulation cause genuine confusion. The amended PIT Law (Law No. 109/2025/QH15, passed 10 December 2025) comes into force on **1 July 2026** — but its provisions on income from salaries, wages and business activities apply from **1 January 2026**, as do the raised personal and dependent deductions. So for employment income the new five-bracket schedule governs the whole of the 2026 tax year, which is what this calculator applies. If you see the 1 July date quoted against salary brackets, it is describing the law's general commencement, not the rule for your payslip.
+
 For practical calculation, taxable monthly income = gross salary − social insurance (8%) − health insurance (1.5%) − unemployment insurance (1%) − ₫15,500,000 personal deduction. Note that social and health insurance contributions are capped at 20 times the reference salary (₫50,600,000/month from July 2026), while unemployment insurance is capped at 20 times the regional minimum wage.
 
 Non-resident foreigners pay a flat 20% on gross Vietnam-sourced employment income with no deductions — a significantly higher effective rate for lower earners compared to the progressive resident brackets.
