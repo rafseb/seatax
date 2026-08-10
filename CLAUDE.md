@@ -84,7 +84,7 @@ lib/
     index.ts            # Routes calculate(country, params) to correct module
     philippines.ts      # TRAIN Law: 6 income brackets, SSS/PhilHealth/Pag-IBIG
     thailand.ts         # PIT: 8 brackets, SSF, standard 50% deduction (max ฿100k)
-    vietnam.ts          # PIT: 7 monthly brackets, SI/HI/UI insurance
+    vietnam.ts          # PIT: 5 monthly brackets (amended PIT Law), SI/HI/UI insurance
     indonesia.ts        # PPh 21: 5 brackets, PTKP threshold, BPJS contributions
     malaysia.ts         # PCB: 10 brackets, EPF/SOCSO/EIS contributions (YA 2026)
     singapore.ts        # Resident brackets 0%–24%, CPF (Citizens/PRs only), 15% non-resident floor
